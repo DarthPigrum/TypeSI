@@ -1,0 +1,10 @@
+DOXYFILE_ENCODING      = UTF-8
+PROJECT_NAME           = TypeSI
+PROJECT_BRIEF          = "Units of 'Système international' Blended for C++"
+OUTPUT_DIRECTORY       = "docs"
+FULL_PATH_NAMES        = NO
+CASE_SENSE_NAMES       = NO
+INPUT                  = "src"
+INPUT_ENCODING         = UTF-8
+FILE_PATTERNS          = *.hpp
+RECURSIVE              = YES
