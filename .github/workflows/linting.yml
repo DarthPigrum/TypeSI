@@ -3,9 +3,6 @@ name: Run clang-format Linter
 on:
   push:
     branches: [ master ]
-  pull_request:
-    types: [edited, opened, reopened, synchronize]
-    branches: [ master ]
 
 jobs:
   build:
