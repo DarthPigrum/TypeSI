@@ -1,0 +1,73 @@
+\hypertarget{class_si_1_1_internal_1_1_unit}{}\doxysection{Si\+::Internal\+::Unit$<$ T, Powers $>$ Class Template Reference}
+\label{class_si_1_1_internal_1_1_unit}\index{Si::Internal::Unit$<$ T, Powers $>$@{Si::Internal::Unit$<$ T, Powers $>$}}
+
+
+Generic unit type.  
+
+
+
+
+{\ttfamily \#include $<$si\+\_\+internal.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_si_1_1_internal_1_1_unit_af39deb6afb07829d3de6f4b916a32e7a}\label{class_si_1_1_internal_1_1_unit_af39deb6afb07829d3de6f4b916a32e7a}} 
+\mbox{\hyperlink{class_si_1_1_internal_1_1_unit_af39deb6afb07829d3de6f4b916a32e7a}{Unit}} (const T \&value)
+\begin{DoxyCompactList}\small\item\em Explicit constructor from container type. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_si_1_1_internal_1_1_unit_a8687b1cece24f932355b43758086c15f}\label{class_si_1_1_internal_1_1_unit_a8687b1cece24f932355b43758086c15f}} 
+{\footnotesize template$<$typename AnotherT $>$ }\\\mbox{\hyperlink{class_si_1_1_internal_1_1_unit_a8687b1cece24f932355b43758086c15f}{Unit}} (const \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit}}$<$ AnotherT, Powers... $>$ \&unit)
+\begin{DoxyCompactList}\small\item\em Implicit constructor from units with same power values but different container type. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_si_1_1_internal_1_1_unit_ac1ec29237ae7439b18db7519fcc453f6}\label{class_si_1_1_internal_1_1_unit_ac1ec29237ae7439b18db7519fcc453f6}} 
+\mbox{\hyperlink{class_si_1_1_internal_1_1_unit_ac1ec29237ae7439b18db7519fcc453f6}{operator T}} () const
+\begin{DoxyCompactList}\small\item\em Explicit conversion to container type. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_si_1_1_internal_1_1_unit_a6dc8e219f22a5f9cbe37a97fda5a82c1}\label{class_si_1_1_internal_1_1_unit_a6dc8e219f22a5f9cbe37a97fda5a82c1}} 
+\mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit}} \mbox{\hyperlink{class_si_1_1_internal_1_1_unit_a6dc8e219f22a5f9cbe37a97fda5a82c1}{operator+}} (const \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit}}$<$ T, Powers... $>$ \&unit) const
+\begin{DoxyCompactList}\small\item\em Operator \textquotesingle{}+\textquotesingle{} for units with same power values. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_si_1_1_internal_1_1_unit_a9d542ceccd55c7c7f9420f050d452698}\label{class_si_1_1_internal_1_1_unit_a9d542ceccd55c7c7f9420f050d452698}} 
+\mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit}} \& \mbox{\hyperlink{class_si_1_1_internal_1_1_unit_a9d542ceccd55c7c7f9420f050d452698}{operator+=}} (const \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit}}$<$ T, Powers... $>$ \&unit)
+\begin{DoxyCompactList}\small\item\em Operator \textquotesingle{}+=\textquotesingle{} for units with same power values. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_si_1_1_internal_1_1_unit_af11e10239b08a880a7213e621e1d98b6}\label{class_si_1_1_internal_1_1_unit_af11e10239b08a880a7213e621e1d98b6}} 
+\mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit}} \mbox{\hyperlink{class_si_1_1_internal_1_1_unit_af11e10239b08a880a7213e621e1d98b6}{operator-\/}} (const \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit}}$<$ T, Powers... $>$ \&unit) const
+\begin{DoxyCompactList}\small\item\em Operator \textquotesingle{}-\/\textquotesingle{} for units with same power values. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_si_1_1_internal_1_1_unit_a23bbd84676286abe5676c22a99940782}\label{class_si_1_1_internal_1_1_unit_a23bbd84676286abe5676c22a99940782}} 
+\mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit}} \& \mbox{\hyperlink{class_si_1_1_internal_1_1_unit_a23bbd84676286abe5676c22a99940782}{operator-\/=}} (const \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit}}$<$ T, Powers... $>$ \&unit)
+\begin{DoxyCompactList}\small\item\em Operator \textquotesingle{}-\/=\textquotesingle{} for units with same power values. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_si_1_1_internal_1_1_unit_a5d0b4e67f1499a46adefbfcd265c46d0}\label{class_si_1_1_internal_1_1_unit_a5d0b4e67f1499a46adefbfcd265c46d0}} 
+\mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit}} \mbox{\hyperlink{class_si_1_1_internal_1_1_unit_a5d0b4e67f1499a46adefbfcd265c46d0}{operator$\ast$}} (const T \&value) const
+\begin{DoxyCompactList}\small\item\em Operator \textquotesingle{}$\ast$\textquotesingle{} for dimensionless operand of container type. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_si_1_1_internal_1_1_unit_aa5d9d201ee5a9bbba618660076ec5ac2}\label{class_si_1_1_internal_1_1_unit_aa5d9d201ee5a9bbba618660076ec5ac2}} 
+\mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit}} \mbox{\hyperlink{class_si_1_1_internal_1_1_unit_aa5d9d201ee5a9bbba618660076ec5ac2}{operator/}} (const T \&value) const
+\begin{DoxyCompactList}\small\item\em Operator \textquotesingle{}/\textquotesingle{} for dimensionless operand of container type. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_si_1_1_internal_1_1_unit_adcd7adcf2d2d4ae36256bb71ac50d4b7}\label{class_si_1_1_internal_1_1_unit_adcd7adcf2d2d4ae36256bb71ac50d4b7}} 
+\mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit}} \& \mbox{\hyperlink{class_si_1_1_internal_1_1_unit_adcd7adcf2d2d4ae36256bb71ac50d4b7}{operator$\ast$=}} (const T \&value)
+\begin{DoxyCompactList}\small\item\em Operator \textquotesingle{}$\ast$=\textquotesingle{} for dimensionless operand of container type. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_si_1_1_internal_1_1_unit_a79e83f79ce7e45724cd5986822e53fb6}\label{class_si_1_1_internal_1_1_unit_a79e83f79ce7e45724cd5986822e53fb6}} 
+\mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit}} \& \mbox{\hyperlink{class_si_1_1_internal_1_1_unit_a79e83f79ce7e45724cd5986822e53fb6}{operator/=}} (const T \&value)
+\begin{DoxyCompactList}\small\item\em Operator \textquotesingle{}/=\textquotesingle{} for dimensionless operand of container type. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_si_1_1_internal_1_1_unit_a10a99f9a693dd5047b8ab295a60fa4d8}\label{class_si_1_1_internal_1_1_unit_a10a99f9a693dd5047b8ab295a60fa4d8}} 
+{\footnotesize template$<$typename AnotherT , int... Other\+Powers$>$ }\\\mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit}}$<$ T,(Powers+Other\+Powers)... $>$ \mbox{\hyperlink{class_si_1_1_internal_1_1_unit_a10a99f9a693dd5047b8ab295a60fa4d8}{operator$\ast$}} (const \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit}}$<$ AnotherT, Other\+Powers... $>$ \&unit) const
+\begin{DoxyCompactList}\small\item\em Operator \textquotesingle{}$\ast$\textquotesingle{} for any unit. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_si_1_1_internal_1_1_unit_ae141411282e805b6d081063ee6fb5262}\label{class_si_1_1_internal_1_1_unit_ae141411282e805b6d081063ee6fb5262}} 
+{\footnotesize template$<$typename AnotherT , int... Other\+Powers$>$ }\\\mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit}}$<$ T,(Powers -\/ Other\+Powers)... $>$ \mbox{\hyperlink{class_si_1_1_internal_1_1_unit_ae141411282e805b6d081063ee6fb5262}{operator/}} (const \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit}}$<$ AnotherT, Other\+Powers... $>$ \&unit) const
+\begin{DoxyCompactList}\small\item\em Operator \textquotesingle{}/\textquotesingle{} for any unit. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T, int... Powers$>$\newline
+class Si\+::\+Internal\+::\+Unit$<$ T, Powers $>$}
+
+Generic unit type. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Any number type such as float, double or long double used as a container \\
+\hline
+{\em Powers} & Intergers representing powers of base units in SI \\
+\hline
+\end{DoxyTemplParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{si__internal_8hpp}{si\+\_\+internal.\+hpp}}\end{DoxyCompactItemize}
