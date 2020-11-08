@@ -1,5 +1,5 @@
 #pragma once
-/** 
+/**
  *  @file   si_base.hpp
  *  @brief  Base SI units
  *  @author Mike Zhukov
@@ -8,19 +8,26 @@
 namespace Si {
 /// @brief Base SI units
 namespace Base {
-/// @tparam T Any number type such as float, double or long double used as a container
+/// @tparam T Any number type such as float, double or long double used as a
+/// container
 template <typename T> using Meter = Internal::Unit<T, 1, 0, 0, 0, 0, 0, 0>;
-/// @tparam T Any number type such as float, double or long double used as a container
+/// @tparam T Any number type such as float, double or long double used as a
+/// container
 template <typename T> using Kilogram = Internal::Unit<T, 0, 1, 0, 0, 0, 0, 0>;
-/// @tparam T Any number type such as float, double or long double used as a container
+/// @tparam T Any number type such as float, double or long double used as a
+/// container
 template <typename T> using Second = Internal::Unit<T, 0, 0, 1, 0, 0, 0, 0>;
-/// @tparam T Any number type such as float, double or long double used as a container
+/// @tparam T Any number type such as float, double or long double used as a
+/// container
 template <typename T> using Ampere = Internal::Unit<T, 0, 0, 0, 1, 0, 0, 0>;
-/// @tparam T Any number type such as float, double or long double used as a container
+/// @tparam T Any number type such as float, double or long double used as a
+/// container
 template <typename T> using Kelvin = Internal::Unit<T, 0, 0, 0, 0, 1, 0, 0>;
-/// @tparam T Any number type such as float, double or long double used as a container
+/// @tparam T Any number type such as float, double or long double used as a
+/// container
 template <typename T> using Mole = Internal::Unit<T, 0, 0, 0, 0, 0, 1, 0>;
-/// @tparam T Any number type such as float, double or long double used as a container
+/// @tparam T Any number type such as float, double or long double used as a
+/// container
 template <typename T> using Candela = Internal::Unit<T, 0, 0, 0, 0, 0, 0, 1>;
 /// @brief Use this namespace to enable literals for base units
 namespace Literals {
