@@ -8,3 +8,4 @@ INPUT                  = "src"
 INPUT_ENCODING         = UTF-8
 FILE_PATTERNS          = *.hpp
 RECURSIVE              = YES
+ENABLE_PREPROCESSING   = NO
