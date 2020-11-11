@@ -32,22 +32,51 @@ public:
       : _value(static_cast<AnotherT>(unit)) {}
   /// @brief Explicit conversion to any type compatible with container(including other units)
   template<typename AnotherT> explicit operator AnotherT() const { return static_cast<AnotherT>(_value); }
+  /// @brief Operator '==' for units with same power values
+  template <typename AnotherT>
+  bool operator==(const Unit<AnotherT, Powers...> &unit) const {
+    return _value == static_cast<AnotherT>(unit);
+  }
+  /// @brief Operator '<' for units with same power values
+  template <typename AnotherT>
+  bool operator<(const Unit<AnotherT, Powers...> &unit) const {
+    return _value < static_cast<AnotherT>(unit);
+  }
+  /// @brief Operator '<=' for units with same power values
+  template <typename AnotherT>
+  bool operator<=(const Unit<AnotherT, Powers...> &unit) const {
+    return _value <= static_cast<AnotherT>(unit);
+  }
+  /// @brief Operator '>' for units with same power values
+  template <typename AnotherT>
+  bool operator>(const Unit<AnotherT, Powers...> &unit) const {
+    return _value > static_cast<AnotherT>(unit);
+  }
+  /// @brief Operator '>=' for units with same power values
+  template <typename AnotherT>
+  bool operator>=(const Unit<AnotherT, Powers...> &unit) const {
+    return _value >= static_cast<AnotherT>(unit);
+  }
   /// @brief Operator '+' for units with same power values
-  Unit operator+(const Unit<T, Powers...> &unit) const {
-    return Unit(_value + static_cast<T>(unit));
+  template <typename AnotherT>
+  Unit operator+(const Unit<AnotherT, Powers...> &unit) const {
+    return Unit(_value + static_cast<AnotherT>(unit));
   }
   /// @brief Operator '+=' for units with same power values
-  Unit &operator+=(const Unit<T, Powers...> &unit) {
-    _value += static_cast<T>(unit);
+  template <typename AnotherT>
+  Unit &operator+=(const Unit<AnotherT, Powers...> &unit) {
+    _value += static_cast<AnotherT>(unit);
     return *this;
   }
   /// @brief Operator '-' for units with same power values
-  Unit operator-(const Unit<T, Powers...> &unit) const {
-    return Unit(_value - static_cast<T>(unit));
+  template <typename AnotherT>
+  Unit operator-(const Unit<AnotherT, Powers...> &unit) const {
+    return Unit(_value - static_cast<AnotherT>(unit));
   }
   /// @brief Operator '-=' for units with same power values
-  Unit &operator-=(const Unit<T, Powers...> &unit) {
-    _value -= static_cast<T>(unit);
+  template <typename AnotherT>
+  Unit &operator-=(const Unit<AnotherT, Powers...> &unit) {
+    _value -= static_cast<AnotherT>(unit);
     return *this;
   }
   /// @brief Operator '*' for dimensionless operand of container type
