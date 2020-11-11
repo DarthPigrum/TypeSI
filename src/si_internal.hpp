@@ -24,14 +24,14 @@ template <typename T, int... Powers> class Unit {
 
 public:
   /// @brief Explicit constructor from container type
-  explicit Unit(const T &value) : _value(value) {}
+  explicit Unit(const T &value = T()) : _value(value) {}
   /// @brief Implicit constructor from units with same power values but
   /// different container type
   template <typename AnotherT>
   Unit(const Unit<AnotherT, Powers...> &unit)
       : _value(static_cast<AnotherT>(unit)) {}
-  /// @brief Explicit conversion to container type
-  explicit operator T() const { return _value; }
+  /// @brief Explicit conversion to any type compatible with container(including other units)
+  template<typename AnotherT> explicit operator AnotherT() const { return static_cast<AnotherT>(_value); }
   /// @brief Operator '+' for units with same power values
   Unit operator+(const Unit<T, Powers...> &unit) const {
     return Unit(_value + static_cast<T>(unit));
