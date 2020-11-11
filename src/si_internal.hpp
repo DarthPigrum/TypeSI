@@ -18,7 +18,7 @@ template <typename T, int... Powers> using Unit = T;
 /// @brief Generic unit type
 /// @tparam T Any number type such as float, double or long double used as a
 /// container
-/// @tparam Powers Intergers representing powers of base units in SI
+/// @tparam Powers Integers representing powers of base units in SI
 template <typename T, int... Powers> class Unit {
   T _value;
 
