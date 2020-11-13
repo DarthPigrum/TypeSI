@@ -4,6 +4,7 @@
  *  @brief  Core logic of units
  *  @author Mike Zhukov
  ***********************************************/
+#include <utility>
 namespace Si {
 /// @brief Technical namespace for core library logic
 namespace Internal {
@@ -36,38 +37,38 @@ public:
   T operator+() const { return _value; }
   /// @brief Operator '==' for units with same power values
   template <typename AnotherT>
-  bool operator==(const Unit<AnotherT, Powers...> &unit) const {
+  decltype(std::declval<T>() == std::declval<AnotherT>()) operator==(const Unit<AnotherT, Powers...> &unit) const {
     return _value == static_cast<AnotherT>(unit);
   }
   /// @brief Operator '!=' for units with same power values
   template <typename AnotherT>
-  bool operator!=(const Unit<AnotherT, Powers...> &unit) const {
+  decltype(std::declval<T>() != std::declval<AnotherT>()) operator!=(const Unit<AnotherT, Powers...> &unit) const {
     return _value != static_cast<AnotherT>(unit);
   }
   /// @brief Operator '<' for units with same power values
   template <typename AnotherT>
-  bool operator<(const Unit<AnotherT, Powers...> &unit) const {
+  decltype(std::declval<T>() < std::declval<AnotherT>()) operator<(const Unit<AnotherT, Powers...> &unit) const {
     return _value < static_cast<AnotherT>(unit);
   }
   /// @brief Operator '<=' for units with same power values
   template <typename AnotherT>
-  bool operator<=(const Unit<AnotherT, Powers...> &unit) const {
+  decltype(std::declval<T>() <= std::declval<AnotherT>()) operator<=(const Unit<AnotherT, Powers...> &unit) const {
     return _value <= static_cast<AnotherT>(unit);
   }
   /// @brief Operator '>' for units with same power values
   template <typename AnotherT>
-  bool operator>(const Unit<AnotherT, Powers...> &unit) const {
+  decltype(std::declval<T>() > std::declval<AnotherT>()) operator>(const Unit<AnotherT, Powers...> &unit) const {
     return _value > static_cast<AnotherT>(unit);
   }
   /// @brief Operator '>=' for units with same power values
   template <typename AnotherT>
-  bool operator>=(const Unit<AnotherT, Powers...> &unit) const {
+  decltype(std::declval<T>() >= std::declval<AnotherT>()) operator>=(const Unit<AnotherT, Powers...> &unit) const {
     return _value >= static_cast<AnotherT>(unit);
   }
   /// @brief Operator '+' for units with same power values
   template <typename AnotherT>
-  Unit operator+(const Unit<AnotherT, Powers...> &unit) const {
-    return Unit(_value + static_cast<AnotherT>(unit));
+  Unit<decltype(std::declval<T>() + std::declval<AnotherT>()), Powers...> operator+(const Unit<AnotherT, Powers...> &unit) const {
+    return Unit<decltype(std::declval<T>() - std::declval<AnotherT>()), Powers...>(_value + static_cast<AnotherT>(unit));
   }
   /// @brief Prefix increment
   Unit &operator++() {
@@ -88,8 +89,8 @@ public:
   }
   /// @brief Operator '-' for units with same power values
   template <typename AnotherT>
-  Unit operator-(const Unit<AnotherT, Powers...> &unit) const {
-    return Unit(_value - static_cast<AnotherT>(unit));
+  Unit<decltype(std::declval<T>() - std::declval<AnotherT>()), Powers...> operator-(const Unit<AnotherT, Powers...> &unit) const {
+    return Unit<decltype(std::declval<T>() - std::declval<AnotherT>()), Powers...>(_value - static_cast<AnotherT>(unit));
   }
   /// @brief Operator '-=' for units with same power values
   template <typename AnotherT>
@@ -109,12 +110,12 @@ public:
     return tmp;
   }
   /// @brief Operator '*' for dimensionless operand of container type
-  Unit operator*(const T &value) const {
-    return Unit<T, Powers...>(_value * value);
+  Unit<decltype(std::declval<T>() * std::declval<T>()), Powers...> operator*(const T &value) const {
+    return Unit<decltype(std::declval<T>() * std::declval<T>()), Powers...>(_value * value);
   }
   /// @brief Operator '/' for dimensionless operand of container type
-  Unit operator/(const T &value) const {
-    return Unit<T, Powers...>(_value / value);
+  Unit<decltype(std::declval<T>() / std::declval<T>()), Powers...> operator/(const T &value) const {
+    return Unit<decltype(std::declval<T>() / std::declval<T>()), Powers...>(_value / value);
   }
   /// @brief Operator '*=' for dimensionless operand of container type
   Unit &operator*=(const T &value) {
@@ -128,17 +129,15 @@ public:
   }
   /// @brief Operator '*' for any unit
   template <typename AnotherT, int... OtherPowers>
-  Unit<T, (Powers + OtherPowers)...>
+  Unit<decltype(std::declval<T>() * std::declval<AnotherT>()), (Powers + OtherPowers)...>
   operator*(const Unit<AnotherT, OtherPowers...> &unit) const {
-    return Unit<T, (Powers + OtherPowers)...>(_value *
-                                              static_cast<AnotherT>(unit));
+    return Unit<decltype(std::declval<T>() * std::declval<AnotherT>()), (Powers + OtherPowers)...>(_value * static_cast<AnotherT>(unit));
   }
   /// @brief Operator '/' for any unit
   template <typename AnotherT, int... OtherPowers>
-  Unit<T, (Powers - OtherPowers)...>
+  Unit<decltype(std::declval<T>() / std::declval<AnotherT>()), (Powers - OtherPowers)...>
   operator/(const Unit<AnotherT, OtherPowers...> &unit) const {
-    return Unit<T, (Powers - OtherPowers)...>(_value /
-                                              static_cast<AnotherT>(unit));
+    return Unit<decltype(std::declval<T>() / std::declval<AnotherT>()), (Powers - OtherPowers)...>(_value / static_cast<AnotherT>(unit));
   }
 };
 #endif
