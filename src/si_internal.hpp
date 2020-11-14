@@ -72,14 +72,12 @@ public:
   }
   /// @brief Prefix increment
   Unit &operator++() {
-    _value++;
+    ++_value;
     return *this;
   }
   /// @brief Postfix increment
   Unit operator++(int) {
-    Unit tmp(_value);
-    _value++;
-    return tmp;
+    return Unit(_value++);
   }
   /// @brief Operator '+=' for units with same power values
   template <typename AnotherT>
@@ -100,14 +98,12 @@ public:
   }
   /// @brief Prefix decrement
   Unit &operator--() {
-    _value--;
+    --_value;
     return *this;
   }
   /// @brief Postfix decrement
   Unit operator--(int) {
-    Unit tmp(_value);
-    _value--;
-    return tmp;
+    return Unit(_value--);
   }
   /// @brief Operator '*' for dimensionless operand of container type
   Unit<decltype(std::declval<T>() * std::declval<T>()), Powers...> operator*(const T &value) const {
