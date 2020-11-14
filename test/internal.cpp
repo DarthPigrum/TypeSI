@@ -52,23 +52,43 @@ int main() {
           .hash_code() != typeid(ab<double>).hash_code())
     throw std::logic_error(
         "Template class Unit: implicit container type conversion failed");
-  if (typeid(decltype(+std::declval<ab<double>>())).hash_code() != typeid(double).hash_code()) throw std::logic_error("Unary plus conversion failed");
-  if(!(ab<int>(1) == ab<int>(1))) throw std::logic_error("Operator '==' failed");
-  if(!(Ab<float>(1.0) != Ab<float>(1.5))) throw std::logic_error("Operator '!=' failed");
-  if(!(aB<float>(1.0) <= aB<double>(1.5))) throw std::logic_error("Operator '<=' failed with different values");
-  if(!(AB<int>(1) <= AB<int>(1))) throw std::logic_error("Operator '<=' failed with equal values");
-  if(!(ab<float>(1.0) < ab<double>(1.5))) throw std::logic_error("Operator '<' failed");
-  if(!(Ab<double>(2.0) >= Ab<double>(1.5))) throw std::logic_error("Operator '>=' failed with different values");
-  if(!(aB<int>(2) >= aB<int>(2))) throw std::logic_error("Operator '>=' failed with equal values");
-  if(!(AB<float>(2.0) > AB<float>(1.5))) throw std::logic_error("Operator '>' failed");
-  if(ab<long long>(1) + ab<int>(2) != ab<char>(3)) throw std::logic_error("Operator '+' failed");
-  if((Ab<long long>(1) += Ab<int>(2)) != Ab<char>(3)) throw std::logic_error("Operator '+=' failed");
-  if(aB<int>(1) - aB<char>(2) != aB<long long>(-1)) throw std::logic_error("Operator '-' failed");
-  if((AB<long long>(1) -= AB<int>(2)) != AB<char>(-1)) throw std::logic_error("Operator '-=' failed");
-  if(Ab<unsigned long long>(1) * aB<unsigned>(2) != AB<unsigned char>(2)) throw std::logic_error("Operator '*' failed with another unit type");
-  if(aB<long>(1) * 3 != aB<int>(3)) throw std::logic_error("Operator '*' failed with container type");
-  if((AB<unsigned long long>(2) *= 5) != AB<char>(10)) throw std::logic_error("Operator '*=' failed");
-  if(ab<int>(6) / AB<long>(2) != AB_<char>(3)) throw std::logic_error("Operator '/' failed with another unit type");
-  if(Ab_<long long>(6) / 3 != Ab_<unsigned char>(2)) throw std::logic_error("Operator '/' failed with container type");
-  if((aB<unsigned long long>(12) /= 3) != aB<unsigned>(4)) throw std::logic_error("Operator '/=' failed");
+  if (typeid(decltype(+std::declval<ab<double>>())).hash_code() !=
+      typeid(double).hash_code())
+    throw std::logic_error("Unary plus conversion failed");
+  if (!(ab<int>(1) == ab<int>(1)))
+    throw std::logic_error("Operator '==' failed");
+  if (!(Ab<float>(1.0) != Ab<float>(1.5)))
+    throw std::logic_error("Operator '!=' failed");
+  if (!(aB<float>(1.0) <= aB<double>(1.5)))
+    throw std::logic_error("Operator '<=' failed with different values");
+  if (!(AB<int>(1) <= AB<int>(1)))
+    throw std::logic_error("Operator '<=' failed with equal values");
+  if (!(ab<float>(1.0) < ab<double>(1.5)))
+    throw std::logic_error("Operator '<' failed");
+  if (!(Ab<double>(2.0) >= Ab<double>(1.5)))
+    throw std::logic_error("Operator '>=' failed with different values");
+  if (!(aB<int>(2) >= aB<int>(2)))
+    throw std::logic_error("Operator '>=' failed with equal values");
+  if (!(AB<float>(2.0) > AB<float>(1.5)))
+    throw std::logic_error("Operator '>' failed");
+  if (ab<long long>(1) + ab<int>(2) != ab<char>(3))
+    throw std::logic_error("Operator '+' failed");
+  if ((Ab<long long>(1) += Ab<int>(2)) != Ab<char>(3))
+    throw std::logic_error("Operator '+=' failed");
+  if (aB<int>(1) - aB<char>(2) != aB<long long>(-1))
+    throw std::logic_error("Operator '-' failed");
+  if ((AB<long long>(1) -= AB<int>(2)) != AB<char>(-1))
+    throw std::logic_error("Operator '-=' failed");
+  if (Ab<unsigned long long>(1) * aB<unsigned>(2) != AB<unsigned char>(2))
+    throw std::logic_error("Operator '*' failed with another unit type");
+  if (aB<long>(1) * 3 != aB<int>(3))
+    throw std::logic_error("Operator '*' failed with container type");
+  if ((AB<unsigned long long>(2) *= 5) != AB<char>(10))
+    throw std::logic_error("Operator '*=' failed");
+  if (ab<int>(6) / AB<long>(2) != AB_<char>(3))
+    throw std::logic_error("Operator '/' failed with another unit type");
+  if (Ab_<long long>(6) / 3 != Ab_<unsigned char>(2))
+    throw std::logic_error("Operator '/' failed with container type");
+  if ((aB<unsigned long long>(12) /= 3) != aB<unsigned>(4))
+    throw std::logic_error("Operator '/=' failed");
 }
