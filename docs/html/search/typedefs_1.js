@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['candela_72',['Candela',['../namespace_si_1_1_base.html#a5ff52e870c51c6c6d793d86031259bb4',1,'Si::Base']]]
+  ['becquerel_131',['Becquerel',['../namespace_si_1_1_derived.html#a0b67ae36c518a375bf5816559643c9ec',1,'Si::Derived']]]
 ];

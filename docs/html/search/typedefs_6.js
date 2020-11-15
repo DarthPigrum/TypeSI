@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['unit_79',['Unit',['../namespace_si_1_1_internal.html#a7c447e46c59494a9006a6343416b2271',1,'Si::Internal']]]
+  ['henry_137',['Henry',['../namespace_si_1_1_derived.html#a42c6566a2a01df25052493fc0399a14b',1,'Si::Derived']]],
+  ['hertz_138',['Hertz',['../namespace_si_1_1_derived.html#a25bc3af1206ef7e431cd328892f19b6f',1,'Si::Derived']]]
 ];

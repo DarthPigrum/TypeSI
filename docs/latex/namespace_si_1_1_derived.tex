@@ -1,0 +1,287 @@
+\hypertarget{namespace_si_1_1_derived}{}\doxysection{Si\+::Derived Namespace Reference}
+\label{namespace_si_1_1_derived}\index{Si::Derived@{Si::Derived}}
+
+
+\mbox{\hyperlink{namespace_si_1_1_derived}{Derived}} SI units.  
+
+
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespace_si_1_1_derived_1_1_literals}{Literals}}
+\begin{DoxyCompactList}\small\item\em Use this namespace to enable literals for base units. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{namespace_si_1_1_derived_a25bc3af1206ef7e431cd328892f19b6f}{Hertz}} = decltype(std\+::declval$<$ \mbox{\hyperlink{namespace_si_1_1_internal_a80f403c5722a919d85a5b6aeb25b3caf}{Internal\+::\+Dimensionless}}$<$ T $>$ $>$()/std\+::declval$<$ \mbox{\hyperlink{namespace_si_1_1_base_ad285cfbf885a940c3d0f12ed6a8cbd30}{Base\+::\+Second}}$<$ T $>$ $>$())
+\item 
+{\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{namespace_si_1_1_derived_acc1c540e76a8f812724bd641a6eac6d9}{Newton}} = decltype(std\+::declval$<$ \mbox{\hyperlink{namespace_si_1_1_base_a81d9f9522d0b5ab0e5fd80dc14c7d42d}{Base\+::\+Kilogram}}$<$ T $>$ $>$() $\ast$std\+::declval$<$ \mbox{\hyperlink{namespace_si_1_1_base_af63942975e58556bd19b96cdd014098d}{Base\+::\+Meter}}$<$ T $>$ $>$()/(std\+::declval$<$ \mbox{\hyperlink{namespace_si_1_1_base_ad285cfbf885a940c3d0f12ed6a8cbd30}{Base\+::\+Second}}$<$ T $>$ $>$() $\ast$std\+::declval$<$ \mbox{\hyperlink{namespace_si_1_1_base_ad285cfbf885a940c3d0f12ed6a8cbd30}{Base\+::\+Second}}$<$ T $>$ $>$()))
+\item 
+{\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{namespace_si_1_1_derived_a554d77d3fdf17de356049b468ac9cd8e}{Pascal}} = decltype(std\+::declval$<$ \mbox{\hyperlink{namespace_si_1_1_derived_acc1c540e76a8f812724bd641a6eac6d9}{Newton}}$<$ T $>$ $>$()/(std\+::declval$<$ \mbox{\hyperlink{namespace_si_1_1_base_af63942975e58556bd19b96cdd014098d}{Base\+::\+Meter}}$<$ T $>$ $>$() $\ast$std\+::declval$<$ \mbox{\hyperlink{namespace_si_1_1_base_af63942975e58556bd19b96cdd014098d}{Base\+::\+Meter}}$<$ T $>$ $>$()))
+\item 
+{\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{namespace_si_1_1_derived_a511265e5a258f4a43b6445cb94075d31}{Joule}} = decltype(std\+::declval$<$ \mbox{\hyperlink{namespace_si_1_1_base_af63942975e58556bd19b96cdd014098d}{Base\+::\+Meter}}$<$ T $>$ $>$() $\ast$std\+::declval$<$ \mbox{\hyperlink{namespace_si_1_1_derived_acc1c540e76a8f812724bd641a6eac6d9}{Newton}}$<$ T $>$ $>$())
+\item 
+{\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{namespace_si_1_1_derived_a6bfa4d7fd42fa419b51d3e59f8fc8870}{Watt}} = decltype(std\+::declval$<$ \mbox{\hyperlink{namespace_si_1_1_derived_a511265e5a258f4a43b6445cb94075d31}{Joule}}$<$ T $>$ $>$()/std\+::declval$<$ \mbox{\hyperlink{namespace_si_1_1_base_ad285cfbf885a940c3d0f12ed6a8cbd30}{Base\+::\+Second}}$<$ T $>$ $>$())
+\item 
+{\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{namespace_si_1_1_derived_a72043a7731c46810e8f4cd74272d2deb}{Coulomb}} = decltype(std\+::declval$<$ \mbox{\hyperlink{namespace_si_1_1_base_ad285cfbf885a940c3d0f12ed6a8cbd30}{Base\+::\+Second}}$<$ T $>$ $>$() $\ast$std\+::declval$<$ \mbox{\hyperlink{namespace_si_1_1_base_af2e4bd89a7d7ce6e6890baf6a49bdd44}{Base\+::\+Ampere}}$<$ T $>$ $>$())
+\item 
+{\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{namespace_si_1_1_derived_ac558e7e5b0825005262a590c6690fa0a}{Volt}} = decltype(std\+::declval$<$ \mbox{\hyperlink{namespace_si_1_1_derived_a6bfa4d7fd42fa419b51d3e59f8fc8870}{Watt}}$<$ T $>$ $>$()/std\+::declval$<$ \mbox{\hyperlink{namespace_si_1_1_base_af2e4bd89a7d7ce6e6890baf6a49bdd44}{Base\+::\+Ampere}}$<$ T $>$ $>$())
+\item 
+{\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{namespace_si_1_1_derived_a76c2d78790cbcfdcb0f5496792bceabb}{Farad}} = decltype(std\+::declval$<$ \mbox{\hyperlink{namespace_si_1_1_derived_a72043a7731c46810e8f4cd74272d2deb}{Coulomb}}$<$ T $>$ $>$()/std\+::declval$<$ \mbox{\hyperlink{namespace_si_1_1_derived_ac558e7e5b0825005262a590c6690fa0a}{Volt}}$<$ T $>$ $>$())
+\item 
+{\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{namespace_si_1_1_derived_a08b61ac834570953133804bfa268399c}{Ohm}} = decltype(std\+::declval$<$ \mbox{\hyperlink{namespace_si_1_1_derived_ac558e7e5b0825005262a590c6690fa0a}{Volt}}$<$ T $>$ $>$()/std\+::declval$<$ \mbox{\hyperlink{namespace_si_1_1_base_af2e4bd89a7d7ce6e6890baf6a49bdd44}{Base\+::\+Ampere}}$<$ T $>$ $>$())
+\item 
+{\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{namespace_si_1_1_derived_a7b13d4f854ce8ed250032b96addcb5ba}{Siemens}} = decltype(std\+::declval$<$ \mbox{\hyperlink{namespace_si_1_1_base_af2e4bd89a7d7ce6e6890baf6a49bdd44}{Base\+::\+Ampere}}$<$ T $>$ $>$()/std\+::declval$<$ \mbox{\hyperlink{namespace_si_1_1_derived_ac558e7e5b0825005262a590c6690fa0a}{Volt}}$<$ T $>$ $>$())
+\item 
+{\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{namespace_si_1_1_derived_ab2bf5e899321fafcd8fef969c5637e26}{Weber}} = decltype(std\+::declval$<$ \mbox{\hyperlink{namespace_si_1_1_derived_a511265e5a258f4a43b6445cb94075d31}{Joule}}$<$ T $>$ $>$()/std\+::declval$<$ \mbox{\hyperlink{namespace_si_1_1_base_af2e4bd89a7d7ce6e6890baf6a49bdd44}{Base\+::\+Ampere}}$<$ T $>$ $>$())
+\item 
+{\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{namespace_si_1_1_derived_ab458976a9e71bfc3674e3e66e975f870}{Tesla}} = decltype(std\+::declval$<$ \mbox{\hyperlink{namespace_si_1_1_derived_acc1c540e76a8f812724bd641a6eac6d9}{Newton}}$<$ T $>$ $>$()/(std\+::declval$<$ \mbox{\hyperlink{namespace_si_1_1_base_af2e4bd89a7d7ce6e6890baf6a49bdd44}{Base\+::\+Ampere}}$<$ T $>$ $>$() $\ast$std\+::declval$<$ \mbox{\hyperlink{namespace_si_1_1_base_af63942975e58556bd19b96cdd014098d}{Base\+::\+Meter}}$<$ T $>$ $>$()))
+\item 
+{\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{namespace_si_1_1_derived_a42c6566a2a01df25052493fc0399a14b}{Henry}} = decltype(std\+::declval$<$ \mbox{\hyperlink{namespace_si_1_1_derived_ab2bf5e899321fafcd8fef969c5637e26}{Weber}}$<$ T $>$ $>$()/std\+::declval$<$ \mbox{\hyperlink{namespace_si_1_1_base_af2e4bd89a7d7ce6e6890baf6a49bdd44}{Base\+::\+Ampere}}$<$ T $>$ $>$())
+\item 
+{\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{namespace_si_1_1_derived_a8050e04cceee2faff4496ca1e1323277}{Lumen}} = \mbox{\hyperlink{namespace_si_1_1_base_a5ff52e870c51c6c6d793d86031259bb4}{Base\+::\+Candela}}$<$ T $>$
+\item 
+{\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{namespace_si_1_1_derived_a65209b2313d121e8289731ce998c5aec}{Lux}} = decltype(std\+::declval$<$ \mbox{\hyperlink{namespace_si_1_1_derived_a8050e04cceee2faff4496ca1e1323277}{Lumen}}$<$ T $>$ $>$()/(std\+::declval$<$ \mbox{\hyperlink{namespace_si_1_1_base_af63942975e58556bd19b96cdd014098d}{Base\+::\+Meter}}$<$ T $>$ $>$() $\ast$std\+::declval$<$ \mbox{\hyperlink{namespace_si_1_1_base_af63942975e58556bd19b96cdd014098d}{Base\+::\+Meter}}$<$ T $>$ $>$()))
+\item 
+{\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{namespace_si_1_1_derived_a0b67ae36c518a375bf5816559643c9ec}{Becquerel}} = \mbox{\hyperlink{namespace_si_1_1_derived_a25bc3af1206ef7e431cd328892f19b6f}{Hertz}}$<$ T $>$
+\item 
+{\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{namespace_si_1_1_derived_a379ed0665885c5d86deffed2d5191e33}{Gray}} = decltype(std\+::declval$<$ \mbox{\hyperlink{namespace_si_1_1_derived_a511265e5a258f4a43b6445cb94075d31}{Joule}}$<$ T $>$ $>$()/std\+::declval$<$ \mbox{\hyperlink{namespace_si_1_1_base_a81d9f9522d0b5ab0e5fd80dc14c7d42d}{Base\+::\+Kilogram}}$<$ T $>$ $>$())
+\item 
+{\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{namespace_si_1_1_derived_ae817e222b1e5d955c86d892d6720b266}{Sievert}} = \mbox{\hyperlink{namespace_si_1_1_derived_a379ed0665885c5d86deffed2d5191e33}{Gray}}$<$ T $>$
+\item 
+{\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{namespace_si_1_1_derived_a21c64cf7a4ccf453abb2a6049676d0c1}{Katal}} = decltype(std\+::declval$<$ \mbox{\hyperlink{namespace_si_1_1_base_a693c5d9608395b2d3721970a8bb36fbb}{Base\+::\+Mole}}$<$ T $>$ $>$()/std\+::declval$<$ \mbox{\hyperlink{namespace_si_1_1_base_ad285cfbf885a940c3d0f12ed6a8cbd30}{Base\+::\+Second}}$<$ T $>$ $>$())
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{namespace_si_1_1_derived}{Derived}} SI units. 
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{namespace_si_1_1_derived_a0b67ae36c518a375bf5816559643c9ec}\label{namespace_si_1_1_derived_a0b67ae36c518a375bf5816559643c9ec}} 
+\index{Si::Derived@{Si::Derived}!Becquerel@{Becquerel}}
+\index{Becquerel@{Becquerel}!Si::Derived@{Si::Derived}}
+\doxysubsubsection{\texorpdfstring{Becquerel}{Becquerel}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+using \mbox{\hyperlink{namespace_si_1_1_derived_a0b67ae36c518a375bf5816559643c9ec}{Si\+::\+Derived\+::\+Becquerel}} = typedef \mbox{\hyperlink{namespace_si_1_1_derived_a25bc3af1206ef7e431cd328892f19b6f}{Hertz}}$<$T$>$}
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Any number type such as float, double or long double used as a container \\
+\hline
+\end{DoxyTemplParams}
+\mbox{\Hypertarget{namespace_si_1_1_derived_a72043a7731c46810e8f4cd74272d2deb}\label{namespace_si_1_1_derived_a72043a7731c46810e8f4cd74272d2deb}} 
+\index{Si::Derived@{Si::Derived}!Coulomb@{Coulomb}}
+\index{Coulomb@{Coulomb}!Si::Derived@{Si::Derived}}
+\doxysubsubsection{\texorpdfstring{Coulomb}{Coulomb}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+using \mbox{\hyperlink{namespace_si_1_1_derived_a72043a7731c46810e8f4cd74272d2deb}{Si\+::\+Derived\+::\+Coulomb}} = typedef decltype(std\+::declval$<$\mbox{\hyperlink{namespace_si_1_1_base_ad285cfbf885a940c3d0f12ed6a8cbd30}{Base\+::\+Second}}$<$T$>$ $>$()$\ast$std\+::declval$<$\mbox{\hyperlink{namespace_si_1_1_base_af2e4bd89a7d7ce6e6890baf6a49bdd44}{Base\+::\+Ampere}}$<$T$>$ $>$())}
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Any number type such as float, double or long double used as a container \\
+\hline
+\end{DoxyTemplParams}
+\mbox{\Hypertarget{namespace_si_1_1_derived_a76c2d78790cbcfdcb0f5496792bceabb}\label{namespace_si_1_1_derived_a76c2d78790cbcfdcb0f5496792bceabb}} 
+\index{Si::Derived@{Si::Derived}!Farad@{Farad}}
+\index{Farad@{Farad}!Si::Derived@{Si::Derived}}
+\doxysubsubsection{\texorpdfstring{Farad}{Farad}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+using \mbox{\hyperlink{namespace_si_1_1_derived_a76c2d78790cbcfdcb0f5496792bceabb}{Si\+::\+Derived\+::\+Farad}} = typedef decltype(std\+::declval$<$\mbox{\hyperlink{namespace_si_1_1_derived_a72043a7731c46810e8f4cd74272d2deb}{Coulomb}}$<$T$>$ $>$()/std\+::declval$<$\mbox{\hyperlink{namespace_si_1_1_derived_ac558e7e5b0825005262a590c6690fa0a}{Volt}}$<$T$>$ $>$())}
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Any number type such as float, double or long double used as a container \\
+\hline
+\end{DoxyTemplParams}
+\mbox{\Hypertarget{namespace_si_1_1_derived_a379ed0665885c5d86deffed2d5191e33}\label{namespace_si_1_1_derived_a379ed0665885c5d86deffed2d5191e33}} 
+\index{Si::Derived@{Si::Derived}!Gray@{Gray}}
+\index{Gray@{Gray}!Si::Derived@{Si::Derived}}
+\doxysubsubsection{\texorpdfstring{Gray}{Gray}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+using \mbox{\hyperlink{namespace_si_1_1_derived_a379ed0665885c5d86deffed2d5191e33}{Si\+::\+Derived\+::\+Gray}} = typedef decltype(std\+::declval$<$\mbox{\hyperlink{namespace_si_1_1_derived_a511265e5a258f4a43b6445cb94075d31}{Joule}}$<$T$>$ $>$()/std\+::declval$<$\mbox{\hyperlink{namespace_si_1_1_base_a81d9f9522d0b5ab0e5fd80dc14c7d42d}{Base\+::\+Kilogram}}$<$T$>$ $>$())}
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Any number type such as float, double or long double used as a container \\
+\hline
+\end{DoxyTemplParams}
+\mbox{\Hypertarget{namespace_si_1_1_derived_a42c6566a2a01df25052493fc0399a14b}\label{namespace_si_1_1_derived_a42c6566a2a01df25052493fc0399a14b}} 
+\index{Si::Derived@{Si::Derived}!Henry@{Henry}}
+\index{Henry@{Henry}!Si::Derived@{Si::Derived}}
+\doxysubsubsection{\texorpdfstring{Henry}{Henry}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+using \mbox{\hyperlink{namespace_si_1_1_derived_a42c6566a2a01df25052493fc0399a14b}{Si\+::\+Derived\+::\+Henry}} = typedef decltype(std\+::declval$<$\mbox{\hyperlink{namespace_si_1_1_derived_ab2bf5e899321fafcd8fef969c5637e26}{Weber}}$<$T$>$ $>$()/std\+::declval$<$\mbox{\hyperlink{namespace_si_1_1_base_af2e4bd89a7d7ce6e6890baf6a49bdd44}{Base\+::\+Ampere}}$<$T$>$ $>$())}
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Any number type such as float, double or long double used as a container \\
+\hline
+\end{DoxyTemplParams}
+\mbox{\Hypertarget{namespace_si_1_1_derived_a25bc3af1206ef7e431cd328892f19b6f}\label{namespace_si_1_1_derived_a25bc3af1206ef7e431cd328892f19b6f}} 
+\index{Si::Derived@{Si::Derived}!Hertz@{Hertz}}
+\index{Hertz@{Hertz}!Si::Derived@{Si::Derived}}
+\doxysubsubsection{\texorpdfstring{Hertz}{Hertz}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+using \mbox{\hyperlink{namespace_si_1_1_derived_a25bc3af1206ef7e431cd328892f19b6f}{Si\+::\+Derived\+::\+Hertz}} = typedef decltype(std\+::declval$<$\mbox{\hyperlink{namespace_si_1_1_internal_a80f403c5722a919d85a5b6aeb25b3caf}{Internal\+::\+Dimensionless}}$<$T$>$ $>$()/std\+::declval$<$\mbox{\hyperlink{namespace_si_1_1_base_ad285cfbf885a940c3d0f12ed6a8cbd30}{Base\+::\+Second}}$<$T$>$ $>$())}
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Any number type such as float, double or long double used as a container \\
+\hline
+\end{DoxyTemplParams}
+\mbox{\Hypertarget{namespace_si_1_1_derived_a511265e5a258f4a43b6445cb94075d31}\label{namespace_si_1_1_derived_a511265e5a258f4a43b6445cb94075d31}} 
+\index{Si::Derived@{Si::Derived}!Joule@{Joule}}
+\index{Joule@{Joule}!Si::Derived@{Si::Derived}}
+\doxysubsubsection{\texorpdfstring{Joule}{Joule}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+using \mbox{\hyperlink{namespace_si_1_1_derived_a511265e5a258f4a43b6445cb94075d31}{Si\+::\+Derived\+::\+Joule}} = typedef decltype(std\+::declval$<$\mbox{\hyperlink{namespace_si_1_1_base_af63942975e58556bd19b96cdd014098d}{Base\+::\+Meter}}$<$T$>$ $>$()$\ast$std\+::declval$<$\mbox{\hyperlink{namespace_si_1_1_derived_acc1c540e76a8f812724bd641a6eac6d9}{Newton}}$<$T$>$ $>$())}
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Any number type such as float, double or long double used as a container \\
+\hline
+\end{DoxyTemplParams}
+\mbox{\Hypertarget{namespace_si_1_1_derived_a21c64cf7a4ccf453abb2a6049676d0c1}\label{namespace_si_1_1_derived_a21c64cf7a4ccf453abb2a6049676d0c1}} 
+\index{Si::Derived@{Si::Derived}!Katal@{Katal}}
+\index{Katal@{Katal}!Si::Derived@{Si::Derived}}
+\doxysubsubsection{\texorpdfstring{Katal}{Katal}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+using \mbox{\hyperlink{namespace_si_1_1_derived_a21c64cf7a4ccf453abb2a6049676d0c1}{Si\+::\+Derived\+::\+Katal}} = typedef decltype(std\+::declval$<$\mbox{\hyperlink{namespace_si_1_1_base_a693c5d9608395b2d3721970a8bb36fbb}{Base\+::\+Mole}}$<$T$>$ $>$()/std\+::declval$<$\mbox{\hyperlink{namespace_si_1_1_base_ad285cfbf885a940c3d0f12ed6a8cbd30}{Base\+::\+Second}}$<$T$>$ $>$())}
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Any number type such as float, double or long double used as a container \\
+\hline
+\end{DoxyTemplParams}
+\mbox{\Hypertarget{namespace_si_1_1_derived_a8050e04cceee2faff4496ca1e1323277}\label{namespace_si_1_1_derived_a8050e04cceee2faff4496ca1e1323277}} 
+\index{Si::Derived@{Si::Derived}!Lumen@{Lumen}}
+\index{Lumen@{Lumen}!Si::Derived@{Si::Derived}}
+\doxysubsubsection{\texorpdfstring{Lumen}{Lumen}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+using \mbox{\hyperlink{namespace_si_1_1_derived_a8050e04cceee2faff4496ca1e1323277}{Si\+::\+Derived\+::\+Lumen}} = typedef \mbox{\hyperlink{namespace_si_1_1_base_a5ff52e870c51c6c6d793d86031259bb4}{Base\+::\+Candela}}$<$T$>$}
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Any number type such as float, double or long double used as a container \\
+\hline
+\end{DoxyTemplParams}
+\mbox{\Hypertarget{namespace_si_1_1_derived_a65209b2313d121e8289731ce998c5aec}\label{namespace_si_1_1_derived_a65209b2313d121e8289731ce998c5aec}} 
+\index{Si::Derived@{Si::Derived}!Lux@{Lux}}
+\index{Lux@{Lux}!Si::Derived@{Si::Derived}}
+\doxysubsubsection{\texorpdfstring{Lux}{Lux}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+using \mbox{\hyperlink{namespace_si_1_1_derived_a65209b2313d121e8289731ce998c5aec}{Si\+::\+Derived\+::\+Lux}} = typedef decltype(std\+::declval$<$\mbox{\hyperlink{namespace_si_1_1_derived_a8050e04cceee2faff4496ca1e1323277}{Lumen}}$<$T$>$ $>$()/(std\+::declval$<$\mbox{\hyperlink{namespace_si_1_1_base_af63942975e58556bd19b96cdd014098d}{Base\+::\+Meter}}$<$T$>$ $>$()$\ast$std\+::declval$<$\mbox{\hyperlink{namespace_si_1_1_base_af63942975e58556bd19b96cdd014098d}{Base\+::\+Meter}}$<$T$>$ $>$()))}
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Any number type such as float, double or long double used as a container \\
+\hline
+\end{DoxyTemplParams}
+\mbox{\Hypertarget{namespace_si_1_1_derived_acc1c540e76a8f812724bd641a6eac6d9}\label{namespace_si_1_1_derived_acc1c540e76a8f812724bd641a6eac6d9}} 
+\index{Si::Derived@{Si::Derived}!Newton@{Newton}}
+\index{Newton@{Newton}!Si::Derived@{Si::Derived}}
+\doxysubsubsection{\texorpdfstring{Newton}{Newton}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+using \mbox{\hyperlink{namespace_si_1_1_derived_acc1c540e76a8f812724bd641a6eac6d9}{Si\+::\+Derived\+::\+Newton}} = typedef decltype(std\+::declval$<$\mbox{\hyperlink{namespace_si_1_1_base_a81d9f9522d0b5ab0e5fd80dc14c7d42d}{Base\+::\+Kilogram}}$<$T$>$ $>$()$\ast$std\+::declval$<$\mbox{\hyperlink{namespace_si_1_1_base_af63942975e58556bd19b96cdd014098d}{Base\+::\+Meter}}$<$T$>$ $>$()/(std\+::declval$<$\mbox{\hyperlink{namespace_si_1_1_base_ad285cfbf885a940c3d0f12ed6a8cbd30}{Base\+::\+Second}}$<$T$>$ $>$()$\ast$std\+::declval$<$\mbox{\hyperlink{namespace_si_1_1_base_ad285cfbf885a940c3d0f12ed6a8cbd30}{Base\+::\+Second}}$<$T$>$ $>$()))}
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Any number type such as float, double or long double used as a container \\
+\hline
+\end{DoxyTemplParams}
+\mbox{\Hypertarget{namespace_si_1_1_derived_a08b61ac834570953133804bfa268399c}\label{namespace_si_1_1_derived_a08b61ac834570953133804bfa268399c}} 
+\index{Si::Derived@{Si::Derived}!Ohm@{Ohm}}
+\index{Ohm@{Ohm}!Si::Derived@{Si::Derived}}
+\doxysubsubsection{\texorpdfstring{Ohm}{Ohm}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+using \mbox{\hyperlink{namespace_si_1_1_derived_a08b61ac834570953133804bfa268399c}{Si\+::\+Derived\+::\+Ohm}} = typedef decltype(std\+::declval$<$\mbox{\hyperlink{namespace_si_1_1_derived_ac558e7e5b0825005262a590c6690fa0a}{Volt}}$<$T$>$ $>$()/std\+::declval$<$\mbox{\hyperlink{namespace_si_1_1_base_af2e4bd89a7d7ce6e6890baf6a49bdd44}{Base\+::\+Ampere}}$<$T$>$ $>$())}
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Any number type such as float, double or long double used as a container \\
+\hline
+\end{DoxyTemplParams}
+\mbox{\Hypertarget{namespace_si_1_1_derived_a554d77d3fdf17de356049b468ac9cd8e}\label{namespace_si_1_1_derived_a554d77d3fdf17de356049b468ac9cd8e}} 
+\index{Si::Derived@{Si::Derived}!Pascal@{Pascal}}
+\index{Pascal@{Pascal}!Si::Derived@{Si::Derived}}
+\doxysubsubsection{\texorpdfstring{Pascal}{Pascal}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+using \mbox{\hyperlink{namespace_si_1_1_derived_a554d77d3fdf17de356049b468ac9cd8e}{Si\+::\+Derived\+::\+Pascal}} = typedef decltype(std\+::declval$<$\mbox{\hyperlink{namespace_si_1_1_derived_acc1c540e76a8f812724bd641a6eac6d9}{Newton}}$<$T$>$ $>$()/(std\+::declval$<$\mbox{\hyperlink{namespace_si_1_1_base_af63942975e58556bd19b96cdd014098d}{Base\+::\+Meter}}$<$T$>$ $>$()$\ast$ std\+::declval$<$\mbox{\hyperlink{namespace_si_1_1_base_af63942975e58556bd19b96cdd014098d}{Base\+::\+Meter}}$<$T$>$ $>$()))}
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Any number type such as float, double or long double used as a container \\
+\hline
+\end{DoxyTemplParams}
+\mbox{\Hypertarget{namespace_si_1_1_derived_a7b13d4f854ce8ed250032b96addcb5ba}\label{namespace_si_1_1_derived_a7b13d4f854ce8ed250032b96addcb5ba}} 
+\index{Si::Derived@{Si::Derived}!Siemens@{Siemens}}
+\index{Siemens@{Siemens}!Si::Derived@{Si::Derived}}
+\doxysubsubsection{\texorpdfstring{Siemens}{Siemens}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+using \mbox{\hyperlink{namespace_si_1_1_derived_a7b13d4f854ce8ed250032b96addcb5ba}{Si\+::\+Derived\+::\+Siemens}} = typedef decltype(std\+::declval$<$\mbox{\hyperlink{namespace_si_1_1_base_af2e4bd89a7d7ce6e6890baf6a49bdd44}{Base\+::\+Ampere}}$<$T$>$ $>$()/std\+::declval$<$\mbox{\hyperlink{namespace_si_1_1_derived_ac558e7e5b0825005262a590c6690fa0a}{Volt}}$<$T$>$ $>$())}
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Any number type such as float, double or long double used as a container \\
+\hline
+\end{DoxyTemplParams}
+\mbox{\Hypertarget{namespace_si_1_1_derived_ae817e222b1e5d955c86d892d6720b266}\label{namespace_si_1_1_derived_ae817e222b1e5d955c86d892d6720b266}} 
+\index{Si::Derived@{Si::Derived}!Sievert@{Sievert}}
+\index{Sievert@{Sievert}!Si::Derived@{Si::Derived}}
+\doxysubsubsection{\texorpdfstring{Sievert}{Sievert}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+using \mbox{\hyperlink{namespace_si_1_1_derived_ae817e222b1e5d955c86d892d6720b266}{Si\+::\+Derived\+::\+Sievert}} = typedef \mbox{\hyperlink{namespace_si_1_1_derived_a379ed0665885c5d86deffed2d5191e33}{Gray}}$<$T$>$}
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Any number type such as float, double or long double used as a container \\
+\hline
+\end{DoxyTemplParams}
+\mbox{\Hypertarget{namespace_si_1_1_derived_ab458976a9e71bfc3674e3e66e975f870}\label{namespace_si_1_1_derived_ab458976a9e71bfc3674e3e66e975f870}} 
+\index{Si::Derived@{Si::Derived}!Tesla@{Tesla}}
+\index{Tesla@{Tesla}!Si::Derived@{Si::Derived}}
+\doxysubsubsection{\texorpdfstring{Tesla}{Tesla}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+using \mbox{\hyperlink{namespace_si_1_1_derived_ab458976a9e71bfc3674e3e66e975f870}{Si\+::\+Derived\+::\+Tesla}} = typedef decltype(std\+::declval$<$\mbox{\hyperlink{namespace_si_1_1_derived_acc1c540e76a8f812724bd641a6eac6d9}{Newton}}$<$T$>$ $>$()/(std\+::declval$<$\mbox{\hyperlink{namespace_si_1_1_base_af2e4bd89a7d7ce6e6890baf6a49bdd44}{Base\+::\+Ampere}}$<$T$>$ $>$()$\ast$std\+::declval$<$\mbox{\hyperlink{namespace_si_1_1_base_af63942975e58556bd19b96cdd014098d}{Base\+::\+Meter}}$<$T$>$ $>$()))}
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Any number type such as float, double or long double used as a container \\
+\hline
+\end{DoxyTemplParams}
+\mbox{\Hypertarget{namespace_si_1_1_derived_ac558e7e5b0825005262a590c6690fa0a}\label{namespace_si_1_1_derived_ac558e7e5b0825005262a590c6690fa0a}} 
+\index{Si::Derived@{Si::Derived}!Volt@{Volt}}
+\index{Volt@{Volt}!Si::Derived@{Si::Derived}}
+\doxysubsubsection{\texorpdfstring{Volt}{Volt}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+using \mbox{\hyperlink{namespace_si_1_1_derived_ac558e7e5b0825005262a590c6690fa0a}{Si\+::\+Derived\+::\+Volt}} = typedef decltype(std\+::declval$<$\mbox{\hyperlink{namespace_si_1_1_derived_a6bfa4d7fd42fa419b51d3e59f8fc8870}{Watt}}$<$T$>$ $>$()/std\+::declval$<$\mbox{\hyperlink{namespace_si_1_1_base_af2e4bd89a7d7ce6e6890baf6a49bdd44}{Base\+::\+Ampere}}$<$T$>$ $>$())}
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Any number type such as float, double or long double used as a container \\
+\hline
+\end{DoxyTemplParams}
+\mbox{\Hypertarget{namespace_si_1_1_derived_a6bfa4d7fd42fa419b51d3e59f8fc8870}\label{namespace_si_1_1_derived_a6bfa4d7fd42fa419b51d3e59f8fc8870}} 
+\index{Si::Derived@{Si::Derived}!Watt@{Watt}}
+\index{Watt@{Watt}!Si::Derived@{Si::Derived}}
+\doxysubsubsection{\texorpdfstring{Watt}{Watt}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+using \mbox{\hyperlink{namespace_si_1_1_derived_a6bfa4d7fd42fa419b51d3e59f8fc8870}{Si\+::\+Derived\+::\+Watt}} = typedef decltype(std\+::declval$<$\mbox{\hyperlink{namespace_si_1_1_derived_a511265e5a258f4a43b6445cb94075d31}{Joule}}$<$T$>$ $>$()/std\+::declval$<$\mbox{\hyperlink{namespace_si_1_1_base_ad285cfbf885a940c3d0f12ed6a8cbd30}{Base\+::\+Second}}$<$T$>$ $>$())}
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Any number type such as float, double or long double used as a container \\
+\hline
+\end{DoxyTemplParams}
+\mbox{\Hypertarget{namespace_si_1_1_derived_ab2bf5e899321fafcd8fef969c5637e26}\label{namespace_si_1_1_derived_ab2bf5e899321fafcd8fef969c5637e26}} 
+\index{Si::Derived@{Si::Derived}!Weber@{Weber}}
+\index{Weber@{Weber}!Si::Derived@{Si::Derived}}
+\doxysubsubsection{\texorpdfstring{Weber}{Weber}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+using \mbox{\hyperlink{namespace_si_1_1_derived_ab2bf5e899321fafcd8fef969c5637e26}{Si\+::\+Derived\+::\+Weber}} = typedef decltype(std\+::declval$<$\mbox{\hyperlink{namespace_si_1_1_derived_a511265e5a258f4a43b6445cb94075d31}{Joule}}$<$T$>$ $>$()/std\+::declval$<$\mbox{\hyperlink{namespace_si_1_1_base_af2e4bd89a7d7ce6e6890baf6a49bdd44}{Base\+::\+Ampere}}$<$T$>$ $>$())}
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Any number type such as float, double or long double used as a container \\
+\hline
+\end{DoxyTemplParams}

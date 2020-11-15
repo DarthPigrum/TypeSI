@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['second_78',['Second',['../namespace_si_1_1_base.html#ad285cfbf885a940c3d0f12ed6a8cbd30',1,'Si::Base']]]
+  ['gray_136',['Gray',['../namespace_si_1_1_derived.html#a379ed0665885c5d86deffed2d5191e33',1,'Si::Derived']]]
 ];
