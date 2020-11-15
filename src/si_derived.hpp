@@ -44,7 +44,7 @@ template <typename T> using Siemens = decltype(std::declval<Base::Ampere<T>>()/s
 template <typename T> using Weber = decltype(std::declval<Joule<T>>()/std::declval<Base::Ampere<T>>());
 /// @tparam T Any number type such as float, double or long double used as a
 /// container
-template <typename T> using Tesla = decltype(std::declval<Newton<T>>()/(std::declval<Base::Ampere<T>>()/std::declval<Base::Meter<T>>()));
+template <typename T> using Tesla = decltype(std::declval<Newton<T>>()/(std::declval<Base::Ampere<T>>()*std::declval<Base::Meter<T>>()));
 /// @tparam T Any number type such as float, double or long double used as a
 /// container
 template <typename T> using Henry = decltype(std::declval<Weber<T>>()/std::declval<Base::Ampere<T>>());
@@ -77,7 +77,7 @@ Newton<long double> operator"" _N(long double value) {
   return Newton<long double>(value);
 }
 /// @brief _s long double literal for pascal
-Pascal<long double> operator"" _Pascal(long double value) {
+Pascal<long double> operator"" _Pa(long double value) {
   return Pascal<long double>(value);
 }
 /// @brief _A long double literal for joule
