@@ -1,9 +1,6 @@
 #pragma once
-/**
- *  @file   si_internal.hpp
- *  @brief  Core logic of units
- *  @author Mike Zhukov
- ***********************************************/
+/// @file   si_internal.hpp
+/// @brief  Core logic of units
 #include <ratio>
 #include <utility>
 namespace Si {
@@ -15,12 +12,12 @@ namespace Internal {
 /// @tparam T Any number type such as float, double or long double used as a
 /// container
 /// @tparam Powers Ignored here
-template <typename T, int... Powers> using Unit = T;
+template <typename T, typename... Powers> using Unit = T;
 #else
 /// @brief Generic unit type
 /// @tparam T Any number type such as float, double or long double used as a
 /// container
-/// @tparam Powers Integers representing powers of base units in SI
+/// @tparam Powers Sequence of std::ratio representing powers of base units in SI
 template <typename T, typename... Powers> class Unit {
   T _value;
 

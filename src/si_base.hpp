@@ -1,9 +1,6 @@
 #pragma once
-/**
- *  @file   si_base.hpp
- *  @brief  Base SI units
- *  @author Mike Zhukov
- ***********************************************/
+/// @file   si_base.hpp
+/// @brief  Base SI units
 #include "si_internal.hpp"
 namespace Si {
 /// @brief Base SI units
