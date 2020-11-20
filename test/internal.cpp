@@ -1,15 +1,22 @@
 #include "../src/si_internal.hpp"
 #include <stdexcept>
 
-template <typename T> using ab = Si::Internal::Unit<T, 0, 0>;
+template <typename T>
+using ab = Si::Internal::Unit<T, std::ratio<0>, std::ratio<0>>;
 
-template <typename T> using Ab = Si::Internal::Unit<T, 0, 1>;
-template <typename T> using aB = Si::Internal::Unit<T, 1, 0>;
-template <typename T> using AB = Si::Internal::Unit<T, 1, 1>;
+template <typename T>
+using Ab = Si::Internal::Unit<T, std::ratio<0>, std::ratio<1>>;
+template <typename T>
+using aB = Si::Internal::Unit<T, std::ratio<1>, std::ratio<0>>;
+template <typename T>
+using AB = Si::Internal::Unit<T, std::ratio<1>, std::ratio<1>>;
 
-template <typename T> using Ab_ = Si::Internal::Unit<T, 0, -1>;
-template <typename T> using aB_ = Si::Internal::Unit<T, -1, 0>;
-template <typename T> using AB_ = Si::Internal::Unit<T, -1, -1>;
+template <typename T>
+using Ab_ = Si::Internal::Unit<T, std::ratio<0>, std::ratio<-1>>;
+template <typename T>
+using aB_ = Si::Internal::Unit<T, std::ratio<-1>, std::ratio<0>>;
+template <typename T>
+using AB_ = Si::Internal::Unit<T, std::ratio<-1>, std::ratio<-1>>;
 
 int main() {
   if (typeid(ab<float>).hash_code() != typeid(ab<float>).hash_code())

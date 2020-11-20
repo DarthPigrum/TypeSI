@@ -1,9 +1,6 @@
 #pragma once
-/**
- *  @file   si_derived.hpp
- *  @brief  Derived SI units
- *  @author Mike Zhukov
- ***********************************************/
+/// @file   si_derived.hpp
+/// @brief  Derived SI units
 #include "si_base.hpp"
 #include <utility>
 namespace Si {
