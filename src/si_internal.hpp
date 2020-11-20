@@ -4,6 +4,7 @@
  *  @brief  Core logic of units
  *  @author Mike Zhukov
  ***********************************************/
+#include <ratio>
 #include <utility>
 namespace Si {
 /// @brief Technical namespace for core library logic
@@ -20,7 +21,7 @@ template <typename T, int... Powers> using Unit = T;
 /// @tparam T Any number type such as float, double or long double used as a
 /// container
 /// @tparam Powers Integers representing powers of base units in SI
-template <typename T, int... Powers> class Unit {
+template <typename T, typename... Powers> class Unit {
   T _value;
 
 public:
@@ -137,22 +138,22 @@ public:
     return *this;
   }
   /// @brief Operator '*' for any unit
-  template <typename AnotherT, int... OtherPowers>
+  template <typename AnotherT, typename... OtherPowers>
   Unit<decltype(std::declval<T>() * std::declval<AnotherT>()),
-       (Powers + OtherPowers)...>
+       std::ratio_add<Powers, OtherPowers>...>
   operator*(const Unit<AnotherT, OtherPowers...> &unit) const {
     return Unit<decltype(std::declval<T>() * std::declval<AnotherT>()),
-                (Powers + OtherPowers)...>(_value *
-                                           static_cast<AnotherT>(unit));
+                std::ratio_add<Powers, OtherPowers>...>(
+        _value * static_cast<AnotherT>(unit));
   }
   /// @brief Operator '/' for any unit
-  template <typename AnotherT, int... OtherPowers>
+  template <typename AnotherT, typename... OtherPowers>
   Unit<decltype(std::declval<T>() / std::declval<AnotherT>()),
-       (Powers - OtherPowers)...>
+       std::ratio_subtract<Powers, OtherPowers>...>
   operator/(const Unit<AnotherT, OtherPowers...> &unit) const {
     return Unit<decltype(std::declval<T>() / std::declval<AnotherT>()),
-                (Powers - OtherPowers)...>(_value /
-                                           static_cast<AnotherT>(unit));
+                std::ratio_subtract<Powers, OtherPowers>...>(
+        _value / static_cast<AnotherT>(unit));
   }
 };
 #endif
@@ -160,6 +161,9 @@ public:
 /// 0
 /// @tparam T Any number type such as float, double or long double used as a
 /// container
-template <typename T> using Dimensionless = Unit<T, 0, 0, 0, 0, 0, 0, 0>;
+template <typename T>
+using Dimensionless =
+    Unit<T, std::ratio<0>, std::ratio<0>, std::ratio<0>, std::ratio<0>,
+         std::ratio<0>, std::ratio<0>, std::ratio<0>>;
 } // namespace Internal
 } // namespace Si
