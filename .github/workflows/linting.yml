@@ -14,7 +14,7 @@ jobs:
         source: 'src test'
         extensions: 'hpp,cpp'
         clangFormatVersion: 11
-        style: llvm
+        style: file
         inplace: True
     - uses: EndBug/add-and-commit@v4
       with:
