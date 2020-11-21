@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.20"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>TypeSI: src Directory Reference</title>
+<title>TypeSI: si_math.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -66,30 +66,44 @@ $(function() {
 </div>
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">src Directory Reference</div>  </div>
+<div class="title">si_math.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Mathematical operations with Si units.  
+<a href="#details">More...</a></p>
+
+<p><a href="si__math_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="files"></a>
-Files</h2></td></tr>
-<tr class="memitem:si_8hpp"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="si_8hpp.html">si.hpp</a> <a href="si_8hpp_source.html">[code]</a></td></tr>
-<tr class="memdesc:si_8hpp"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main header. <br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_si_1_1_internal_1_1std__pow.html">Si::Internal::std_pow&lt; T &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:si__base_8hpp"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="si__base_8hpp.html">si_base.hpp</a> <a href="si__base_8hpp_source.html">[code]</a></td></tr>
-<tr class="memdesc:si__base_8hpp"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base SI units. <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:namespace_si_1_1_internal"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_si_1_1_internal.html">Si::Internal</a></td></tr>
+<tr class="memdesc:namespace_si_1_1_internal"><td class="mdescLeft">&#160;</td><td class="mdescRight">Technical namespace for core library logic. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:si__derived_8hpp"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="si__derived_8hpp.html">si_derived.hpp</a> <a href="si__derived_8hpp_source.html">[code]</a></td></tr>
-<tr class="memdesc:si__derived_8hpp"><td class="mdescLeft">&#160;</td><td class="mdescRight">Derived SI units. <br /></td></tr>
+<tr class="memitem:namespace_si_1_1_math"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_si_1_1_math.html">Si::Math</a></td></tr>
+<tr class="memdesc:namespace_si_1_1_math"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mathematical operations with Si units. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:si__internal_8hpp"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="si__internal_8hpp.html">si_internal.hpp</a> <a href="si__internal_8hpp_source.html">[code]</a></td></tr>
-<tr class="memdesc:si__internal_8hpp"><td class="mdescLeft">&#160;</td><td class="mdescRight">Core logic of units. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:si__math_8hpp"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="si__math_8hpp.html">si_math.hpp</a> <a href="si__math_8hpp_source.html">[code]</a></td></tr>
-<tr class="memdesc:si__math_8hpp"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mathematical operations with Si units. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a9c1b2c340a14497f53dbefa8e1f20a01"><td class="memTemplParams" colspan="2">template&lt;typename Power , typename T , typename Function  = Internal::std_pow&lt;T&gt;, typename... Powers&gt; </td></tr>
+<tr class="memitem:a9c1b2c340a14497f53dbefa8e1f20a01"><td class="memTemplItemLeft" align="right" valign="top">Internal::Unit&lt; T, std::ratio_multiply&lt; Power, Powers &gt;... &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_si_1_1_math.html#a9c1b2c340a14497f53dbefa8e1f20a01">Si::Math::pow</a> (const Internal::Unit&lt; T, Powers... &gt; &amp;base)</td></tr>
+<tr class="memdesc:a9c1b2c340a14497f53dbefa8e1f20a01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function for exponentiation with Unit as base.  <a href="namespace_si_1_1_math.html#a9c1b2c340a14497f53dbefa8e1f20a01">More...</a><br /></td></tr>
+<tr class="separator:a9c1b2c340a14497f53dbefa8e1f20a01"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Mathematical operations with Si units. </p>
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20

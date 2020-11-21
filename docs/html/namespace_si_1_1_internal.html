@@ -79,26 +79,28 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_si_1_1_internal_1_1std__pow.html">std_pow</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_si_1_1_internal_1_1_unit.html">Unit</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generic unit type.  <a href="class_si_1_1_internal_1_1_unit.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:a7c447e46c59494a9006a6343416b2271"><td class="memTemplParams" colspan="2">template&lt;typename T , int... Powers&gt; </td></tr>
+<tr class="memitem:a7c447e46c59494a9006a6343416b2271"><td class="memTemplParams" colspan="2">template&lt;typename T , typename... Powers&gt; </td></tr>
 <tr class="memitem:a7c447e46c59494a9006a6343416b2271"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_si_1_1_internal.html#a7c447e46c59494a9006a6343416b2271">Unit</a> = T</td></tr>
 <tr class="memdesc:a7c447e46c59494a9006a6343416b2271"><td class="mdescLeft">&#160;</td><td class="mdescRight">If TYPE_SI_DISABLE_CHECKS flag is set all units are defined as their container type.  <a href="namespace_si_1_1_internal.html#a7c447e46c59494a9006a6343416b2271">More...</a><br /></td></tr>
 <tr class="separator:a7c447e46c59494a9006a6343416b2271"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a80f403c5722a919d85a5b6aeb25b3caf"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a80f403c5722a919d85a5b6aeb25b3caf"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_si_1_1_internal.html#a80f403c5722a919d85a5b6aeb25b3caf">Dimensionless</a> = <a class="el" href="class_si_1_1_internal_1_1_unit.html">Unit</a>&lt; T, 0, 0, 0, 0, 0, 0, 0 &gt;</td></tr>
-<tr class="memdesc:a80f403c5722a919d85a5b6aeb25b3caf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dimensionless unit for technical purposes with 7 power values set at 0.  <a href="namespace_si_1_1_internal.html#a80f403c5722a919d85a5b6aeb25b3caf">More...</a><br /></td></tr>
-<tr class="separator:a80f403c5722a919d85a5b6aeb25b3caf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abaa7a9558f3a234fc47fd5f17d2ca35b"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:abaa7a9558f3a234fc47fd5f17d2ca35b"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_si_1_1_internal.html#abaa7a9558f3a234fc47fd5f17d2ca35b">Dimensionless</a> = <a class="el" href="class_si_1_1_internal_1_1_unit.html">Unit</a>&lt; T, std::ratio&lt; 0 &gt;, std::ratio&lt; 0 &gt;, std::ratio&lt; 0 &gt;, std::ratio&lt; 0 &gt;, std::ratio&lt; 0 &gt;, std::ratio&lt; 0 &gt;, std::ratio&lt; 0 &gt; &gt;</td></tr>
+<tr class="memdesc:abaa7a9558f3a234fc47fd5f17d2ca35b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dimensionless unit for technical purposes with 7 power values set at 0.  <a href="namespace_si_1_1_internal.html#abaa7a9558f3a234fc47fd5f17d2ca35b">More...</a><br /></td></tr>
+<tr class="separator:abaa7a9558f3a234fc47fd5f17d2ca35b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Technical namespace for core library logic. </p>
 </div><h2 class="groupheader">Typedef Documentation</h2>
-<a id="a80f403c5722a919d85a5b6aeb25b3caf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a80f403c5722a919d85a5b6aeb25b3caf">&#9670;&nbsp;</a></span>Dimensionless</h2>
+<a id="abaa7a9558f3a234fc47fd5f17d2ca35b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abaa7a9558f3a234fc47fd5f17d2ca35b">&#9670;&nbsp;</a></span>Dimensionless</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -106,7 +108,7 @@ Typedefs</h2></td></tr>
 template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="namespace_si_1_1_internal.html#a80f403c5722a919d85a5b6aeb25b3caf">Si::Internal::Dimensionless</a> = typedef <a class="el" href="class_si_1_1_internal_1_1_unit.html">Unit</a>&lt;T, 0, 0, 0, 0, 0, 0, 0&gt;</td>
+          <td class="memname">using <a class="el" href="namespace_si_1_1_internal.html#abaa7a9558f3a234fc47fd5f17d2ca35b">Si::Internal::Dimensionless</a> = typedef <a class="el" href="class_si_1_1_internal_1_1_unit.html">Unit</a>&lt;T, std::ratio&lt;0&gt;, std::ratio&lt;0&gt;, std::ratio&lt;0&gt;, std::ratio&lt;0&gt;, std::ratio&lt;0&gt;, std::ratio&lt;0&gt;, std::ratio&lt;0&gt; &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -127,7 +129,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , int... Powers&gt; </div>
+template&lt;typename T , typename... Powers&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">using <a class="el" href="class_si_1_1_internal_1_1_unit.html">Si::Internal::Unit</a> = typedef T</td>

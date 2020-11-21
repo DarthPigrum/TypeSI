@@ -181,26 +181,26 @@ template&lt;typename AnotherT &gt; </td></tr>
 <a class="el" href="class_si_1_1_internal_1_1_unit.html">Unit</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_si_1_1_internal_1_1_unit.html#a79e83f79ce7e45724cd5986822e53fb6">operator/=</a> (const T &amp;value)</td></tr>
 <tr class="memdesc:a79e83f79ce7e45724cd5986822e53fb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operator '/=' for dimensionless operand of container type. <br /></td></tr>
 <tr class="separator:a79e83f79ce7e45724cd5986822e53fb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a33f3afb37a89447f193a351b8f44496b"><td class="memTemplParams" colspan="2"><a id="a33f3afb37a89447f193a351b8f44496b"></a>
-template&lt;typename AnotherT , int... OtherPowers&gt; </td></tr>
-<tr class="memitem:a33f3afb37a89447f193a351b8f44496b"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_si_1_1_internal_1_1_unit.html">Unit</a>&lt; decltype(std::declval&lt; T &gt;) *std::declval&lt; AnotherT &gt;)),(Powers+OtherPowers)... &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_si_1_1_internal_1_1_unit.html#a33f3afb37a89447f193a351b8f44496b">operator*</a> (const <a class="el" href="class_si_1_1_internal_1_1_unit.html">Unit</a>&lt; AnotherT, OtherPowers... &gt; &amp;unit) const</td></tr>
-<tr class="memdesc:a33f3afb37a89447f193a351b8f44496b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operator '*' for any unit. <br /></td></tr>
-<tr class="separator:a33f3afb37a89447f193a351b8f44496b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a417efc529070be95c3ff6a2ed55203c5"><td class="memTemplParams" colspan="2"><a id="a417efc529070be95c3ff6a2ed55203c5"></a>
-template&lt;typename AnotherT , int... OtherPowers&gt; </td></tr>
-<tr class="memitem:a417efc529070be95c3ff6a2ed55203c5"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_si_1_1_internal_1_1_unit.html">Unit</a>&lt; decltype(std::declval&lt; T &gt;)/std::declval&lt; AnotherT &gt;)),(Powers - OtherPowers)... &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_si_1_1_internal_1_1_unit.html#a417efc529070be95c3ff6a2ed55203c5">operator/</a> (const <a class="el" href="class_si_1_1_internal_1_1_unit.html">Unit</a>&lt; AnotherT, OtherPowers... &gt; &amp;unit) const</td></tr>
-<tr class="memdesc:a417efc529070be95c3ff6a2ed55203c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operator '/' for any unit. <br /></td></tr>
-<tr class="separator:a417efc529070be95c3ff6a2ed55203c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba3f01b8954efc351399d2f6533b0650"><td class="memTemplParams" colspan="2"><a id="aba3f01b8954efc351399d2f6533b0650"></a>
+template&lt;typename AnotherT , typename... OtherPowers&gt; </td></tr>
+<tr class="memitem:aba3f01b8954efc351399d2f6533b0650"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_si_1_1_internal_1_1_unit.html">Unit</a>&lt; decltype(std::declval&lt; T &gt;) *std::declval&lt; AnotherT &gt;)), std::ratio_add&lt; Powers, OtherPowers &gt;... &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_si_1_1_internal_1_1_unit.html#aba3f01b8954efc351399d2f6533b0650">operator*</a> (const <a class="el" href="class_si_1_1_internal_1_1_unit.html">Unit</a>&lt; AnotherT, OtherPowers... &gt; &amp;unit) const</td></tr>
+<tr class="memdesc:aba3f01b8954efc351399d2f6533b0650"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operator '*' for any unit. <br /></td></tr>
+<tr class="separator:aba3f01b8954efc351399d2f6533b0650"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88e63b9f8a4e6b85154ade8820ae49c6"><td class="memTemplParams" colspan="2"><a id="a88e63b9f8a4e6b85154ade8820ae49c6"></a>
+template&lt;typename AnotherT , typename... OtherPowers&gt; </td></tr>
+<tr class="memitem:a88e63b9f8a4e6b85154ade8820ae49c6"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_si_1_1_internal_1_1_unit.html">Unit</a>&lt; decltype(std::declval&lt; T &gt;)/std::declval&lt; AnotherT &gt;)), std::ratio_subtract&lt; Powers, OtherPowers &gt;... &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_si_1_1_internal_1_1_unit.html#a88e63b9f8a4e6b85154ade8820ae49c6">operator/</a> (const <a class="el" href="class_si_1_1_internal_1_1_unit.html">Unit</a>&lt; AnotherT, OtherPowers... &gt; &amp;unit) const</td></tr>
+<tr class="memdesc:a88e63b9f8a4e6b85154ade8820ae49c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operator '/' for any unit. <br /></td></tr>
+<tr class="separator:a88e63b9f8a4e6b85154ade8820ae49c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;typename T, int... Powers&gt;<br />
+<div class="textblock"><h3>template&lt;typename T, typename... Powers&gt;<br />
 class Si::Internal::Unit&lt; T, Powers &gt;</h3>
 
 <p>Generic unit type. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T</td><td>Any number type such as float, double or long double used as a container </td></tr>
-    <tr><td class="paramname">Powers</td><td>Integers representing powers of base units in SI </td></tr>
+    <tr><td class="paramname">Powers</td><td>Sequence of std::ratio representing powers of base units in SI </td></tr>
   </table>
   </dd>
 </dl>

@@ -1,0 +1,40 @@
+\hypertarget{namespace_si_1_1_math}{}\doxysection{Si\+::Math Namespace Reference}
+\label{namespace_si_1_1_math}\index{Si::Math@{Si::Math}}
+
+
+Mathematical operations with Si units.  
+
+
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Power , typename T , typename Function  = Internal\+::std\+\_\+pow$<$\+T$>$, typename... Powers$>$ }\\\mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Internal\+::\+Unit}}$<$ T, std\+::ratio\+\_\+multiply$<$ Power, Powers $>$... $>$ \mbox{\hyperlink{namespace_si_1_1_math_a9c1b2c340a14497f53dbefa8e1f20a01}{pow}} (const \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Internal\+::\+Unit}}$<$ T, Powers... $>$ \&base)
+\begin{DoxyCompactList}\small\item\em Function for exponentiation with Unit as base. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Mathematical operations with Si units. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespace_si_1_1_math_a9c1b2c340a14497f53dbefa8e1f20a01}\label{namespace_si_1_1_math_a9c1b2c340a14497f53dbefa8e1f20a01}} 
+\index{Si::Math@{Si::Math}!pow@{pow}}
+\index{pow@{pow}!Si::Math@{Si::Math}}
+\doxysubsubsection{\texorpdfstring{pow()}{pow()}}
+{\footnotesize\ttfamily template$<$typename Power , typename T , typename Function  = Internal\+::std\+\_\+pow$<$\+T$>$, typename... Powers$>$ \\
+\mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Internal\+::\+Unit}}$<$T, std\+::ratio\+\_\+multiply$<$Power, Powers$>$...$>$ Si\+::\+Math\+::pow (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Internal\+::\+Unit}}$<$ T, Powers... $>$ \&}]{base }\end{DoxyParamCaption})}
+
+
+
+Function for exponentiation with Unit as base. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Power} & std\+::ratio representing power \\
+\hline
+{\em T} & (optional) Container type for Unit \\
+\hline
+{\em Function} & (optional) Class with operator() defined as pow function for container type \\
+\hline
+{\em Powers} & (optional) Sequence of std\+::ratio from Unit argument(supposed to always be filled by the compiler) \\
+\hline
+\end{DoxyTemplParams}

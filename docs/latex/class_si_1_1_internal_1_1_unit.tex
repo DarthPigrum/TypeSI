@@ -78,16 +78,16 @@ T \mbox{\hyperlink{class_si_1_1_internal_1_1_unit_a495d951eb7dc1abf235d5f462b3f9
 \mbox{\Hypertarget{class_si_1_1_internal_1_1_unit_a79e83f79ce7e45724cd5986822e53fb6}\label{class_si_1_1_internal_1_1_unit_a79e83f79ce7e45724cd5986822e53fb6}} 
 \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit}} \& \mbox{\hyperlink{class_si_1_1_internal_1_1_unit_a79e83f79ce7e45724cd5986822e53fb6}{operator/=}} (const T \&value)
 \begin{DoxyCompactList}\small\item\em Operator \textquotesingle{}/=\textquotesingle{} for dimensionless operand of container type. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_si_1_1_internal_1_1_unit_a33f3afb37a89447f193a351b8f44496b}\label{class_si_1_1_internal_1_1_unit_a33f3afb37a89447f193a351b8f44496b}} 
-{\footnotesize template$<$typename AnotherT , int... Other\+Powers$>$ }\\\mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit}}$<$ decltype(std\+::declval$<$ T $>$) $\ast$std\+::declval$<$ AnotherT $>$)),(Powers+Other\+Powers)... $>$ \mbox{\hyperlink{class_si_1_1_internal_1_1_unit_a33f3afb37a89447f193a351b8f44496b}{operator$\ast$}} (const \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit}}$<$ AnotherT, Other\+Powers... $>$ \&unit) const
+\mbox{\Hypertarget{class_si_1_1_internal_1_1_unit_aba3f01b8954efc351399d2f6533b0650}\label{class_si_1_1_internal_1_1_unit_aba3f01b8954efc351399d2f6533b0650}} 
+{\footnotesize template$<$typename AnotherT , typename... Other\+Powers$>$ }\\\mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit}}$<$ decltype(std\+::declval$<$ T $>$) $\ast$std\+::declval$<$ AnotherT $>$)), std\+::ratio\+\_\+add$<$ Powers, Other\+Powers $>$... $>$ \mbox{\hyperlink{class_si_1_1_internal_1_1_unit_aba3f01b8954efc351399d2f6533b0650}{operator$\ast$}} (const \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit}}$<$ AnotherT, Other\+Powers... $>$ \&unit) const
 \begin{DoxyCompactList}\small\item\em Operator \textquotesingle{}$\ast$\textquotesingle{} for any unit. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_si_1_1_internal_1_1_unit_a417efc529070be95c3ff6a2ed55203c5}\label{class_si_1_1_internal_1_1_unit_a417efc529070be95c3ff6a2ed55203c5}} 
-{\footnotesize template$<$typename AnotherT , int... Other\+Powers$>$ }\\\mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit}}$<$ decltype(std\+::declval$<$ T $>$)/std\+::declval$<$ AnotherT $>$)),(Powers -\/ Other\+Powers)... $>$ \mbox{\hyperlink{class_si_1_1_internal_1_1_unit_a417efc529070be95c3ff6a2ed55203c5}{operator/}} (const \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit}}$<$ AnotherT, Other\+Powers... $>$ \&unit) const
+\mbox{\Hypertarget{class_si_1_1_internal_1_1_unit_a88e63b9f8a4e6b85154ade8820ae49c6}\label{class_si_1_1_internal_1_1_unit_a88e63b9f8a4e6b85154ade8820ae49c6}} 
+{\footnotesize template$<$typename AnotherT , typename... Other\+Powers$>$ }\\\mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit}}$<$ decltype(std\+::declval$<$ T $>$)/std\+::declval$<$ AnotherT $>$)), std\+::ratio\+\_\+subtract$<$ Powers, Other\+Powers $>$... $>$ \mbox{\hyperlink{class_si_1_1_internal_1_1_unit_a88e63b9f8a4e6b85154ade8820ae49c6}{operator/}} (const \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit}}$<$ AnotherT, Other\+Powers... $>$ \&unit) const
 \begin{DoxyCompactList}\small\item\em Operator \textquotesingle{}/\textquotesingle{} for any unit. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-\subsubsection*{template$<$typename T, int... Powers$>$\newline
+\subsubsection*{template$<$typename T, typename... Powers$>$\newline
 class Si\+::\+Internal\+::\+Unit$<$ T, Powers $>$}
 
 Generic unit type. 
@@ -96,7 +96,7 @@ Generic unit type.
 \begin{DoxyTemplParams}{Template Parameters}
 {\em T} & Any number type such as float, double or long double used as a container \\
 \hline
-{\em Powers} & Integers representing powers of base units in SI \\
+{\em Powers} & Sequence of std\+::ratio representing powers of base units in SI \\
 \hline
 \end{DoxyTemplParams}
 
