@@ -3,12 +3,12 @@
 #include <stdexcept>
 
 template<typename T> using u0 = Si::Internal::Unit<T, std::ratio<1>, std::ratio<0>>;
-template<typename T> using mu0 = Si::Prefix<std::milli, u0, T>;
-template<typename T> using ku0 = Si::Prefix<std::kilo, u0, T>;
+template<typename T> using mu0 = Si::Prefix<std::milli, u0<T>>;
+template<typename T> using ku0 = Si::Prefix<std::kilo, u0<T>>;
 
 template<typename T> using u1 = Si::Internal::Unit<T, std::ratio<0>, std::ratio<1>>;
-template<typename T> using mu1 = Si::Prefix<std::milli, u1, T>;
-template<typename T> using ku1 = Si::Prefix<std::kilo, u1, T>;
+template<typename T> using mu1 = Si::Prefix<std::milli, u1<T>>;
+template<typename T> using ku1 = Si::Prefix<std::kilo, u1<T>>;
 
 int main() {
     if(!(mu0<int>(1) == mu0<int>(1)))
