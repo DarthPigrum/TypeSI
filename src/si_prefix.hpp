@@ -12,15 +12,19 @@ namespace Si {
 /// container
 template <typename Ratio, typename Unit> class Prefix {
   using T = decltype(+std::declval<Unit>());
+  Unit _unit;
 
 public:
-  Unit _unit;
+  /// @brief Getter for raw Unit reference without prefix applied
+  const Unit &raw() const { return _unit; }
   /// @brief Explicit constructor from container type
-  explicit Prefix(const T &value) : _unit(value){};
+  explicit Prefix(const T &value) : _unit(value) {}
   /// @brief Implicit constructor from same units with different container type
-  template <typename AnotherUnit>
+  template <typename AnotherUnit,
+            typename std::enable_if<
+                std::is_convertible<AnotherUnit, Unit>::value, int>::type = 0>
   Prefix(const Prefix<Ratio, AnotherUnit> &unit)
-      : _unit(Internal::convertImplicitly<Unit>(unit._unit)){};
+      : _unit(Internal::convertImplicitly<Unit>(unit.raw())) {}
   /// @brief Constructor from Unit type(implicit by default, can be made
   /// explicit by TYPE_SI_DISALLOW_IMPLICIT_PREFIX_CONVERSIONS macro)
   template <typename AnotherUnit,
@@ -33,7 +37,8 @@ public:
 #endif
       Prefix(const AnotherUnit &unit)
       : _unit(Internal::convertImplicitly<Unit>(unit) *
-              static_cast<T>(Ratio::den) / static_cast<T>(Ratio::num)){};
+              static_cast<T>(Ratio::den) / static_cast<T>(Ratio::num)) {
+  }
   /// @brief Explicit constructor from unit with different prefix(implicit by
   /// default, can be made explicit by
   /// TYPE_SI_DISALLOW_IMPLICIT_PREFIX_CONVERSIONS macro)
@@ -42,9 +47,10 @@ public:
   explicit
 #endif
       Prefix(const Prefix<AnotherRatio, AnotherUnit> &unit)
-      : _unit(Internal::convertImplicitly<AnotherUnit>(unit._unit) *
+      : _unit(Internal::convertImplicitly<AnotherUnit>(unit.raw()) *
               static_cast<T>(std::ratio_divide<AnotherRatio, Ratio>::num) /
-              static_cast<T>(std::ratio_divide<AnotherRatio, Ratio>::den)){};
+              static_cast<T>(std::ratio_divide<AnotherRatio, Ratio>::den)) {
+  }
   /// @brief Conversion to container type via unary '+'
   T operator+() const { return +_unit; }
   /// @brief Operator '=='
@@ -82,6 +88,60 @@ public:
   decltype(std::declval<Unit>() >= std::declval<Unit>())
   operator>=(const U &unit) const {
     return _unit >= Si::Internal::convertImplicitly<Prefix>(unit)._unit;
+  }
+  /// @brief Operator '+'
+  template <typename U> Prefix operator+(const U &unit) const {
+    return Prefix<Ratio, Unit>(
+        +(_unit + Si::Internal::convertImplicitly<Prefix>(unit)._unit));
+  }
+  /// @brief Operator '+='
+  template <typename U> Prefix operator+=(const U &unit) {
+    _unit += Si::Internal::convertImplicitly<Prefix>(unit)._unit;
+    return *this;
+  }
+  /// @brief Operator '-'
+  template <typename U> Prefix operator-(const U &unit) const {
+    return Prefix<Ratio, Unit>(
+        +(_unit - Si::Internal::convertImplicitly<Prefix>(unit)._unit));
+  }
+  /// @brief Operator '-='
+  template <typename U> Prefix operator-=(const U &unit) {
+    _unit -= Si::Internal::convertImplicitly<Prefix>(unit)._unit;
+    return *this;
+  }
+  /// @brief Operator '*' for units with prefix
+  template <typename AnotherRatio, typename AnotherUnit>
+  Prefix<std::ratio_multiply<Ratio, AnotherRatio>,
+         decltype(std::declval<Unit>() * std::declval<AnotherUnit>())>
+  operator*(const Prefix<AnotherRatio, AnotherUnit> &unit) const {
+    return Prefix<std::ratio_multiply<Ratio, AnotherRatio>,
+                  decltype(std::declval<Unit>() * std::declval<AnotherUnit>())>(
+        +(_unit * unit.raw()));
+  }
+  /// @brief Operator '*' for units without prefix
+  template <typename AnotherUnit>
+  Prefix<Ratio, decltype(std::declval<Unit>() * std::declval<AnotherUnit>())>
+  operator*(const AnotherUnit &unit) const {
+    return Prefix<Ratio,
+                  decltype(std::declval<Unit>() * std::declval<AnotherUnit>())>(
+        +(_unit * unit));
+  }
+  /// @brief Operator '/' for units with prefix
+  template <typename AnotherRatio, typename AnotherUnit>
+  Prefix<std::ratio_divide<Ratio, AnotherRatio>,
+         decltype(std::declval<Unit>() / std::declval<AnotherUnit>())>
+  operator/(const Prefix<AnotherRatio, AnotherUnit> &unit) const {
+    return Prefix<std::ratio_divide<Ratio, AnotherRatio>,
+                  decltype(std::declval<Unit>() / std::declval<AnotherUnit>())>(
+        +(_unit / unit.raw()));
+  }
+  /// @brief Operator '/' for units without prefix
+  template <typename AnotherUnit>
+  Prefix<Ratio, decltype(std::declval<Unit>() * std::declval<AnotherUnit>())>
+  operator/(const AnotherUnit &unit) const {
+    return Prefix<Ratio,
+                  decltype(std::declval<Unit>() * std::declval<AnotherUnit>())>(
+        +(_unit / unit));
   }
 };
 } // namespace Si
