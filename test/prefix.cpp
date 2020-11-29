@@ -80,8 +80,12 @@ int main() {
         throw std::logic_error("Operator '*' failed with both operands prefixed units");
     if(mu1<int>(100) * u2<long>(1) != mu1<long long>(100))
         throw std::logic_error("Operator '*' failed with non-prefixed operand");
+    if((mu1<int>(10) *= 10) != mu1<long long>(100))
+        throw std::logic_error("Operator '*=' failed");
     if(ku1<int>(10) / ku1<long>(1) != u0<long long>(10))
         throw std::logic_error("Operator '/' failed with both operands prefixed units");
     if(mu2<int>(100) / u2<long>(1) != mu1<long long>(100))
         throw std::logic_error("Operator '/' failed with non-prefixed operand");
+    if((mu2<int>(100) /= 10) != mu2<long long>(10))
+        throw std::logic_error("Operator '/=' failed");
 }

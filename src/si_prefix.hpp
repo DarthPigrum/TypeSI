@@ -126,6 +126,11 @@ public:
                   decltype(std::declval<Unit>() * std::declval<AnotherUnit>())>(
         +(_unit * unit));
   }
+  /// @brief Operator '*=' for container type
+  Prefix operator*=(const T &value) {
+    _unit *= value;
+    return *this;
+  }
   /// @brief Operator '/' for units with prefix
   template <typename AnotherRatio, typename AnotherUnit>
   Prefix<std::ratio_divide<Ratio, AnotherRatio>,
@@ -142,6 +147,11 @@ public:
     return Prefix<Ratio,
                   decltype(std::declval<Unit>() * std::declval<AnotherUnit>())>(
         +(_unit / unit));
+  }
+  /// @brief Operator '/=' for container type
+  Prefix operator/=(const T &value) {
+    _unit /= value;
+    return *this;
   }
 };
 } // namespace Si
