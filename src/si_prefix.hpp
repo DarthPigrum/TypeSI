@@ -5,11 +5,10 @@
 #include <ratio>
 #include <utility>
 namespace Si {
+namespace Internal {
 /// @brief Generic type of unit with prefix
 /// @tparam Ratio std::ratio representing prefix
 /// @tparam Unit Templated class of SI unit
-/// @tparam T Any number type such as float, double or long double used as a
-/// container
 template <typename Ratio, typename Unit> class Prefix {
   using T = decltype(+std::declval<Unit>());
   Unit _unit;
@@ -155,4 +154,10 @@ public:
     return *this;
   }
 };
+} // namespace Internal
+/// @brief Public interface to apply prefix to unit
+/// @tparam Ratio std::ratio representing prefix
+/// @tparam Unit Templated class of SI unit
+template <typename Ratio, typename Unit>
+using Prefix = Internal::Prefix<Ratio, Unit>;
 } // namespace Si

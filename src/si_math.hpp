@@ -40,20 +40,21 @@ template <
     typename Power, typename Unit,
     typename Function = Internal::std_pow<decltype(+std::declval<Unit>())>,
     typename PrefixRatio>
-Prefix<typename std::ratio<
-           static_cast<std::intmax_t>(std::pow(PrefixRatio::num, Power::num)),
-           static_cast<std::intmax_t>(std::pow(PrefixRatio::den,
-                                               Power::num))>::type,
-       decltype(pow<Power>(std::declval<Unit>()))>
-pow(const Prefix<PrefixRatio, Unit> &base) {
+Internal::Prefix<typename std::ratio<static_cast<std::intmax_t>(std::pow(
+                                         PrefixRatio::num, Power::num)),
+                                     static_cast<std::intmax_t>(std::pow(
+                                         PrefixRatio::den, Power::num))>::type,
+                 decltype(pow<Power>(std::declval<Unit>()))>
+pow(const Internal::Prefix<PrefixRatio, Unit> &base) {
   static_assert(
       Power::den == 1,
       "std::ratio for power in case of unit with prefix has to be integer");
-  return Prefix<typename std::ratio<static_cast<std::intmax_t>(
-                                        std::pow(PrefixRatio::num, Power::num)),
-                                    static_cast<std::intmax_t>(std::pow(
-                                        PrefixRatio::den, Power::num))>::type,
-                decltype(pow<Power>(std::declval<Unit>()))>(
+  return Internal::Prefix<
+      typename std::ratio<static_cast<std::intmax_t>(
+                              std::pow(PrefixRatio::num, Power::num)),
+                          static_cast<std::intmax_t>(
+                              std::pow(PrefixRatio::den, Power::num))>::type,
+      decltype(pow<Power>(std::declval<Unit>()))>(
       +pow<Power, decltype(+std::declval<Unit>()), Function>(base.raw()));
 }
 } // namespace Math
