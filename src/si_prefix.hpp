@@ -29,8 +29,9 @@ public:
   /// explicit by TYPE_SI_DISALLOW_IMPLICIT_PREFIX_CONVERSIONS macro)
   template <typename AnotherUnit,
             typename std::enable_if<
-                !std::is_same<AnotherUnit,
-                              decltype(+std::declval<AnotherUnit>())>::value,
+                std::is_same<T, Unit>::value ||
+                    !std::is_same<AnotherUnit, decltype(+std::declval<
+                                                        AnotherUnit>())>::value,
                 int>::type = 0>
 #ifdef TYPE_SI_DISALLOW_IMPLICIT_PREFIX_CONVERSIONS
   explicit
