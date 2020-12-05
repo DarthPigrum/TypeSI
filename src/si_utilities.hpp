@@ -4,6 +4,6 @@
 /// logic
 namespace Si {
 namespace Internal {
-template <typename T> const T &convertImplicitly(const T &t) { return t; }
+template <typename T> const T &implicit_cast(const T &t) { return t; }
 } // namespace Internal
 } // namespace Si

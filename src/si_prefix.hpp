@@ -23,7 +23,7 @@ public:
             typename std::enable_if<
                 std::is_convertible<AnotherUnit, Unit>::value, int>::type = 0>
   Prefix(const Prefix<Ratio, AnotherUnit> &unit)
-      : _unit(Internal::convertImplicitly<Unit>(unit.raw())) {}
+      : _unit(Internal::implicit_cast<Unit>(unit.raw())) {}
   /// @brief Constructor from Unit type(implicit by default, can be made
   /// explicit by TYPE_SI_DISALLOW_IMPLICIT_PREFIX_CONVERSIONS macro)
   template <typename AnotherUnit,
@@ -36,8 +36,8 @@ public:
   explicit
 #endif
       Prefix(const AnotherUnit &unit)
-      : _unit(Internal::convertImplicitly<Unit>(unit) *
-              static_cast<T>(Ratio::den) / static_cast<T>(Ratio::num)) {
+      : _unit(Internal::implicit_cast<Unit>(unit) * static_cast<T>(Ratio::den) /
+              static_cast<T>(Ratio::num)) {
   }
   /// @brief Explicit constructor from unit with different prefix(implicit by
   /// default, can be made explicit by
@@ -47,7 +47,7 @@ public:
   explicit
 #endif
       Prefix(const Prefix<AnotherRatio, AnotherUnit> &unit)
-      : _unit(Internal::convertImplicitly<AnotherUnit>(unit.raw()) *
+      : _unit(Internal::implicit_cast<AnotherUnit>(unit.raw()) *
               static_cast<T>(std::ratio_divide<AnotherRatio, Ratio>::num) /
               static_cast<T>(std::ratio_divide<AnotherRatio, Ratio>::den)) {
   }
@@ -57,56 +57,56 @@ public:
   template <typename U>
   decltype(std::declval<Unit>() == std::declval<Unit>())
   operator==(const U &unit) const {
-    return _unit == Si::Internal::convertImplicitly<Prefix>(unit)._unit;
+    return _unit == Si::Internal::implicit_cast<Prefix>(unit)._unit;
   }
   /// @brief Operator '!='
   template <typename U>
   decltype(std::declval<Unit>() != std::declval<Unit>())
   operator!=(const U &unit) const {
-    return _unit != Si::Internal::convertImplicitly<Prefix>(unit)._unit;
+    return _unit != Si::Internal::implicit_cast<Prefix>(unit)._unit;
   }
   /// @brief Operator '<'
   template <typename U>
   decltype(std::declval<Unit>() < std::declval<Unit>())
   operator<(const U &unit) const {
-    return _unit < Si::Internal::convertImplicitly<Prefix>(unit)._unit;
+    return _unit < Si::Internal::implicit_cast<Prefix>(unit)._unit;
   }
   /// @brief Operator '<='
   template <typename U>
   decltype(std::declval<Unit>() <= std::declval<Unit>())
   operator<=(const U &unit) const {
-    return _unit <= Si::Internal::convertImplicitly<Prefix>(unit)._unit;
+    return _unit <= Si::Internal::implicit_cast<Prefix>(unit)._unit;
   }
   /// @brief Operator '>'
   template <typename U>
   decltype(std::declval<Unit>() > std::declval<Unit>())
   operator>(const U &unit) const {
-    return _unit > Si::Internal::convertImplicitly<Prefix>(unit)._unit;
+    return _unit > Si::Internal::implicit_cast<Prefix>(unit)._unit;
   }
   /// @brief Operator '>='
   template <typename U>
   decltype(std::declval<Unit>() >= std::declval<Unit>())
   operator>=(const U &unit) const {
-    return _unit >= Si::Internal::convertImplicitly<Prefix>(unit)._unit;
+    return _unit >= Si::Internal::implicit_cast<Prefix>(unit)._unit;
   }
   /// @brief Operator '+'
   template <typename U> Prefix operator+(const U &unit) const {
     return Prefix<Ratio, Unit>(
-        +(_unit + Si::Internal::convertImplicitly<Prefix>(unit)._unit));
+        +(_unit + Si::Internal::implicit_cast<Prefix>(unit)._unit));
   }
   /// @brief Operator '+='
   template <typename U> Prefix operator+=(const U &unit) {
-    _unit += Si::Internal::convertImplicitly<Prefix>(unit)._unit;
+    _unit += Si::Internal::implicit_cast<Prefix>(unit)._unit;
     return *this;
   }
   /// @brief Operator '-'
   template <typename U> Prefix operator-(const U &unit) const {
     return Prefix<Ratio, Unit>(
-        +(_unit - Si::Internal::convertImplicitly<Prefix>(unit)._unit));
+        +(_unit - Si::Internal::implicit_cast<Prefix>(unit)._unit));
   }
   /// @brief Operator '-='
   template <typename U> Prefix operator-=(const U &unit) {
-    _unit -= Si::Internal::convertImplicitly<Prefix>(unit)._unit;
+    _unit -= Si::Internal::implicit_cast<Prefix>(unit)._unit;
     return *this;
   }
   /// @brief Operator '*' for units with prefix
