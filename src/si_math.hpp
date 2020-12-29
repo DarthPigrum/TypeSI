@@ -34,22 +34,23 @@ pow(const Internal::Unit<T, Powers...> &base) {
 /// @tparam Unit (optional) Unit type of base
 /// @tparam Function (optional) Class with operator() defined as pow function
 /// for container type
-/// @tparam PrefixRatio (optional) std::ratio of Prefix(supposed
+/// @tparam PrefixRatio (optional) std::ratio of GenericPrefix(supposed
 /// to always be filled by the compiler)
 template <
     typename Power, typename Unit,
     typename Function = Internal::std_pow<decltype(+std::declval<Unit>())>,
     typename PrefixRatio>
-Internal::Prefix<typename std::ratio<static_cast<std::intmax_t>(std::pow(
-                                         PrefixRatio::num, Power::num)),
-                                     static_cast<std::intmax_t>(std::pow(
-                                         PrefixRatio::den, Power::num))>::type,
-                 decltype(pow<Power>(std::declval<Unit>()))>
-pow(const Internal::Prefix<PrefixRatio, Unit> &base) {
+Internal::GenericPrefix<
+    typename std::ratio<static_cast<std::intmax_t>(std::pow(PrefixRatio::num,
+                                                            Power::num)),
+                        static_cast<std::intmax_t>(std::pow(PrefixRatio::den,
+                                                            Power::num))>::type,
+    decltype(pow<Power>(std::declval<Unit>()))>
+pow(const Internal::GenericPrefix<PrefixRatio, Unit> &base) {
   static_assert(
       Power::den == 1,
       "std::ratio for power in case of unit with prefix has to be integer");
-  return Internal::Prefix<
+  return Internal::GenericPrefix<
       typename std::ratio<static_cast<std::intmax_t>(
                               std::pow(PrefixRatio::num, Power::num)),
                           static_cast<std::intmax_t>(

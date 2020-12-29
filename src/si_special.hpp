@@ -7,11 +7,13 @@ namespace Si {
 namespace Special {
 /// @brief Template for applying prefix to gram rather than kilogram. Applying
 /// to latter involve some ambiguity because of existing prefix according to
-/// standard. Using this alias may improve readability of such application.
+/// standard.
 /// @tparam Ratio std::ratio representing prefix
 /// @tparam T Container type
-template <typename Ratio, typename T>
-using Gram =
-    Internal::Prefix<std::ratio_multiply<std::milli, Ratio>, Base::Kilogram<T>>;
+template <typename T> struct Gram {
+  template <typename Ratio>
+  using type =
+      Si::Prefix<std::ratio_multiply<std::milli, Ratio>, Base::Kilogram<T>>;
+}; // namespace Special
 } // namespace Special
 } // namespace Si
