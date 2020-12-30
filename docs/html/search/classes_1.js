@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['unit_83',['Unit',['../class_si_1_1_internal_1_1_unit.html',1,'Si::Internal']]]
+  ['std_5fpow_91',['std_pow',['../struct_si_1_1_internal_1_1std__pow.html',1,'Si::Internal']]]
 ];

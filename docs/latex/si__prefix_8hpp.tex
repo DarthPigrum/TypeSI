@@ -1,0 +1,57 @@
+\hypertarget{si__prefix_8hpp}{}\doxysection{si\+\_\+prefix.\+hpp File Reference}
+\label{si__prefix_8hpp}\index{si\_prefix.hpp@{si\_prefix.hpp}}
+
+
+Prefixes for SI units.  
+
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_si_1_1_internal_1_1_generic_prefix}{Si\+::\+Internal\+::\+Generic\+Prefix$<$ Ratio, Unit $>$}}
+\begin{DoxyCompactList}\small\item\em Generic type of unit with prefix. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespace_si_1_1_internal}{Si\+::\+Internal}}
+\begin{DoxyCompactList}\small\item\em Technical namespace for core library logic. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Ratio , typename Unit $>$ }\\using \mbox{\hyperlink{si__prefix_8hpp_a9e71b2f778141723b6f871f7ec435288}{Si\+::\+Prefix}} = decltype(Internal\+::apply\+Prefix$<$ Ratio, Unit $>$())
+\begin{DoxyCompactList}\small\item\em Public interface to apply prefix to unit. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespace_si_1_1_internal_ac7b30b3b81bb7250763fc1a7ce2ccdd1}\label{namespace_si_1_1_internal_ac7b30b3b81bb7250763fc1a7ce2ccdd1}} 
+{\footnotesize template$<$typename Ratio , typename Unit , typename T  = decltype(+std\+::declval$<$\+Unit$>$())$>$ }\\Generic\+Prefix$<$ Ratio, Unit $>$ {\bfseries Si\+::\+Internal\+::apply\+Prefix} ()
+\item 
+\mbox{\Hypertarget{namespace_si_1_1_internal_a6e1434ce5c02a85189c6f7f5eef26e1f}\label{namespace_si_1_1_internal_a6e1434ce5c02a85189c6f7f5eef26e1f}} 
+{\footnotesize template$<$typename Ratio , typename Unit , typename T  = decltype(+std\+::declval$<$typename Unit\+::template type$<$\+Ratio$>$$>$())$>$ }\\Unit\+::template type$<$ Ratio $>$ {\bfseries Si\+::\+Internal\+::apply\+Prefix} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Prefixes for SI units. 
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{si__prefix_8hpp_a9e71b2f778141723b6f871f7ec435288}\label{si__prefix_8hpp_a9e71b2f778141723b6f871f7ec435288}} 
+\index{si\_prefix.hpp@{si\_prefix.hpp}!Prefix@{Prefix}}
+\index{Prefix@{Prefix}!si\_prefix.hpp@{si\_prefix.hpp}}
+\doxysubsubsection{\texorpdfstring{Prefix}{Prefix}}
+{\footnotesize\ttfamily template$<$typename Ratio , typename Unit $>$ \\
+using \mbox{\hyperlink{si__prefix_8hpp_a9e71b2f778141723b6f871f7ec435288}{Si\+::\+Prefix}} = typedef decltype(Internal\+::apply\+Prefix$<$Ratio, Unit$>$())}
+
+
+
+Public interface to apply prefix to unit. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Ratio} & std\+::ratio representing prefix \\
+\hline
+{\em Unit} & Template class of SI unit \\
+\hline
+\end{DoxyTemplParams}
