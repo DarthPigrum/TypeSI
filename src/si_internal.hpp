@@ -155,6 +155,10 @@ public:
   }
 };
 #endif
+template <typename... Elements> struct Tuple {};
+template <typename T, typename... Powers>
+Tuple<Powers...> getPowers(Unit<T, Powers...>) {}
+template <typename U> using Powers = decltype(getPowers(std::declval<U>()));
 /// @brief Dimensionless unit for technical purposes with 7 power values set at
 /// 0
 /// @tparam T Any number type such as float, double or long double used as a
