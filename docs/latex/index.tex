@@ -1,0 +1,75 @@
+\label{index_md_README}%
+\Hypertarget{index_md_README}%
+Header-\/only C++ library that provides type safety for handling physical values defined in the \href{https://en.wikipedia.org/wiki/International_System_of_Units}{\texttt{ International System of Units}} regulated by the \href{https://www.bipm.org/en/about-us/}{\texttt{ International Bureau of Weights and Measures (BIPM)}} and published in the \href{https://www.bipm.org/en/publications/si-brochure/}{\texttt{ SI brochure}}. Example\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{si__base_8hpp}{src/si\_base.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{si__derived_8hpp}{src/si\_derived.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{namespace_si_1_1_derived_ae7b4dbb6802e78764072a8c2b9c67463}{Si::Derived::Watt<double>}} calculatePower(\mbox{\hyperlink{namespace_si_1_1_derived_a78c8d90a8c594c04146d7e1ae7c000f7}{Si::Derived::Joule<double>}} energy,}
+\DoxyCodeLine{                                         \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Si::Base::Second<double>}} time) \{}
+\DoxyCodeLine{  \textcolor{keywordflow}{return} energy / time;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{int} main() \{}
+\DoxyCodeLine{  \textcolor{keyword}{using namespace }\mbox{\hyperlink{namespace_si_1_1_base_1_1_literals}{Si::Base::Literals}};}
+\DoxyCodeLine{  \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Si::Base::Second<double>}} time(1.5);}
+\DoxyCodeLine{  \textcolor{keyword}{auto} speed = 29.4\_m / time;}
+\DoxyCodeLine{  \textcolor{keyword}{auto} acceleration = speed / 2.0\_s;}
+\DoxyCodeLine{  \textcolor{keyword}{auto} power = calculatePower(acceleration * 1.2\_kg * 0.4\_m, 3.2\_s);}
+\DoxyCodeLine{  std::cout << \textcolor{stringliteral}{"{}With g = "{}} << +acceleration << \textcolor{stringliteral}{"{} power equals "{}} << +power}
+\DoxyCodeLine{            << std::endl;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ If any of the explicitly specified types doesn\textquotesingle{}t match with compile-\/time calculated one the program will just fail to compile. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{auto} power = calculatePower(acceleration * 1.2\_kg, 3.2\_s); \textcolor{comment}{// won't compile}}
+
+\end{DoxyCode}
+ You can also add prefixes to units at will. They will be checked and automatically converted on demand. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{si__base_8hpp}{src/si\_base.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{si__derived_8hpp}{src/si\_derived.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{si__prefix_8hpp}{src/si\_prefix.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{\textcolor{keyword}{using} minute = \mbox{\hyperlink{si__prefix_8hpp_a9e71b2f778141723b6f871f7ec435288}{Si::Prefix<std::ratio<60>}}, \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Si::Base::Second<T>}}>;}
+\DoxyCodeLine{\textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{\textcolor{keyword}{using} kWth = \mbox{\hyperlink{si__prefix_8hpp_a9e71b2f778141723b6f871f7ec435288}{Si::Prefix<std::ratio<3600000>}}, \mbox{\hyperlink{namespace_si_1_1_derived_a78c8d90a8c594c04146d7e1ae7c000f7}{Si::Derived::Joule<T>}}>;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{si__prefix_8hpp_a9e71b2f778141723b6f871f7ec435288}{Si::Prefix<std::giga, Si::Derived::Watt<double>}}>}
+\DoxyCodeLine{calculatePower(kWth<double> energy, minute<double> time) \{}
+\DoxyCodeLine{  \textcolor{keywordflow}{return} energy / time;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{int} main() \{}
+\DoxyCodeLine{  \textcolor{keyword}{auto} energy = kWth<double>(100833);}
+\DoxyCodeLine{  \textcolor{keyword}{auto} time = minute<double>(5);}
+\DoxyCodeLine{  std::cout << \textcolor{stringliteral}{"{}If you've spent "{}} << +energy << \textcolor{stringliteral}{"{} kilowatt*hours in "{}} << +time}
+\DoxyCodeLine{            << \textcolor{stringliteral}{"{} minutes your grid allows to draw "{}}}
+\DoxyCodeLine{            << +calculatePower(energy, time) << \textcolor{stringliteral}{"{} gigawatts of power"{}}}
+\DoxyCodeLine{            << std::endl;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ On top of that you are provided with compatible pow function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{si__base_8hpp}{src/si\_base.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{si__derived_8hpp}{src/si\_derived.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{si__math_8hpp}{src/si\_math.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void} printPressure(\mbox{\hyperlink{si__prefix_8hpp_a9e71b2f778141723b6f871f7ec435288}{Si::Prefix}}<std::kilo, \mbox{\hyperlink{namespace_si_1_1_derived_a5b8e623cc09504d424b20cbaa890cb7d}{Si::Derived::Pascal<double>}}> p) \{}
+\DoxyCodeLine{  std::cout << \textcolor{stringliteral}{"{}Pressure is "{}} << +p << \textcolor{stringliteral}{"{} kPa"{}} << std::endl;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{int} main() \{}
+\DoxyCodeLine{  \textcolor{keyword}{using namespace }\mbox{\hyperlink{namespace_si_1_1_base_1_1_literals}{Si::Base::Literals}};}
+\DoxyCodeLine{  \textcolor{keyword}{using namespace }\mbox{\hyperlink{namespace_si_1_1_derived_1_1_literals}{Si::Derived::Literals}};}
+\DoxyCodeLine{  printPressure(1000.0\_N / \mbox{\hyperlink{namespace_si_1_1_math_a9c1b2c340a14497f53dbefa8e1f20a01}{Si::Math::pow}}<std::ratio<2>>(0.1\_m));}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ 

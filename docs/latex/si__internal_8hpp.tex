@@ -9,7 +9,9 @@ Core logic of units.
 \begin{DoxyCompactItemize}
 \item 
 class \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Si\+::\+Internal\+::\+Unit$<$ T, Powers $>$}}
-\begin{DoxyCompactList}\small\item\em Generic unit type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Generic unit type. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_si_1_1_internal_1_1_tuple}{Si\+::\+Internal\+::\+Tuple$<$ Elements $>$}}
+\begin{DoxyCompactList}\small\item\em Metastructure to identify and compare typename sets. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
@@ -19,9 +21,17 @@ class \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Si\+::\+Internal\+::\+Uni
 \begin{DoxyCompactItemize}
 \item 
 {\footnotesize template$<$typename T , typename... Powers$>$ }\\using \mbox{\hyperlink{namespace_si_1_1_internal_a7c447e46c59494a9006a6343416b2271}{Si\+::\+Internal\+::\+Unit}} = T
-\begin{DoxyCompactList}\small\item\em If T\+Y\+P\+E\+\_\+\+S\+I\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+C\+H\+E\+C\+KS flag is set all units are defined as their container type. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em If TYPE\+\_\+\+SI\+\_\+\+DISABLE\+\_\+\+CHECKS flag is set all units are defined as their container type. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename U $>$ }\\using \mbox{\hyperlink{namespace_si_1_1_internal_a6b5d5ace3ebb994e68b0305ca5ef9fd7}{Si\+::\+Internal\+::\+Powers}} = decltype(get\+Powers(std\+::declval$<$ U $>$()))
+\begin{DoxyCompactList}\small\item\em Tool to get tuple of powers from unit. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{namespace_si_1_1_internal_abaa7a9558f3a234fc47fd5f17d2ca35b}{Si\+::\+Internal\+::\+Dimensionless}} = Unit$<$ T, std\+::ratio$<$ 0 $>$, std\+::ratio$<$ 0 $>$, std\+::ratio$<$ 0 $>$, std\+::ratio$<$ 0 $>$, std\+::ratio$<$ 0 $>$, std\+::ratio$<$ 0 $>$, std\+::ratio$<$ 0 $>$ $>$
 \begin{DoxyCompactList}\small\item\em Dimensionless unit for technical purposes with 7 power values set at 0. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespace_si_1_1_internal_af7423d24b60fd6d5bf463fccea311776}\label{namespace_si_1_1_internal_af7423d24b60fd6d5bf463fccea311776}} 
+{\footnotesize template$<$typename T , typename... Powers$>$ }\\Tuple$<$ Powers... $>$ \mbox{\hyperlink{namespace_si_1_1_internal_af7423d24b60fd6d5bf463fccea311776}{Si\+::\+Internal\+::get\+Powers}} (Unit$<$ T, Powers... $>$)
+\begin{DoxyCompactList}\small\item\em Helper to get tuple of powers from unit. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}

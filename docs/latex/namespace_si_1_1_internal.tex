@@ -8,17 +8,21 @@ Technical namespace for core library logic.
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
-class \mbox{\hyperlink{class_si_1_1_internal_1_1_generic_prefix}{Generic\+Prefix}}
-\begin{DoxyCompactList}\small\item\em Generic type of unit with prefix. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit}}
+\begin{DoxyCompactList}\small\item\em Generic unit type. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_si_1_1_internal_1_1_tuple}{Tuple}}
+\begin{DoxyCompactList}\small\item\em Metastructure to identify and compare typename sets. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{struct_si_1_1_internal_1_1std__pow}{std\+\_\+pow}}
 \item 
-class \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit}}
-\begin{DoxyCompactList}\small\item\em Generic unit type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+class \mbox{\hyperlink{class_si_1_1_internal_1_1_generic_prefix}{Generic\+Prefix}}
+\begin{DoxyCompactList}\small\item\em Generic type of unit with prefix. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
 {\footnotesize template$<$typename T , typename... Powers$>$ }\\using \mbox{\hyperlink{namespace_si_1_1_internal_a7c447e46c59494a9006a6343416b2271}{Unit}} = T
-\begin{DoxyCompactList}\small\item\em If T\+Y\+P\+E\+\_\+\+S\+I\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+C\+H\+E\+C\+KS flag is set all units are defined as their container type. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em If TYPE\+\_\+\+SI\+\_\+\+DISABLE\+\_\+\+CHECKS flag is set all units are defined as their container type. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename U $>$ }\\using \mbox{\hyperlink{namespace_si_1_1_internal_a6b5d5ace3ebb994e68b0305ca5ef9fd7}{Powers}} = decltype(\mbox{\hyperlink{namespace_si_1_1_internal_af7423d24b60fd6d5bf463fccea311776}{get\+Powers}}(std\+::declval$<$ U $>$()))
+\begin{DoxyCompactList}\small\item\em Tool to get tuple of powers from unit. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{namespace_si_1_1_internal_abaa7a9558f3a234fc47fd5f17d2ca35b}{Dimensionless}} = \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit}}$<$ T, std\+::ratio$<$ 0 $>$, std\+::ratio$<$ 0 $>$, std\+::ratio$<$ 0 $>$, std\+::ratio$<$ 0 $>$, std\+::ratio$<$ 0 $>$, std\+::ratio$<$ 0 $>$, std\+::ratio$<$ 0 $>$ $>$
 \begin{DoxyCompactList}\small\item\em Dimensionless unit for technical purposes with 7 power values set at 0. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Functions}
@@ -33,6 +37,12 @@ class \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit}}
 \mbox{\Hypertarget{namespace_si_1_1_internal_aae5aae1703f33eb6e35b919f0d8f5eeb}\label{namespace_si_1_1_internal_aae5aae1703f33eb6e35b919f0d8f5eeb}} 
 {\footnotesize template$<$typename T $>$ }\\const T \& {\bfseries implicit\+\_\+cast} (const T \&t)
 \end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespace_si_1_1_internal_af7423d24b60fd6d5bf463fccea311776}\label{namespace_si_1_1_internal_af7423d24b60fd6d5bf463fccea311776}} 
+{\footnotesize template$<$typename T , typename... Powers$>$ }\\\mbox{\hyperlink{struct_si_1_1_internal_1_1_tuple}{Tuple}}$<$ Powers... $>$ \mbox{\hyperlink{namespace_si_1_1_internal_af7423d24b60fd6d5bf463fccea311776}{get\+Powers}} (\mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit}}$<$ T, Powers... $>$)
+\begin{DoxyCompactList}\small\item\em Helper to get tuple of powers from unit. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -55,6 +65,22 @@ Dimensionless unit for technical purposes with 7 power values set at 0.
 {\em T} & Any number type such as float, double or long double used as a container \\
 \hline
 \end{DoxyTemplParams}
+\mbox{\Hypertarget{namespace_si_1_1_internal_a6b5d5ace3ebb994e68b0305ca5ef9fd7}\label{namespace_si_1_1_internal_a6b5d5ace3ebb994e68b0305ca5ef9fd7}} 
+\index{Si::Internal@{Si::Internal}!Powers@{Powers}}
+\index{Powers@{Powers}!Si::Internal@{Si::Internal}}
+\doxysubsubsection{\texorpdfstring{Powers}{Powers}}
+{\footnotesize\ttfamily template$<$typename U $>$ \\
+using \mbox{\hyperlink{namespace_si_1_1_internal_a6b5d5ace3ebb994e68b0305ca5ef9fd7}{Si\+::\+Internal\+::\+Powers}} = typedef decltype(\mbox{\hyperlink{namespace_si_1_1_internal_af7423d24b60fd6d5bf463fccea311776}{get\+Powers}}(std\+::declval$<$U$>$()))}
+
+
+
+Tool to get tuple of powers from unit. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em U} & \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit}} type \\
+\hline
+\end{DoxyTemplParams}
 \mbox{\Hypertarget{namespace_si_1_1_internal_a7c447e46c59494a9006a6343416b2271}\label{namespace_si_1_1_internal_a7c447e46c59494a9006a6343416b2271}} 
 \index{Si::Internal@{Si::Internal}!Unit@{Unit}}
 \index{Unit@{Unit}!Si::Internal@{Si::Internal}}
@@ -64,7 +90,7 @@ using \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Si\+::\+Internal\+::\+Uni
 
 
 
-If T\+Y\+P\+E\+\_\+\+S\+I\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+C\+H\+E\+C\+KS flag is set all units are defined as their container type. 
+If TYPE\+\_\+\+SI\+\_\+\+DISABLE\+\_\+\+CHECKS flag is set all units are defined as their container type. 
 
 
 \begin{DoxyTemplParams}{Template Parameters}
