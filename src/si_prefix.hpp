@@ -20,18 +20,19 @@ public:
   explicit GenericPrefix(const T &value) : _unit(value) {}
   /// @brief Implicit constructor from same units with different container type
   template <typename AnotherUnit,
-            typename std::enable_if<
-                std::is_convertible<AnotherUnit, Unit>::value, int>::type = 0>
+            typename std::enable_if<std::is_same<Internal::Powers<AnotherUnit>,
+                                                 Internal::Powers<Unit>>::value,
+                                    int>::type = 0>
   GenericPrefix(const GenericPrefix<Ratio, AnotherUnit> &unit)
       : _unit(Internal::implicit_cast<Unit>(unit.raw())) {}
   /// @brief Constructor from Unit type(implicit by default, can be made
   /// explicit by TYPE_SI_DISALLOW_IMPLICIT_PREFIX_CONVERSIONS macro)
-  template <typename AnotherUnit,
-            typename std::enable_if<
-                std::is_same<T, Unit>::value ||
-                    !std::is_same<AnotherUnit, decltype(+std::declval<
-                                                        AnotherUnit>())>::value,
-                int>::type = 0>
+  template <
+      typename AnotherUnit,
+      typename std::enable_if<std::is_same<T, Unit>::value ||
+                                  std::is_same<Internal::Powers<AnotherUnit>,
+                                               Internal::Powers<Unit>>::value,
+                              int>::type = 0>
 #ifdef TYPE_SI_DISALLOW_IMPLICIT_PREFIX_CONVERSIONS
   explicit
 #endif
@@ -42,7 +43,10 @@ public:
   /// @brief Explicit constructor from unit with different prefix(implicit by
   /// default, can be made explicit by
   /// TYPE_SI_DISALLOW_IMPLICIT_PREFIX_CONVERSIONS macro)
-  template <typename AnotherRatio, typename AnotherUnit>
+  template <typename AnotherRatio, typename AnotherUnit,
+            typename std::enable_if<std::is_same<Internal::Powers<AnotherUnit>,
+                                                 Internal::Powers<Unit>>::value,
+                                    int>::type = 0>
 #ifdef TYPE_SI_DISALLOW_IMPLICIT_PREFIX_CONVERSIONS
   explicit
 #endif

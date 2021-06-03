@@ -155,6 +155,14 @@ public:
   }
 };
 #endif
+/// @brief Metastructure to identify and compare typename sets
+template <typename... Elements> struct Tuple {};
+/// @brief Helper to get tuple of powers from unit
+template <typename T, typename... Powers>
+Tuple<Powers...> getPowers(Unit<T, Powers...>) {}
+/// @brief Tool to get tuple of powers from unit
+/// @tparam U Unit type
+template <typename U> using Powers = decltype(getPowers(std::declval<U>()));
 /// @brief Dimensionless unit for technical purposes with 7 power values set at
 /// 0
 /// @tparam T Any number type such as float, double or long double used as a
