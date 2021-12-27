@@ -15,6 +15,6 @@
 - [x] Special implementation of pow function to work with units and their prefixes
 ### QA
 - [x] Basic unit testing of permissible behavior
-- [ ] Migration of unit tests to GTest
-- [ ] Tests for impermissible behavior
+- [x] Migration of unit tests to GTest
+- [x] Tests for impermissible behavior
 - [ ] Benchmarks
