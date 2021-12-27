@@ -30,3 +30,5 @@ gtest_discover_tests(prefix)
 add_executable(special special.cpp)
 target_link_libraries(special gtest_main)
 gtest_discover_tests(special)
+
+add_subdirectory(malformed)
