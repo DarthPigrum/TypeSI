@@ -77,7 +77,7 @@ public:
   template <typename AnotherT>
   Unit<decltype(std::declval<T>() + std::declval<AnotherT>()), Powers...>
   operator+(const Unit<AnotherT, Powers...> &unit) const {
-    return Unit<decltype(std::declval<T>() - std::declval<AnotherT>()),
+    return Unit<decltype(std::declval<T>() + std::declval<AnotherT>()),
                 Powers...>(_value + static_cast<AnotherT>(unit));
   }
   /// @brief Prefix increment
