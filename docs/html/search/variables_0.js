@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['getpowers_159',['getPowers',['../namespace_si_1_1_internal.html#af7423d24b60fd6d5bf463fccea311776',1,'Si::Internal']]]
+  ['getpowers_0',['getPowers',['../namespace_si_1_1_internal.html#a9b9c6bbc16472a172bdcc44b82266d41',1,'Si::Internal']]]
 ];

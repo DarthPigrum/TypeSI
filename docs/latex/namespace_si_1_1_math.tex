@@ -8,9 +8,9 @@ Mathematical operations with Si units.
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-{\footnotesize template$<$typename Power , typename T , typename Function  = Internal\+::std\+\_\+pow$<$\+T$>$, typename... Powers$>$ }\\\mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Internal\+::\+Unit}}$<$ T, std\+::ratio\+\_\+multiply$<$ Power, Powers $>$... $>$ \mbox{\hyperlink{namespace_si_1_1_math_a9c1b2c340a14497f53dbefa8e1f20a01}{pow}} (const \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Internal\+::\+Unit}}$<$ T, Powers... $>$ \&base)
+{\footnotesize template$<$typename Power , typename T , typename Function  = Internal\+::std\+\_\+pow$<$\+T$>$, typename... Powers$>$ }\\\mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Internal\+::\+Unit}}$<$ T, std\+::ratio\+\_\+multiply$<$ Power, Powers $>$... $>$ \mbox{\hyperlink{namespace_si_1_1_math_ad6bed0b3eff34cbbb2060a24851af32a}{pow}} (const \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Internal\+::\+Unit}}$<$ T, Powers... $>$ \&base)
 \begin{DoxyCompactList}\small\item\em Function for exponentiation with Unit as base. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename Power , typename Unit , typename Function  = Internal\+::std\+\_\+pow$<$decltype(+std\+::declval$<$\+Unit$>$())$>$, typename Prefix\+Ratio $>$ }\\\mbox{\hyperlink{class_si_1_1_internal_1_1_generic_prefix}{Internal\+::\+Generic\+Prefix}}$<$ typename std\+::ratio$<$ static\+\_\+cast$<$ std\+::intmax\+\_\+t $>$std\+::pow(Prefix\+Ratio\+::num, Power\+::num)), static\+\_\+cast$<$ std\+::intmax\+\_\+t $>$std\+::pow(Prefix\+Ratio\+::den, Power\+::num))$>$\+::type, decltype(pow$<$ Power $>$std\+::declval$<$ Unit $>$)))$>$ \mbox{\hyperlink{namespace_si_1_1_math_aed3217558e60c9ec8cdaf33707c15dca}{pow}} (const \mbox{\hyperlink{class_si_1_1_internal_1_1_generic_prefix}{Internal\+::\+Generic\+Prefix}}$<$ Prefix\+Ratio, Unit $>$ \&base)
+{\footnotesize template$<$typename Power , typename Unit , typename Function  = Internal\+::std\+\_\+pow$<$decltype(+std\+::declval$<$\+Unit$>$())$>$, typename Prefix\+Ratio $>$ }\\\mbox{\hyperlink{class_si_1_1_internal_1_1_generic_prefix}{Internal\+::\+Generic\+Prefix}}$<$ typename std\+::ratio$<$ static\+\_\+cast$<$ std\+::intmax\+\_\+t $>$(std\+::pow(Prefix\+Ratio\+::num, Power\+::num)), static\+\_\+cast$<$ std\+::intmax\+\_\+t $>$(std\+::pow(Prefix\+Ratio\+::den, Power\+::num))$>$\+::type, decltype(pow$<$ Power $>$(std\+::declval$<$ Unit $>$()))$>$ \mbox{\hyperlink{namespace_si_1_1_math_a9984f2b4d152f99063fa3c9ee5c9bb81}{pow}} (const \mbox{\hyperlink{class_si_1_1_internal_1_1_generic_prefix}{Internal\+::\+Generic\+Prefix}}$<$ Prefix\+Ratio, Unit $>$ \&base)
 \begin{DoxyCompactList}\small\item\em Function for exponentiation with prefixed Unit as base. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -18,12 +18,12 @@ Mathematical operations with Si units.
 Mathematical operations with Si units. 
 
 \doxysubsection{Function Documentation}
-\mbox{\Hypertarget{namespace_si_1_1_math_aed3217558e60c9ec8cdaf33707c15dca}\label{namespace_si_1_1_math_aed3217558e60c9ec8cdaf33707c15dca}} 
+\mbox{\Hypertarget{namespace_si_1_1_math_a9984f2b4d152f99063fa3c9ee5c9bb81}\label{namespace_si_1_1_math_a9984f2b4d152f99063fa3c9ee5c9bb81}} 
 \index{Si::Math@{Si::Math}!pow@{pow}}
 \index{pow@{pow}!Si::Math@{Si::Math}}
 \doxysubsubsection{\texorpdfstring{pow()}{pow()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily template$<$typename Power , typename Unit , typename Function  = Internal\+::std\+\_\+pow$<$decltype(+std\+::declval$<$\+Unit$>$())$>$, typename Prefix\+Ratio $>$ \\
-\mbox{\hyperlink{class_si_1_1_internal_1_1_generic_prefix}{Internal\+::\+Generic\+Prefix}}$<$ typename std\+::ratio$<$static\+\_\+cast$<$std\+::intmax\+\_\+t$>$std\+::pow(Prefix\+Ratio\+::num, Power\+::num)), static\+\_\+cast$<$std\+::intmax\+\_\+t$>$std\+::pow(Prefix\+Ratio\+::den, Power\+::num))$>$\+::type, decltype(pow$<$Power$>$std\+::declval$<$Unit$>$)))$>$ Si\+::\+Math\+::pow (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_si_1_1_internal_1_1_generic_prefix}{Internal\+::\+Generic\+Prefix}}$<$ Prefix\+Ratio, Unit $>$ \&}]{base }\end{DoxyParamCaption})}
+\mbox{\hyperlink{class_si_1_1_internal_1_1_generic_prefix}{Internal\+::\+Generic\+Prefix}}$<$ typename std\+::ratio$<$ static\+\_\+cast$<$ std\+::intmax\+\_\+t $>$(std\+::pow(Prefix\+Ratio\+::num, Power\+::num)), static\+\_\+cast$<$ std\+::intmax\+\_\+t $>$(std\+::pow(Prefix\+Ratio\+::den, Power\+::num))$>$\+::type, decltype(pow$<$ Power $>$(std\+::declval$<$ Unit $>$()))$>$ Si\+::\+Math\+::pow (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_si_1_1_internal_1_1_generic_prefix}{Internal\+::\+Generic\+Prefix}}$<$ Prefix\+Ratio, Unit $>$ \&}]{base }\end{DoxyParamCaption})}
 
 
 
@@ -40,12 +40,12 @@ Function for exponentiation with prefixed Unit as base.
 {\em Prefix\+Ratio} & (optional) std\+::ratio of Generic\+Prefix(supposed to always be filled by the compiler) \\
 \hline
 \end{DoxyTemplParams}
-\mbox{\Hypertarget{namespace_si_1_1_math_a9c1b2c340a14497f53dbefa8e1f20a01}\label{namespace_si_1_1_math_a9c1b2c340a14497f53dbefa8e1f20a01}} 
+\mbox{\Hypertarget{namespace_si_1_1_math_ad6bed0b3eff34cbbb2060a24851af32a}\label{namespace_si_1_1_math_ad6bed0b3eff34cbbb2060a24851af32a}} 
 \index{Si::Math@{Si::Math}!pow@{pow}}
 \index{pow@{pow}!Si::Math@{Si::Math}}
 \doxysubsubsection{\texorpdfstring{pow()}{pow()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily template$<$typename Power , typename T , typename Function  = Internal\+::std\+\_\+pow$<$\+T$>$, typename... Powers$>$ \\
-\mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Internal\+::\+Unit}}$<$T, std\+::ratio\+\_\+multiply$<$Power, Powers$>$...$>$ Si\+::\+Math\+::pow (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Internal\+::\+Unit}}$<$ T, Powers... $>$ \&}]{base }\end{DoxyParamCaption})}
+\mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Internal\+::\+Unit}}$<$ T, std\+::ratio\+\_\+multiply$<$ Power, Powers $>$... $>$ Si\+::\+Math\+::pow (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Internal\+::\+Unit}}$<$ T, Powers... $>$ \&}]{base }\end{DoxyParamCaption})}
 
 
 

@@ -35,9 +35,9 @@ Header-\/only C++ library that provides type safety for handling physical values
 \DoxyCodeLine{\textcolor{preprocessor}{\#include <iostream>}}
 \DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
-\DoxyCodeLine{\textcolor{keyword}{using} minute = \mbox{\hyperlink{si__prefix_8hpp_a9e71b2f778141723b6f871f7ec435288}{Si::Prefix<std::ratio<60>}}, \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Si::Base::Second<T>}}>;}
+\DoxyCodeLine{\textcolor{keyword}{using }minute = \mbox{\hyperlink{si__prefix_8hpp_a9e71b2f778141723b6f871f7ec435288}{Si::Prefix<std::ratio<60>}}, \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Si::Base::Second<T>}}>;}
 \DoxyCodeLine{\textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
-\DoxyCodeLine{\textcolor{keyword}{using} kWth = \mbox{\hyperlink{si__prefix_8hpp_a9e71b2f778141723b6f871f7ec435288}{Si::Prefix<std::ratio<3600000>}}, \mbox{\hyperlink{namespace_si_1_1_derived_a78c8d90a8c594c04146d7e1ae7c000f7}{Si::Derived::Joule<T>}}>;}
+\DoxyCodeLine{\textcolor{keyword}{using }kWth = \mbox{\hyperlink{si__prefix_8hpp_a9e71b2f778141723b6f871f7ec435288}{Si::Prefix<std::ratio<3600000>}}, \mbox{\hyperlink{namespace_si_1_1_derived_a78c8d90a8c594c04146d7e1ae7c000f7}{Si::Derived::Joule<T>}}>;}
 \DoxyCodeLine{}
 \DoxyCodeLine{\mbox{\hyperlink{si__prefix_8hpp_a9e71b2f778141723b6f871f7ec435288}{Si::Prefix<std::giga, Si::Derived::Watt<double>}}>}
 \DoxyCodeLine{calculatePower(kWth<double> energy, minute<double> time) \{}
@@ -68,7 +68,7 @@ Header-\/only C++ library that provides type safety for handling physical values
 \DoxyCodeLine{\textcolor{keywordtype}{int} main() \{}
 \DoxyCodeLine{  \textcolor{keyword}{using namespace }\mbox{\hyperlink{namespace_si_1_1_base_1_1_literals}{Si::Base::Literals}};}
 \DoxyCodeLine{  \textcolor{keyword}{using namespace }\mbox{\hyperlink{namespace_si_1_1_derived_1_1_literals}{Si::Derived::Literals}};}
-\DoxyCodeLine{  printPressure(1000.0\_N / \mbox{\hyperlink{namespace_si_1_1_math_a9c1b2c340a14497f53dbefa8e1f20a01}{Si::Math::pow}}<std::ratio<2>>(0.1\_m));}
+\DoxyCodeLine{  printPressure(1000.0\_N / \mbox{\hyperlink{namespace_si_1_1_math_ad6bed0b3eff34cbbb2060a24851af32a}{Si::Math::pow}}<std::ratio<2>>(0.1\_m));}
 \DoxyCodeLine{\}}
 
 \end{DoxyCode}

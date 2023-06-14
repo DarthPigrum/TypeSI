@@ -1,0 +1,18 @@
+\hypertarget{si__special_8hpp_source}{}\doxysection{si\+\_\+special.\+hpp}
+\label{si__special_8hpp_source}\index{si\_special.hpp@{si\_special.hpp}}
+\mbox{\hyperlink{si__special_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{si__base_8hpp}{si\_base.hpp}}"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{si__prefix_8hpp}{si\_prefix.hpp}}"{}}}
+\DoxyCodeLine{6 \textcolor{keyword}{namespace }Si \{}
+\DoxyCodeLine{7 \textcolor{keyword}{namespace }Special \{}
+\DoxyCodeLine{13 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T> \textcolor{keyword}{struct }\mbox{\hyperlink{struct_si_1_1_special_1_1_gram}{Gram}} \{}
+\DoxyCodeLine{14   \textcolor{keyword}{template} <\textcolor{keyword}{typename} Ratio>}
+\DoxyCodeLine{15   \textcolor{keyword}{using }type =}
+\DoxyCodeLine{16       \mbox{\hyperlink{si__prefix_8hpp_a9e71b2f778141723b6f871f7ec435288}{Si::Prefix<std::ratio\_multiply<std::milli, Ratio>}}, \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Base::Kilogram<T>}}>;}
+\DoxyCodeLine{17 \}; \textcolor{comment}{// namespace Special}}
+\DoxyCodeLine{18 \} \textcolor{comment}{// namespace Special}}
+\DoxyCodeLine{19 \} \textcolor{comment}{// namespace Si}}
+
+\end{DoxyCode}

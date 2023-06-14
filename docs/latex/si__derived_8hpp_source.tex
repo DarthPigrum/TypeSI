@@ -1,0 +1,125 @@
+\hypertarget{si__derived_8hpp_source}{}\doxysection{si\+\_\+derived.\+hpp}
+\label{si__derived_8hpp_source}\index{si\_derived.hpp@{si\_derived.hpp}}
+\mbox{\hyperlink{si__derived_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{si__base_8hpp}{si\_base.hpp}}"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <utility>}}
+\DoxyCodeLine{6 \textcolor{keyword}{namespace }Si \{}
+\DoxyCodeLine{8 \textcolor{keyword}{namespace }Derived \{}
+\DoxyCodeLine{11 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{12 \textcolor{keyword}{using }\mbox{\hyperlink{namespace_si_1_1_derived_a92365c755e20fcb8b21a083180c342cf}{Hertz}} = \textcolor{keyword}{decltype}(std::declval<Internal::Dimensionless<T>>() /}
+\DoxyCodeLine{13                        std::declval<\mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Base::Second<T>}}>());}
+\DoxyCodeLine{16 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{17 \textcolor{keyword}{using }\mbox{\hyperlink{namespace_si_1_1_derived_a29642bb4d5827624530e39fead55961c}{Newton}} = \textcolor{keyword}{decltype}(}
+\DoxyCodeLine{18     std::declval<Base::Kilogram<T>>() * std::declval<\mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Base::Meter<T>}}>() /}
+\DoxyCodeLine{19     (std::declval<Base::Second<T>>() * std::declval<\mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Base::Second<T>}}>()));}
+\DoxyCodeLine{22 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{23 \textcolor{keyword}{using }\mbox{\hyperlink{namespace_si_1_1_derived_a5b8e623cc09504d424b20cbaa890cb7d}{Pascal}} =}
+\DoxyCodeLine{24     \textcolor{keyword}{decltype}(std::declval<Newton<T>>() /}
+\DoxyCodeLine{25              (std::declval<\mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Base::Meter<T>}}>() * std::declval<Base::Meter<T>>()));}
+\DoxyCodeLine{28 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{29 \textcolor{keyword}{using }\mbox{\hyperlink{namespace_si_1_1_derived_a78c8d90a8c594c04146d7e1ae7c000f7}{Joule}} =}
+\DoxyCodeLine{30     \textcolor{keyword}{decltype}(std::declval<Base::Meter<T>>() * std::declval<\mbox{\hyperlink{namespace_si_1_1_derived_a29642bb4d5827624530e39fead55961c}{Newton<T>}}>());}
+\DoxyCodeLine{33 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{34 \textcolor{keyword}{using }\mbox{\hyperlink{namespace_si_1_1_derived_ae7b4dbb6802e78764072a8c2b9c67463}{Watt}} =}
+\DoxyCodeLine{35     \textcolor{keyword}{decltype}(std::declval<Joule<T>>() / std::declval<\mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Base::Second<T>}}>());}
+\DoxyCodeLine{38 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{39 \textcolor{keyword}{using }\mbox{\hyperlink{namespace_si_1_1_derived_aa9bcdaca41fb79f6b868bf8b0ed0c095}{Coulomb}} =}
+\DoxyCodeLine{40     \textcolor{keyword}{decltype}(std::declval<Base::Second<T>>() * std::declval<\mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Base::Ampere<T>}}>());}
+\DoxyCodeLine{43 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{44 \textcolor{keyword}{using }\mbox{\hyperlink{namespace_si_1_1_derived_a6b1f7244884a87e1c562de89d311956e}{Volt}} =}
+\DoxyCodeLine{45     \textcolor{keyword}{decltype}(std::declval<Watt<T>>() / std::declval<\mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Base::Ampere<T>}}>());}
+\DoxyCodeLine{48 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{49 \textcolor{keyword}{using }\mbox{\hyperlink{namespace_si_1_1_derived_ab372838a31ad769af3736b70470a1c56}{Farad}} = \textcolor{keyword}{decltype}(std::declval<Coulomb<T>>() / std::declval<\mbox{\hyperlink{namespace_si_1_1_derived_a6b1f7244884a87e1c562de89d311956e}{Volt<T>}}>());}
+\DoxyCodeLine{52 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{53 \textcolor{keyword}{using }\mbox{\hyperlink{namespace_si_1_1_derived_a2e2e79a52a808642d74de860003329cb}{Ohm}} = \textcolor{keyword}{decltype}(std::declval<Volt<T>>() / std::declval<\mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Base::Ampere<T>}}>());}
+\DoxyCodeLine{56 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{57 \textcolor{keyword}{using }\mbox{\hyperlink{namespace_si_1_1_derived_a07a94069e739442d84b409ccd49772d3}{Siemens}} =}
+\DoxyCodeLine{58     \textcolor{keyword}{decltype}(std::declval<Base::Ampere<T>>() / std::declval<\mbox{\hyperlink{namespace_si_1_1_derived_a6b1f7244884a87e1c562de89d311956e}{Volt<T>}}>());}
+\DoxyCodeLine{61 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{62 \textcolor{keyword}{using }\mbox{\hyperlink{namespace_si_1_1_derived_ad09055cda7b2134c0175dc32d889bdb3}{Weber}} =}
+\DoxyCodeLine{63     \textcolor{keyword}{decltype}(std::declval<Joule<T>>() / std::declval<\mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Base::Ampere<T>}}>());}
+\DoxyCodeLine{66 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{67 \textcolor{keyword}{using }\mbox{\hyperlink{namespace_si_1_1_derived_a49bcab4bb0cd4c6f290a6d5accc4adae}{Tesla}} =}
+\DoxyCodeLine{68     \textcolor{keyword}{decltype}(std::declval<Newton<T>>() / (std::declval<\mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Base::Ampere<T>}}>() *}
+\DoxyCodeLine{69                                           std::declval<Base::Meter<T>>()));}
+\DoxyCodeLine{72 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{73 \textcolor{keyword}{using }\mbox{\hyperlink{namespace_si_1_1_derived_a01c703f540bb56ec0eac6d816dbccc02}{Henry}} =}
+\DoxyCodeLine{74     \textcolor{keyword}{decltype}(std::declval<Weber<T>>() / std::declval<\mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Base::Ampere<T>}}>());}
+\DoxyCodeLine{77 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T> \textcolor{keyword}{using }\mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Lumen}} = \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Base::Candela<T>}};}
+\DoxyCodeLine{80 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{81 \textcolor{keyword}{using }\mbox{\hyperlink{namespace_si_1_1_derived_a3b3abde43c09fe3d64c2687b732ab6f8}{Lux}} =}
+\DoxyCodeLine{82     \textcolor{keyword}{decltype}(std::declval<Lumen<T>>() /}
+\DoxyCodeLine{83              (std::declval<\mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Base::Meter<T>}}>() * std::declval<Base::Meter<T>>()));}
+\DoxyCodeLine{86 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T> \textcolor{keyword}{using }\mbox{\hyperlink{namespace_si_1_1_derived_a0b67ae36c518a375bf5816559643c9ec}{Becquerel}} = \mbox{\hyperlink{namespace_si_1_1_derived_a92365c755e20fcb8b21a083180c342cf}{Hertz<T>}};}
+\DoxyCodeLine{89 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{90 \textcolor{keyword}{using }\mbox{\hyperlink{namespace_si_1_1_derived_a8f56227a09c79f4c83dbad22216fb3ef}{Gray}} =}
+\DoxyCodeLine{91     \textcolor{keyword}{decltype}(std::declval<Joule<T>>() / std::declval<\mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Base::Kilogram<T>}}>());}
+\DoxyCodeLine{94 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T> \textcolor{keyword}{using }\mbox{\hyperlink{namespace_si_1_1_derived_ae817e222b1e5d955c86d892d6720b266}{Sievert}} = \mbox{\hyperlink{namespace_si_1_1_derived_a8f56227a09c79f4c83dbad22216fb3ef}{Gray<T>}};}
+\DoxyCodeLine{97 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{98 \textcolor{keyword}{using }\mbox{\hyperlink{namespace_si_1_1_derived_ab5d7ada50b1ac5676050f9b8f4c108c5}{Katal}} =}
+\DoxyCodeLine{99     \textcolor{keyword}{decltype}(std::declval<Base::Mole<T>>() / std::declval<\mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Base::Second<T>}}>());}
+\DoxyCodeLine{101 \textcolor{keyword}{namespace }Literals \{}
+\DoxyCodeLine{103 \mbox{\hyperlink{namespace_si_1_1_derived_a92365c755e20fcb8b21a083180c342cf}{Hertz<long double>}} \textcolor{keyword}{operator}\textcolor{stringliteral}{"{}"{}} \_Hz(\textcolor{keywordtype}{long} \textcolor{keywordtype}{double} value) \{}
+\DoxyCodeLine{104   \textcolor{keywordflow}{return} \mbox{\hyperlink{namespace_si_1_1_derived_a92365c755e20fcb8b21a083180c342cf}{Hertz<long double>}}(value);}
+\DoxyCodeLine{105 \}}
+\DoxyCodeLine{107 \mbox{\hyperlink{namespace_si_1_1_derived_a29642bb4d5827624530e39fead55961c}{Newton<long double>}} \textcolor{keyword}{operator}\textcolor{stringliteral}{"{}"{}} \_N(\textcolor{keywordtype}{long} \textcolor{keywordtype}{double} value) \{}
+\DoxyCodeLine{108   \textcolor{keywordflow}{return} \mbox{\hyperlink{namespace_si_1_1_derived_a29642bb4d5827624530e39fead55961c}{Newton<long double>}}(value);}
+\DoxyCodeLine{109 \}}
+\DoxyCodeLine{111 \mbox{\hyperlink{namespace_si_1_1_derived_a5b8e623cc09504d424b20cbaa890cb7d}{Pascal<long double>}} \textcolor{keyword}{operator}\textcolor{stringliteral}{"{}"{}} \_Pa(\textcolor{keywordtype}{long} \textcolor{keywordtype}{double} value) \{}
+\DoxyCodeLine{112   \textcolor{keywordflow}{return} \mbox{\hyperlink{namespace_si_1_1_derived_a5b8e623cc09504d424b20cbaa890cb7d}{Pascal<long double>}}(value);}
+\DoxyCodeLine{113 \}}
+\DoxyCodeLine{115 \mbox{\hyperlink{namespace_si_1_1_derived_a78c8d90a8c594c04146d7e1ae7c000f7}{Joule<long double>}} \textcolor{keyword}{operator}\textcolor{stringliteral}{"{}"{}} \_J(\textcolor{keywordtype}{long} \textcolor{keywordtype}{double} value) \{}
+\DoxyCodeLine{116   \textcolor{keywordflow}{return} \mbox{\hyperlink{namespace_si_1_1_derived_a78c8d90a8c594c04146d7e1ae7c000f7}{Joule<long double>}}(value);}
+\DoxyCodeLine{117 \}}
+\DoxyCodeLine{119 \mbox{\hyperlink{namespace_si_1_1_derived_ae7b4dbb6802e78764072a8c2b9c67463}{Watt<long double>}} \textcolor{keyword}{operator}\textcolor{stringliteral}{"{}"{}} \_W(\textcolor{keywordtype}{long} \textcolor{keywordtype}{double} value) \{}
+\DoxyCodeLine{120   \textcolor{keywordflow}{return} \mbox{\hyperlink{namespace_si_1_1_derived_ae7b4dbb6802e78764072a8c2b9c67463}{Watt<long double>}}(value);}
+\DoxyCodeLine{121 \}}
+\DoxyCodeLine{123 \mbox{\hyperlink{namespace_si_1_1_derived_aa9bcdaca41fb79f6b868bf8b0ed0c095}{Coulomb<long double>}} \textcolor{keyword}{operator}\textcolor{stringliteral}{"{}"{}} \_C(\textcolor{keywordtype}{long} \textcolor{keywordtype}{double} value) \{}
+\DoxyCodeLine{124   \textcolor{keywordflow}{return} \mbox{\hyperlink{namespace_si_1_1_derived_aa9bcdaca41fb79f6b868bf8b0ed0c095}{Coulomb<long double>}}(value);}
+\DoxyCodeLine{125 \}}
+\DoxyCodeLine{127 \mbox{\hyperlink{namespace_si_1_1_derived_a6b1f7244884a87e1c562de89d311956e}{Volt<long double>}} \textcolor{keyword}{operator}\textcolor{stringliteral}{"{}"{}} \_V(\textcolor{keywordtype}{long} \textcolor{keywordtype}{double} value) \{}
+\DoxyCodeLine{128   \textcolor{keywordflow}{return} \mbox{\hyperlink{namespace_si_1_1_derived_a6b1f7244884a87e1c562de89d311956e}{Volt<long double>}}(value);}
+\DoxyCodeLine{129 \}}
+\DoxyCodeLine{131 \mbox{\hyperlink{namespace_si_1_1_derived_ab372838a31ad769af3736b70470a1c56}{Farad<long double>}} \textcolor{keyword}{operator}\textcolor{stringliteral}{"{}"{}} \_F(\textcolor{keywordtype}{long} \textcolor{keywordtype}{double} value) \{}
+\DoxyCodeLine{132   \textcolor{keywordflow}{return} \mbox{\hyperlink{namespace_si_1_1_derived_ab372838a31ad769af3736b70470a1c56}{Farad<long double>}}(value);}
+\DoxyCodeLine{133 \}}
+\DoxyCodeLine{136 \mbox{\hyperlink{namespace_si_1_1_derived_a2e2e79a52a808642d74de860003329cb}{Ohm<long double>}} \textcolor{keyword}{operator}\textcolor{stringliteral}{"{}"{}} \_Ohm(\textcolor{keywordtype}{long} \textcolor{keywordtype}{double} value) \{}
+\DoxyCodeLine{137   \textcolor{keywordflow}{return} \mbox{\hyperlink{namespace_si_1_1_derived_a2e2e79a52a808642d74de860003329cb}{Ohm<long double>}}(value);}
+\DoxyCodeLine{138 \}}
+\DoxyCodeLine{140 \mbox{\hyperlink{namespace_si_1_1_derived_a07a94069e739442d84b409ccd49772d3}{Siemens<long double>}} \textcolor{keyword}{operator}\textcolor{stringliteral}{"{}"{}} \_S(\textcolor{keywordtype}{long} \textcolor{keywordtype}{double} value) \{}
+\DoxyCodeLine{141   \textcolor{keywordflow}{return} \mbox{\hyperlink{namespace_si_1_1_derived_a07a94069e739442d84b409ccd49772d3}{Siemens<long double>}}(value);}
+\DoxyCodeLine{142 \}}
+\DoxyCodeLine{144 \mbox{\hyperlink{namespace_si_1_1_derived_ad09055cda7b2134c0175dc32d889bdb3}{Weber<long double>}} \textcolor{keyword}{operator}\textcolor{stringliteral}{"{}"{}} \_Wb(\textcolor{keywordtype}{long} \textcolor{keywordtype}{double} value) \{}
+\DoxyCodeLine{145   \textcolor{keywordflow}{return} \mbox{\hyperlink{namespace_si_1_1_derived_ad09055cda7b2134c0175dc32d889bdb3}{Weber<long double>}}(value);}
+\DoxyCodeLine{146 \}}
+\DoxyCodeLine{148 \mbox{\hyperlink{namespace_si_1_1_derived_a49bcab4bb0cd4c6f290a6d5accc4adae}{Tesla<long double>}} \textcolor{keyword}{operator}\textcolor{stringliteral}{"{}"{}} \_T(\textcolor{keywordtype}{long} \textcolor{keywordtype}{double} value) \{}
+\DoxyCodeLine{149   \textcolor{keywordflow}{return} \mbox{\hyperlink{namespace_si_1_1_derived_a49bcab4bb0cd4c6f290a6d5accc4adae}{Tesla<long double>}}(value);}
+\DoxyCodeLine{150 \}}
+\DoxyCodeLine{152 \mbox{\hyperlink{namespace_si_1_1_derived_a01c703f540bb56ec0eac6d816dbccc02}{Henry<long double>}} \textcolor{keyword}{operator}\textcolor{stringliteral}{"{}"{}} \_H(\textcolor{keywordtype}{long} \textcolor{keywordtype}{double} value) \{}
+\DoxyCodeLine{153   \textcolor{keywordflow}{return} \mbox{\hyperlink{namespace_si_1_1_derived_a01c703f540bb56ec0eac6d816dbccc02}{Henry<long double>}}(value);}
+\DoxyCodeLine{154 \}}
+\DoxyCodeLine{156 \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Lumen<long double>}} \textcolor{keyword}{operator}\textcolor{stringliteral}{"{}"{}} \_lm(\textcolor{keywordtype}{long} \textcolor{keywordtype}{double} value) \{}
+\DoxyCodeLine{157   \textcolor{keywordflow}{return} \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Lumen<long double>}}(value);}
+\DoxyCodeLine{158 \}}
+\DoxyCodeLine{160 \mbox{\hyperlink{namespace_si_1_1_derived_a3b3abde43c09fe3d64c2687b732ab6f8}{Lux<long double>}} \textcolor{keyword}{operator}\textcolor{stringliteral}{"{}"{}} \_lx(\textcolor{keywordtype}{long} \textcolor{keywordtype}{double} value) \{}
+\DoxyCodeLine{161   \textcolor{keywordflow}{return} \mbox{\hyperlink{namespace_si_1_1_derived_a3b3abde43c09fe3d64c2687b732ab6f8}{Lux<long double>}}(value);}
+\DoxyCodeLine{162 \}}
+\DoxyCodeLine{164 \mbox{\hyperlink{namespace_si_1_1_derived_a0b67ae36c518a375bf5816559643c9ec}{Becquerel<long double>}} \textcolor{keyword}{operator}\textcolor{stringliteral}{"{}"{}} \_Bq(\textcolor{keywordtype}{long} \textcolor{keywordtype}{double} value) \{}
+\DoxyCodeLine{165   \textcolor{keywordflow}{return} \mbox{\hyperlink{namespace_si_1_1_derived_a0b67ae36c518a375bf5816559643c9ec}{Becquerel<long double>}}(value);}
+\DoxyCodeLine{166 \}}
+\DoxyCodeLine{168 \mbox{\hyperlink{namespace_si_1_1_derived_a8f56227a09c79f4c83dbad22216fb3ef}{Gray<long double>}} \textcolor{keyword}{operator}\textcolor{stringliteral}{"{}"{}} \_Gy(\textcolor{keywordtype}{long} \textcolor{keywordtype}{double} value) \{}
+\DoxyCodeLine{169   \textcolor{keywordflow}{return} \mbox{\hyperlink{namespace_si_1_1_derived_a8f56227a09c79f4c83dbad22216fb3ef}{Gray<long double>}}(value);}
+\DoxyCodeLine{170 \}}
+\DoxyCodeLine{172 \mbox{\hyperlink{namespace_si_1_1_derived_ae817e222b1e5d955c86d892d6720b266}{Sievert<long double>}} \textcolor{keyword}{operator}\textcolor{stringliteral}{"{}"{}} \_Sv(\textcolor{keywordtype}{long} \textcolor{keywordtype}{double} value) \{}
+\DoxyCodeLine{173   \textcolor{keywordflow}{return} \mbox{\hyperlink{namespace_si_1_1_derived_ae817e222b1e5d955c86d892d6720b266}{Sievert<long double>}}(value);}
+\DoxyCodeLine{174 \}}
+\DoxyCodeLine{176 \mbox{\hyperlink{namespace_si_1_1_derived_ab5d7ada50b1ac5676050f9b8f4c108c5}{Katal<long double>}} \textcolor{keyword}{operator}\textcolor{stringliteral}{"{}"{}} \_kat(\textcolor{keywordtype}{long} \textcolor{keywordtype}{double} value) \{}
+\DoxyCodeLine{177   \textcolor{keywordflow}{return} \mbox{\hyperlink{namespace_si_1_1_derived_ab5d7ada50b1ac5676050f9b8f4c108c5}{Katal<long double>}}(value);}
+\DoxyCodeLine{178 \}}
+\DoxyCodeLine{179 \} \textcolor{comment}{// namespace Literals}}
+\DoxyCodeLine{180 \} \textcolor{comment}{// namespace Derived}}
+\DoxyCodeLine{181 \} \textcolor{comment}{// namespace Si}}
+
+\end{DoxyCode}

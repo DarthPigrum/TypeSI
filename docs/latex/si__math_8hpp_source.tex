@@ -1,0 +1,51 @@
+\hypertarget{si__math_8hpp_source}{}\doxysection{si\+\_\+math.\+hpp}
+\label{si__math_8hpp_source}\index{si\_math.hpp@{si\_math.hpp}}
+\mbox{\hyperlink{si__math_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{si__internal_8hpp}{si\_internal.hpp}}"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{si__prefix_8hpp}{si\_prefix.hpp}}"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <cmath>}}
+\DoxyCodeLine{7 \textcolor{keyword}{namespace }Si \{}
+\DoxyCodeLine{8 \textcolor{keyword}{namespace }Internal \{}
+\DoxyCodeLine{9 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T> \textcolor{keyword}{struct }\mbox{\hyperlink{struct_si_1_1_internal_1_1std__pow}{std\_pow}} \{}
+\DoxyCodeLine{10   T operator()(\textcolor{keyword}{const} T \&base, \textcolor{keyword}{const} T \&power)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{11     \textcolor{keywordflow}{return} std::pow(base, power);}
+\DoxyCodeLine{12   \}}
+\DoxyCodeLine{13 \};}
+\DoxyCodeLine{14 \} \textcolor{comment}{// namespace Internal}}
+\DoxyCodeLine{16 \textcolor{comment}{}\textcolor{keyword}{namespace }Math \{}
+\DoxyCodeLine{24 \textcolor{keyword}{template} <\textcolor{keyword}{typename} Power, \textcolor{keyword}{typename} T, \textcolor{keyword}{typename} Function = Internal::std\_pow<T>,}
+\DoxyCodeLine{25           \textcolor{keyword}{typename}... Powers>}
+\DoxyCodeLine{26 \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Internal::Unit<T, std::ratio\_multiply<Power, Powers>}}...>}
+\DoxyCodeLine{27 \mbox{\hyperlink{namespace_si_1_1_math_ad6bed0b3eff34cbbb2060a24851af32a}{pow}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Internal::Unit<T, Powers...>}} \&base) \{}
+\DoxyCodeLine{28   \textcolor{keywordflow}{return} \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Internal::Unit<T, std::ratio\_multiply<Power, Powers>}}...>(}
+\DoxyCodeLine{29       Function()(\textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(base),}
+\DoxyCodeLine{30                  \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(Power::num) / \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(Power::den)));}
+\DoxyCodeLine{31 \}}
+\DoxyCodeLine{39 \textcolor{keyword}{template} <}
+\DoxyCodeLine{40     \textcolor{keyword}{typename} Power, \textcolor{keyword}{typename} Unit,}
+\DoxyCodeLine{41     \textcolor{keyword}{typename} Function = \mbox{\hyperlink{struct_si_1_1_internal_1_1std__pow}{Internal::std\_pow<decltype(+std::declval<Unit>}}())>,}
+\DoxyCodeLine{42     \textcolor{keyword}{typename} PrefixRatio>}
+\DoxyCodeLine{43 \mbox{\hyperlink{class_si_1_1_internal_1_1_generic_prefix}{Internal::GenericPrefix}}<}
+\DoxyCodeLine{44     \textcolor{keyword}{typename} std::ratio<\textcolor{keyword}{static\_cast<}std::intmax\_t\textcolor{keyword}{>}(std::pow(PrefixRatio::num,}
+\DoxyCodeLine{45                                                             Power::num)),}
+\DoxyCodeLine{46                         \textcolor{keyword}{static\_cast<}std::intmax\_t\textcolor{keyword}{>}(std::pow(PrefixRatio::den,}
+\DoxyCodeLine{47                                                             Power::num))>::type,}
+\DoxyCodeLine{48     \textcolor{keyword}{decltype}(pow<Power>(std::declval<Unit>()))>}
+\DoxyCodeLine{49 \mbox{\hyperlink{namespace_si_1_1_math_ad6bed0b3eff34cbbb2060a24851af32a}{pow}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_si_1_1_internal_1_1_generic_prefix}{Internal::GenericPrefix<PrefixRatio, Unit>}} \&base) \{}
+\DoxyCodeLine{50   \textcolor{keyword}{static\_assert}(}
+\DoxyCodeLine{51       Power::den == 1,}
+\DoxyCodeLine{52       \textcolor{stringliteral}{"{}std::ratio for power in case of unit with prefix has to be integer"{}});}
+\DoxyCodeLine{53   \textcolor{keywordflow}{return} \mbox{\hyperlink{class_si_1_1_internal_1_1_generic_prefix}{Internal::GenericPrefix}}<}
+\DoxyCodeLine{54       \textcolor{keyword}{typename} std::ratio<static\_cast<std::intmax\_t>(}
+\DoxyCodeLine{55                               std::pow(PrefixRatio::num, Power::num)),}
+\DoxyCodeLine{56                           \textcolor{keyword}{static\_cast<}std::intmax\_t\textcolor{keyword}{>}(}
+\DoxyCodeLine{57                               std::pow(PrefixRatio::den, Power::num))>::type,}
+\DoxyCodeLine{58       \textcolor{keyword}{decltype}(pow<Power>(std::declval<Unit>()))>(}
+\DoxyCodeLine{59       +\mbox{\hyperlink{namespace_si_1_1_math_ad6bed0b3eff34cbbb2060a24851af32a}{pow}}<Power, \textcolor{keyword}{decltype}(+std::declval<Unit>()), Function>(base.\mbox{\hyperlink{class_si_1_1_internal_1_1_generic_prefix_a41f02b893dd16dde058dcc749cb3058f}{raw}}()));}
+\DoxyCodeLine{60 \}}
+\DoxyCodeLine{61 \} \textcolor{comment}{// namespace Math}}
+\DoxyCodeLine{62 \} \textcolor{comment}{// namespace Si}}
+
+\end{DoxyCode}

@@ -1,0 +1,151 @@
+\hypertarget{si__prefix_8hpp_source}{}\doxysection{si\+\_\+prefix.\+hpp}
+\label{si__prefix_8hpp_source}\index{si\_prefix.hpp@{si\_prefix.hpp}}
+\mbox{\hyperlink{si__prefix_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{si__utilities_8hpp}{si\_utilities.hpp}}"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <ratio>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <utility>}}
+\DoxyCodeLine{7 \textcolor{keyword}{namespace }Si \{}
+\DoxyCodeLine{8 \textcolor{keyword}{namespace }Internal \{}
+\DoxyCodeLine{12 \textcolor{keyword}{template} <\textcolor{keyword}{typename} Ratio, \textcolor{keyword}{typename} Unit> \textcolor{keyword}{class }\mbox{\hyperlink{class_si_1_1_internal_1_1_generic_prefix}{GenericPrefix}} \{}
+\DoxyCodeLine{13   \textcolor{keyword}{using }T = \textcolor{keyword}{decltype}(+std::declval<Unit>());}
+\DoxyCodeLine{14   \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit}} \_unit;}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keyword}{public}:}
+\DoxyCodeLine{18   \textcolor{keyword}{const} \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit}} \&\mbox{\hyperlink{class_si_1_1_internal_1_1_generic_prefix_a41f02b893dd16dde058dcc749cb3058f}{raw}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \_unit; \}}
+\DoxyCodeLine{20   \textcolor{keyword}{explicit} \mbox{\hyperlink{class_si_1_1_internal_1_1_generic_prefix_adf272133b23a9b0b7c4f3be9a0ec86ae}{GenericPrefix}}(\textcolor{keyword}{const} T \&value) : \_unit(value) \{\}}
+\DoxyCodeLine{22   \textcolor{keyword}{template} <\textcolor{keyword}{typename} AnotherUnit,}
+\DoxyCodeLine{23             \textcolor{keyword}{typename} std::enable\_if<std::is\_same<Internal::Powers<AnotherUnit>,}
+\DoxyCodeLine{24                                                  \mbox{\hyperlink{namespace_si_1_1_internal_a6b5d5ace3ebb994e68b0305ca5ef9fd7}{Internal::Powers<Unit>}}>::value,}
+\DoxyCodeLine{25                                     \textcolor{keywordtype}{int}>::type = 0>}
+\DoxyCodeLine{26   \mbox{\hyperlink{class_si_1_1_internal_1_1_generic_prefix_a8729941c4e7b68262605a40d6e8fe29d}{GenericPrefix}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_si_1_1_internal_1_1_generic_prefix}{GenericPrefix<Ratio, AnotherUnit>}} \&unit)}
+\DoxyCodeLine{27       : \_unit(Internal::implicit\_cast<\mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit}}>(unit.\mbox{\hyperlink{class_si_1_1_internal_1_1_generic_prefix_a41f02b893dd16dde058dcc749cb3058f}{raw}}())) \{\}}
+\DoxyCodeLine{30   \textcolor{keyword}{template} <}
+\DoxyCodeLine{31       \textcolor{keyword}{typename} AnotherUnit,}
+\DoxyCodeLine{32       \textcolor{keyword}{typename} std::enable\_if<std::is\_same<T, Unit>::value ||}
+\DoxyCodeLine{33                                   std::is\_same<Internal::Powers<AnotherUnit>,}
+\DoxyCodeLine{34                                                \mbox{\hyperlink{namespace_si_1_1_internal_a6b5d5ace3ebb994e68b0305ca5ef9fd7}{Internal::Powers<Unit>}}>::value,}
+\DoxyCodeLine{35                               \textcolor{keywordtype}{int}>::type = 0>}
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#ifdef TYPE\_SI\_DISALLOW\_IMPLICIT\_PREFIX\_CONVERSIONS}}
+\DoxyCodeLine{37   \textcolor{keyword}{explicit}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{39       \mbox{\hyperlink{class_si_1_1_internal_1_1_generic_prefix_afa1ef233d3e0d6df5969915ecf11325d}{GenericPrefix}}(\textcolor{keyword}{const} AnotherUnit \&unit)}
+\DoxyCodeLine{40       : \_unit(Internal::implicit\_cast<\mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit}}>(unit) * static\_cast<T>(Ratio::den) /}
+\DoxyCodeLine{41               static\_cast<T>(Ratio::num)) \{}
+\DoxyCodeLine{42   \}}
+\DoxyCodeLine{46   \textcolor{keyword}{template} <\textcolor{keyword}{typename} AnotherRatio, \textcolor{keyword}{typename} AnotherUnit,}
+\DoxyCodeLine{47             \textcolor{keyword}{typename} std::enable\_if<std::is\_same<Internal::Powers<AnotherUnit>,}
+\DoxyCodeLine{48                                                  \mbox{\hyperlink{namespace_si_1_1_internal_a6b5d5ace3ebb994e68b0305ca5ef9fd7}{Internal::Powers<Unit>}}>::value,}
+\DoxyCodeLine{49                                     \textcolor{keywordtype}{int}>::type = 0>}
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#ifdef TYPE\_SI\_DISALLOW\_IMPLICIT\_PREFIX\_CONVERSIONS}}
+\DoxyCodeLine{51   \textcolor{keyword}{explicit}}
+\DoxyCodeLine{52 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{53       \mbox{\hyperlink{class_si_1_1_internal_1_1_generic_prefix_a31980fdbeab39e865ccbfbba052ab427}{GenericPrefix}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_si_1_1_internal_1_1_generic_prefix}{GenericPrefix<AnotherRatio, AnotherUnit>}} \&unit)}
+\DoxyCodeLine{54       : \_unit(Internal::implicit\_cast<AnotherUnit>(unit.\mbox{\hyperlink{class_si_1_1_internal_1_1_generic_prefix_a41f02b893dd16dde058dcc749cb3058f}{raw}}()) *}
+\DoxyCodeLine{55               static\_cast<T>(std::ratio\_divide<AnotherRatio, Ratio>::num) /}
+\DoxyCodeLine{56               static\_cast<T>(std::ratio\_divide<AnotherRatio, Ratio>::den)) \{}
+\DoxyCodeLine{57   \}}
+\DoxyCodeLine{59   T \mbox{\hyperlink{class_si_1_1_internal_1_1_generic_prefix_afacaa0e8b6c8810a220bfa6734a99585}{operator+}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} +\_unit; \}}
+\DoxyCodeLine{61   \textcolor{keyword}{template} <\textcolor{keyword}{typename} U>}
+\DoxyCodeLine{62   \textcolor{keyword}{decltype}(std::declval<Unit>() == std::declval<Unit>())}
+\DoxyCodeLine{63   \textcolor{keyword}{operator}==(\textcolor{keyword}{const} U \&unit) \textcolor{keyword}{const} \{}
+\DoxyCodeLine{64     \textcolor{keywordflow}{return} \_unit == Si::Internal::implicit\_cast<GenericPrefix>(unit).\_unit;}
+\DoxyCodeLine{65   \}}
+\DoxyCodeLine{67   \textcolor{keyword}{template} <\textcolor{keyword}{typename} U>}
+\DoxyCodeLine{68   \textcolor{keyword}{decltype}(std::declval<Unit>() != std::declval<Unit>())}
+\DoxyCodeLine{69   \textcolor{keyword}{operator}!=(\textcolor{keyword}{const} U \&unit) \textcolor{keyword}{const} \{}
+\DoxyCodeLine{70     \textcolor{keywordflow}{return} \_unit != Si::Internal::implicit\_cast<GenericPrefix>(unit).\_unit;}
+\DoxyCodeLine{71   \}}
+\DoxyCodeLine{73   \textcolor{keyword}{template} <\textcolor{keyword}{typename} U>}
+\DoxyCodeLine{74   \textcolor{keyword}{decltype}(std::declval<Unit>() < std::declval<Unit>())}
+\DoxyCodeLine{75   \textcolor{keyword}{operator}<(\textcolor{keyword}{const} U \&unit) \textcolor{keyword}{const} \{}
+\DoxyCodeLine{76     \textcolor{keywordflow}{return} \_unit < Si::Internal::implicit\_cast<GenericPrefix>(unit).\_unit;}
+\DoxyCodeLine{77   \}}
+\DoxyCodeLine{79   \textcolor{keyword}{template} <\textcolor{keyword}{typename} U>}
+\DoxyCodeLine{80   \textcolor{keyword}{decltype}(std::declval<Unit>() <= std::declval<Unit>())}
+\DoxyCodeLine{81   \textcolor{keyword}{operator}<=(\textcolor{keyword}{const} U \&unit) \textcolor{keyword}{const} \{}
+\DoxyCodeLine{82     \textcolor{keywordflow}{return} \_unit <= Si::Internal::implicit\_cast<GenericPrefix>(unit).\_unit;}
+\DoxyCodeLine{83   \}}
+\DoxyCodeLine{85   \textcolor{keyword}{template} <\textcolor{keyword}{typename} U>}
+\DoxyCodeLine{86   \textcolor{keyword}{decltype}(std::declval<Unit>() > std::declval<Unit>())}
+\DoxyCodeLine{87   \textcolor{keyword}{operator}>(\textcolor{keyword}{const} U \&unit) \textcolor{keyword}{const} \{}
+\DoxyCodeLine{88     \textcolor{keywordflow}{return} \_unit > Si::Internal::implicit\_cast<GenericPrefix>(unit).\_unit;}
+\DoxyCodeLine{89   \}}
+\DoxyCodeLine{91   \textcolor{keyword}{template} <\textcolor{keyword}{typename} U>}
+\DoxyCodeLine{92   \textcolor{keyword}{decltype}(std::declval<Unit>() >= std::declval<Unit>())}
+\DoxyCodeLine{93   \textcolor{keyword}{operator}>=(\textcolor{keyword}{const} U \&unit) \textcolor{keyword}{const} \{}
+\DoxyCodeLine{94     \textcolor{keywordflow}{return} \_unit >= Si::Internal::implicit\_cast<GenericPrefix>(unit).\_unit;}
+\DoxyCodeLine{95   \}}
+\DoxyCodeLine{97   \textcolor{keyword}{template} <\textcolor{keyword}{typename} U> \mbox{\hyperlink{class_si_1_1_internal_1_1_generic_prefix}{GenericPrefix}} \mbox{\hyperlink{class_si_1_1_internal_1_1_generic_prefix_a8bbefffa1fd3c0c0e0f9575c1f0d918f}{operator+}}(\textcolor{keyword}{const} U \&unit)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{98     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_si_1_1_internal_1_1_generic_prefix}{GenericPrefix<Ratio, Unit>}}(}
+\DoxyCodeLine{99         +(\_unit + Si::Internal::implicit\_cast<GenericPrefix>(unit).\_unit));}
+\DoxyCodeLine{100   \}}
+\DoxyCodeLine{102   \textcolor{keyword}{template} <\textcolor{keyword}{typename} U> \mbox{\hyperlink{class_si_1_1_internal_1_1_generic_prefix}{GenericPrefix}} \mbox{\hyperlink{class_si_1_1_internal_1_1_generic_prefix_a2f384a32db12cba0037240b6582d1b41}{operator+=}}(\textcolor{keyword}{const} U \&unit) \{}
+\DoxyCodeLine{103     \_unit += Si::Internal::implicit\_cast<GenericPrefix>(unit).\_unit;}
+\DoxyCodeLine{104     \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{105   \}}
+\DoxyCodeLine{107   \textcolor{keyword}{template} <\textcolor{keyword}{typename} U> \mbox{\hyperlink{class_si_1_1_internal_1_1_generic_prefix}{GenericPrefix}} \mbox{\hyperlink{class_si_1_1_internal_1_1_generic_prefix_a1a60ec7fdfc6ced96658c36fec4a5a5f}{operator-\/}}(\textcolor{keyword}{const} U \&unit)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{108     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_si_1_1_internal_1_1_generic_prefix}{GenericPrefix<Ratio, Unit>}}(}
+\DoxyCodeLine{109         +(\_unit -\/ Si::Internal::implicit\_cast<GenericPrefix>(unit).\_unit));}
+\DoxyCodeLine{110   \}}
+\DoxyCodeLine{112   \textcolor{keyword}{template} <\textcolor{keyword}{typename} U> \mbox{\hyperlink{class_si_1_1_internal_1_1_generic_prefix}{GenericPrefix}} \mbox{\hyperlink{class_si_1_1_internal_1_1_generic_prefix_aaa245bfde2fd088f451a956b6894398f}{operator-\/=}}(\textcolor{keyword}{const} U \&unit) \{}
+\DoxyCodeLine{113     \_unit -\/= Si::Internal::implicit\_cast<GenericPrefix>(unit).\_unit;}
+\DoxyCodeLine{114     \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{115   \}}
+\DoxyCodeLine{117   \textcolor{keyword}{template} <\textcolor{keyword}{typename} AnotherRatio, \textcolor{keyword}{typename} AnotherUnit>}
+\DoxyCodeLine{118   \mbox{\hyperlink{class_si_1_1_internal_1_1_generic_prefix}{GenericPrefix<std::ratio\_multiply<Ratio, AnotherRatio>}},}
+\DoxyCodeLine{119                 \textcolor{keyword}{decltype}(std::declval<Unit>() * std::declval<AnotherUnit>())>}
+\DoxyCodeLine{120   \textcolor{keyword}{operator}*(\textcolor{keyword}{const} \mbox{\hyperlink{class_si_1_1_internal_1_1_generic_prefix}{GenericPrefix<AnotherRatio, AnotherUnit>}} \&unit) \textcolor{keyword}{const} \{}
+\DoxyCodeLine{121     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_si_1_1_internal_1_1_generic_prefix}{GenericPrefix<std::ratio\_multiply<Ratio, AnotherRatio>}},}
+\DoxyCodeLine{122                          \textcolor{keyword}{decltype}(std::declval<Unit>() *}
+\DoxyCodeLine{123                                   std::declval<AnotherUnit>())>(}
+\DoxyCodeLine{124         +(\_unit * unit.\mbox{\hyperlink{class_si_1_1_internal_1_1_generic_prefix_a41f02b893dd16dde058dcc749cb3058f}{raw}}()));}
+\DoxyCodeLine{125   \}}
+\DoxyCodeLine{127   \textcolor{keyword}{template} <\textcolor{keyword}{typename} AnotherUnit>}
+\DoxyCodeLine{128   \mbox{\hyperlink{class_si_1_1_internal_1_1_generic_prefix}{GenericPrefix}}<Ratio,}
+\DoxyCodeLine{129                 \textcolor{keyword}{decltype}(std::declval<Unit>() * std::declval<AnotherUnit>())>}
+\DoxyCodeLine{130   \textcolor{keyword}{operator}*(\textcolor{keyword}{const} AnotherUnit \&unit) \textcolor{keyword}{const} \{}
+\DoxyCodeLine{131     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_si_1_1_internal_1_1_generic_prefix}{GenericPrefix<Ratio, decltype(std::declval<Unit>}}() *}
+\DoxyCodeLine{132                                          std::declval<AnotherUnit>())>(}
+\DoxyCodeLine{133         +(\_unit * unit));}
+\DoxyCodeLine{134   \}}
+\DoxyCodeLine{136   \mbox{\hyperlink{class_si_1_1_internal_1_1_generic_prefix}{GenericPrefix}} \mbox{\hyperlink{class_si_1_1_internal_1_1_generic_prefix_a3813f8b28691eed8af77d0b18811d078}{operator*=}}(\textcolor{keyword}{const} T \&value) \{}
+\DoxyCodeLine{137     \_unit *= value;}
+\DoxyCodeLine{138     \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{139   \}}
+\DoxyCodeLine{141   \textcolor{keyword}{template} <\textcolor{keyword}{typename} AnotherRatio, \textcolor{keyword}{typename} AnotherUnit>}
+\DoxyCodeLine{142   \mbox{\hyperlink{class_si_1_1_internal_1_1_generic_prefix}{GenericPrefix<std::ratio\_divide<Ratio, AnotherRatio>}},}
+\DoxyCodeLine{143                 \textcolor{keyword}{decltype}(std::declval<Unit>() / std::declval<AnotherUnit>())>}
+\DoxyCodeLine{144   \textcolor{keyword}{operator}/(\textcolor{keyword}{const} \mbox{\hyperlink{class_si_1_1_internal_1_1_generic_prefix}{GenericPrefix<AnotherRatio, AnotherUnit>}} \&unit) \textcolor{keyword}{const} \{}
+\DoxyCodeLine{145     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_si_1_1_internal_1_1_generic_prefix}{GenericPrefix<std::ratio\_divide<Ratio, AnotherRatio>}},}
+\DoxyCodeLine{146                          \textcolor{keyword}{decltype}(std::declval<Unit>() /}
+\DoxyCodeLine{147                                   std::declval<AnotherUnit>())>(}
+\DoxyCodeLine{148         +(\_unit / unit.\mbox{\hyperlink{class_si_1_1_internal_1_1_generic_prefix_a41f02b893dd16dde058dcc749cb3058f}{raw}}()));}
+\DoxyCodeLine{149   \}}
+\DoxyCodeLine{151   \textcolor{keyword}{template} <\textcolor{keyword}{typename} AnotherUnit>}
+\DoxyCodeLine{152   \mbox{\hyperlink{class_si_1_1_internal_1_1_generic_prefix}{GenericPrefix}}<Ratio,}
+\DoxyCodeLine{153                 \textcolor{keyword}{decltype}(std::declval<Unit>() * std::declval<AnotherUnit>())>}
+\DoxyCodeLine{154   \textcolor{keyword}{operator}/(\textcolor{keyword}{const} AnotherUnit \&unit) \textcolor{keyword}{const} \{}
+\DoxyCodeLine{155     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_si_1_1_internal_1_1_generic_prefix}{GenericPrefix<Ratio, decltype(std::declval<Unit>}}() *}
+\DoxyCodeLine{156                                          std::declval<AnotherUnit>())>(}
+\DoxyCodeLine{157         +(\_unit / unit));}
+\DoxyCodeLine{158   \}}
+\DoxyCodeLine{160   \mbox{\hyperlink{class_si_1_1_internal_1_1_generic_prefix}{GenericPrefix}} \mbox{\hyperlink{class_si_1_1_internal_1_1_generic_prefix_aba01049eeba0e745db5ecdd9db120164}{operator/=}}(\textcolor{keyword}{const} T \&value) \{}
+\DoxyCodeLine{161     \_unit /= value;}
+\DoxyCodeLine{162     \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{163   \}}
+\DoxyCodeLine{164 \};}
+\DoxyCodeLine{165 \textcolor{keyword}{template} <\textcolor{keyword}{typename} Ratio, \textcolor{keyword}{typename} Unit,}
+\DoxyCodeLine{166           \textcolor{keyword}{typename} T = \textcolor{keyword}{decltype}(+std::declval<Unit>())>}
+\DoxyCodeLine{167 GenericPrefix<Ratio, Unit> applyPrefix();}
+\DoxyCodeLine{168 \textcolor{keyword}{template} <}
+\DoxyCodeLine{169     \textcolor{keyword}{typename} Ratio, \textcolor{keyword}{typename} Unit,}
+\DoxyCodeLine{170     \textcolor{keyword}{typename} T = \textcolor{keyword}{decltype}(+std::declval<typename Unit::template type<Ratio>>())>}
+\DoxyCodeLine{171 \textcolor{keyword}{typename} Unit::template type<Ratio> applyPrefix();}
+\DoxyCodeLine{172 \} \textcolor{comment}{// namespace Internal}}
+\DoxyCodeLine{176 \textcolor{comment}{}\textcolor{keyword}{template} <\textcolor{keyword}{typename} Ratio, \textcolor{keyword}{typename} Unit>}
+\DoxyCodeLine{177 \textcolor{keyword}{using }\mbox{\hyperlink{si__prefix_8hpp_a9e71b2f778141723b6f871f7ec435288}{Prefix}} = \textcolor{keyword}{decltype}(Internal::applyPrefix<Ratio, Unit>());}
+\DoxyCodeLine{178 \} \textcolor{comment}{// namespace Si}}
+
+\end{DoxyCode}

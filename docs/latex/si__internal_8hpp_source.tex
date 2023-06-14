@@ -1,0 +1,134 @@
+\hypertarget{si__internal_8hpp_source}{}\doxysection{si\+\_\+internal.\+hpp}
+\label{si__internal_8hpp_source}\index{si\_internal.hpp@{si\_internal.hpp}}
+\mbox{\hyperlink{si__internal_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <ratio>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <utility>}}
+\DoxyCodeLine{6 \textcolor{keyword}{namespace }Si \{}
+\DoxyCodeLine{8 \textcolor{keyword}{namespace }Internal \{}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#ifdef TYPE\_SI\_DISABLE\_CHECKS}}
+\DoxyCodeLine{15 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T, \textcolor{keyword}{typename}... \mbox{\hyperlink{namespace_si_1_1_internal_a6b5d5ace3ebb994e68b0305ca5ef9fd7}{Powers}}> \textcolor{keyword}{using }\mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit}} = T;}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{22 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T, \textcolor{keyword}{typename}... \mbox{\hyperlink{namespace_si_1_1_internal_a6b5d5ace3ebb994e68b0305ca5ef9fd7}{Powers}}> \textcolor{keyword}{class }\mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit}} \{}
+\DoxyCodeLine{23   T \_value;}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{keyword}{public}:}
+\DoxyCodeLine{27   \textcolor{keyword}{explicit} \mbox{\hyperlink{class_si_1_1_internal_1_1_unit_aa29da30b231bed9234a8838e3341f9fd}{Unit}}(\textcolor{keyword}{const} T \&value = T()) : \_value(value) \{\}}
+\DoxyCodeLine{30   \textcolor{keyword}{template} <\textcolor{keyword}{typename} AnotherT>}
+\DoxyCodeLine{31   \mbox{\hyperlink{class_si_1_1_internal_1_1_unit_a8687b1cece24f932355b43758086c15f}{Unit}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit<AnotherT, Powers...>}} \&unit)}
+\DoxyCodeLine{32       : \_value(static\_cast<AnotherT>(unit)) \{\}}
+\DoxyCodeLine{35   \textcolor{keyword}{template} <\textcolor{keyword}{typename} AnotherT> \textcolor{keyword}{explicit} \textcolor{keyword}{operator} AnotherT()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{36     \textcolor{keywordflow}{return} \textcolor{keyword}{static\_cast<}AnotherT\textcolor{keyword}{>}(\_value);}
+\DoxyCodeLine{37   \}}
+\DoxyCodeLine{39   T \mbox{\hyperlink{class_si_1_1_internal_1_1_unit_a495d951eb7dc1abf235d5f462b3f9060}{operator+}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \_value; \}}
+\DoxyCodeLine{41   \textcolor{keyword}{template} <\textcolor{keyword}{typename} AnotherT>}
+\DoxyCodeLine{42   \textcolor{keyword}{decltype}(std::declval<T>() == std::declval<AnotherT>())}
+\DoxyCodeLine{43   \textcolor{keyword}{operator}==(\textcolor{keyword}{const} \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit<AnotherT, Powers...>}} \&unit) \textcolor{keyword}{const} \{}
+\DoxyCodeLine{44     \textcolor{keywordflow}{return} \_value == \textcolor{keyword}{static\_cast<}AnotherT\textcolor{keyword}{>}(unit);}
+\DoxyCodeLine{45   \}}
+\DoxyCodeLine{47   \textcolor{keyword}{template} <\textcolor{keyword}{typename} AnotherT>}
+\DoxyCodeLine{48   \textcolor{keyword}{decltype}(std::declval<T>() != std::declval<AnotherT>())}
+\DoxyCodeLine{49   \textcolor{keyword}{operator}!=(\textcolor{keyword}{const} \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit<AnotherT, Powers...>}} \&unit) \textcolor{keyword}{const} \{}
+\DoxyCodeLine{50     \textcolor{keywordflow}{return} \_value != \textcolor{keyword}{static\_cast<}AnotherT\textcolor{keyword}{>}(unit);}
+\DoxyCodeLine{51   \}}
+\DoxyCodeLine{53   \textcolor{keyword}{template} <\textcolor{keyword}{typename} AnotherT>}
+\DoxyCodeLine{54   \textcolor{keyword}{decltype}(std::declval<T>() < std::declval<AnotherT>())}
+\DoxyCodeLine{55   \textcolor{keyword}{operator}<(\textcolor{keyword}{const} \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit<AnotherT, Powers...>}} \&unit) \textcolor{keyword}{const} \{}
+\DoxyCodeLine{56     \textcolor{keywordflow}{return} \_value < static\_cast<AnotherT>(unit);}
+\DoxyCodeLine{57   \}}
+\DoxyCodeLine{59   \textcolor{keyword}{template} <\textcolor{keyword}{typename} AnotherT>}
+\DoxyCodeLine{60   \textcolor{keyword}{decltype}(std::declval<T>() <= std::declval<AnotherT>())}
+\DoxyCodeLine{61   \textcolor{keyword}{operator}<=(\textcolor{keyword}{const} \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit<AnotherT, Powers...>}} \&unit) \textcolor{keyword}{const} \{}
+\DoxyCodeLine{62     \textcolor{keywordflow}{return} \_value <= static\_cast<AnotherT>(unit);}
+\DoxyCodeLine{63   \}}
+\DoxyCodeLine{65   \textcolor{keyword}{template} <\textcolor{keyword}{typename} AnotherT>}
+\DoxyCodeLine{66   \textcolor{keyword}{decltype}(std::declval<T>() > std::declval<AnotherT>())}
+\DoxyCodeLine{67   \textcolor{keyword}{operator}>(\textcolor{keyword}{const} \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit<AnotherT, Powers...>}} \&unit) \textcolor{keyword}{const} \{}
+\DoxyCodeLine{68     \textcolor{keywordflow}{return} \_value > \textcolor{keyword}{static\_cast<}AnotherT\textcolor{keyword}{>}(unit);}
+\DoxyCodeLine{69   \}}
+\DoxyCodeLine{71   \textcolor{keyword}{template} <\textcolor{keyword}{typename} AnotherT>}
+\DoxyCodeLine{72   \textcolor{keyword}{decltype}(std::declval<T>() >= std::declval<AnotherT>())}
+\DoxyCodeLine{73   \textcolor{keyword}{operator}>=(\textcolor{keyword}{const} \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit<AnotherT, Powers...>}} \&unit) \textcolor{keyword}{const} \{}
+\DoxyCodeLine{74     \textcolor{keywordflow}{return} \_value >= \textcolor{keyword}{static\_cast<}AnotherT\textcolor{keyword}{>}(unit);}
+\DoxyCodeLine{75   \}}
+\DoxyCodeLine{77   \textcolor{keyword}{template} <\textcolor{keyword}{typename} AnotherT>}
+\DoxyCodeLine{78   \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit<decltype(std::declval<T>}}() + std::declval<AnotherT>()), \mbox{\hyperlink{namespace_si_1_1_internal_a6b5d5ace3ebb994e68b0305ca5ef9fd7}{Powers}}...>}
+\DoxyCodeLine{79   \textcolor{keyword}{operator}+(\textcolor{keyword}{const} \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit<AnotherT, Powers...>}} \&unit) \textcolor{keyword}{const} \{}
+\DoxyCodeLine{80     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit<decltype(std::declval<T>}}() + std::declval<AnotherT>()),}
+\DoxyCodeLine{81                 \mbox{\hyperlink{namespace_si_1_1_internal_a6b5d5ace3ebb994e68b0305ca5ef9fd7}{Powers}}...>(\_value + \textcolor{keyword}{static\_cast<}AnotherT\textcolor{keyword}{>}(unit));}
+\DoxyCodeLine{82   \}}
+\DoxyCodeLine{84   \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit}} \&\mbox{\hyperlink{class_si_1_1_internal_1_1_unit_aca12f23ca66affa0b3727ded15382c99}{operator++}}() \{}
+\DoxyCodeLine{85     ++\_value;}
+\DoxyCodeLine{86     \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{87   \}}
+\DoxyCodeLine{89   \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit}} \mbox{\hyperlink{class_si_1_1_internal_1_1_unit_a8ba5b221965854be432c1eb00fd05c0d}{operator++}}(\textcolor{keywordtype}{int}) \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit}}(\_value++); \}}
+\DoxyCodeLine{91   \textcolor{keyword}{template} <\textcolor{keyword}{typename} AnotherT>}
+\DoxyCodeLine{92   \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit}} \&\mbox{\hyperlink{class_si_1_1_internal_1_1_unit_adcd23f8f0c436fa04d217d532910bef8}{operator+=}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit<AnotherT, Powers...>}} \&unit) \{}
+\DoxyCodeLine{93     \_value += \textcolor{keyword}{static\_cast<}AnotherT\textcolor{keyword}{>}(unit);}
+\DoxyCodeLine{94     \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{95   \}}
+\DoxyCodeLine{97   \textcolor{keyword}{template} <\textcolor{keyword}{typename} AnotherT>}
+\DoxyCodeLine{98   \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit<decltype(std::declval<T>}}() -\/ std::declval<AnotherT>()), \mbox{\hyperlink{namespace_si_1_1_internal_a6b5d5ace3ebb994e68b0305ca5ef9fd7}{Powers}}...>}
+\DoxyCodeLine{99   \textcolor{keyword}{operator}-\/(\textcolor{keyword}{const} \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit<AnotherT, Powers...>}} \&unit) \textcolor{keyword}{const} \{}
+\DoxyCodeLine{100     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit<decltype(std::declval<T>}}() -\/ std::declval<AnotherT>()),}
+\DoxyCodeLine{101                 \mbox{\hyperlink{namespace_si_1_1_internal_a6b5d5ace3ebb994e68b0305ca5ef9fd7}{Powers}}...>(\_value -\/ \textcolor{keyword}{static\_cast<}AnotherT\textcolor{keyword}{>}(unit));}
+\DoxyCodeLine{102   \}}
+\DoxyCodeLine{104   \textcolor{keyword}{template} <\textcolor{keyword}{typename} AnotherT>}
+\DoxyCodeLine{105   \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit}} \&\mbox{\hyperlink{class_si_1_1_internal_1_1_unit_a451ec6ac620d33c7718f9414a1ab301b}{operator-\/=}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit<AnotherT, Powers...>}} \&unit) \{}
+\DoxyCodeLine{106     \_value -\/= \textcolor{keyword}{static\_cast<}AnotherT\textcolor{keyword}{>}(unit);}
+\DoxyCodeLine{107     \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{108   \}}
+\DoxyCodeLine{110   \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit}} \&\mbox{\hyperlink{class_si_1_1_internal_1_1_unit_aae3b1bb1adaa388f87d50db91a805b28}{operator-\/-\/}}() \{}
+\DoxyCodeLine{111     -\/-\/\_value;}
+\DoxyCodeLine{112     \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{113   \}}
+\DoxyCodeLine{115   \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit}} \mbox{\hyperlink{class_si_1_1_internal_1_1_unit_a2cee3a00b1cada515659873616431af4}{operator-\/-\/}}(\textcolor{keywordtype}{int}) \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit}}(\_value-\/-\/); \}}
+\DoxyCodeLine{117   \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit<decltype(std::declval<T>}}() * std::declval<T>()), \mbox{\hyperlink{namespace_si_1_1_internal_a6b5d5ace3ebb994e68b0305ca5ef9fd7}{Powers}}...>}
+\DoxyCodeLine{118   \textcolor{keyword}{operator}*(\textcolor{keyword}{const} T \&value) \textcolor{keyword}{const} \{}
+\DoxyCodeLine{119     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit<decltype(std::declval<T>}}() * std::declval<T>()), \mbox{\hyperlink{namespace_si_1_1_internal_a6b5d5ace3ebb994e68b0305ca5ef9fd7}{Powers}}...>(}
+\DoxyCodeLine{120         \_value * value);}
+\DoxyCodeLine{121   \}}
+\DoxyCodeLine{123   \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit<decltype(std::declval<T>}}() / std::declval<T>()), \mbox{\hyperlink{namespace_si_1_1_internal_a6b5d5ace3ebb994e68b0305ca5ef9fd7}{Powers}}...>}
+\DoxyCodeLine{124   \textcolor{keyword}{operator}/(\textcolor{keyword}{const} T \&value) \textcolor{keyword}{const} \{}
+\DoxyCodeLine{125     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit<decltype(std::declval<T>}}() / std::declval<T>()), \mbox{\hyperlink{namespace_si_1_1_internal_a6b5d5ace3ebb994e68b0305ca5ef9fd7}{Powers}}...>(}
+\DoxyCodeLine{126         \_value / value);}
+\DoxyCodeLine{127   \}}
+\DoxyCodeLine{129   \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit}} \&\mbox{\hyperlink{class_si_1_1_internal_1_1_unit_a980a76dda5f81b475a09fa413aabc5e7}{operator*=}}(\textcolor{keyword}{const} T \&value) \{}
+\DoxyCodeLine{130     \_value *= value;}
+\DoxyCodeLine{131     \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{132   \}}
+\DoxyCodeLine{134   \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit}} \&\mbox{\hyperlink{class_si_1_1_internal_1_1_unit_a14a6d3a7560270a78a2877a341393d19}{operator/=}}(\textcolor{keyword}{const} T \&value) \{}
+\DoxyCodeLine{135     \_value /= value;}
+\DoxyCodeLine{136     \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{137   \}}
+\DoxyCodeLine{139   \textcolor{keyword}{template} <\textcolor{keyword}{typename} AnotherT, \textcolor{keyword}{typename}... OtherPowers>}
+\DoxyCodeLine{140   \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit<decltype(std::declval<T>}}() * std::declval<AnotherT>()),}
+\DoxyCodeLine{141        std::ratio\_add<Powers, OtherPowers>...>}
+\DoxyCodeLine{142   \textcolor{keyword}{operator}*(\textcolor{keyword}{const} \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit<AnotherT, OtherPowers...>}} \&unit) \textcolor{keyword}{const} \{}
+\DoxyCodeLine{143     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit<decltype(std::declval<T>}}() * std::declval<AnotherT>()),}
+\DoxyCodeLine{144                 std::ratio\_add<Powers, OtherPowers>...>(}
+\DoxyCodeLine{145         \_value * \textcolor{keyword}{static\_cast<}AnotherT\textcolor{keyword}{>}(unit));}
+\DoxyCodeLine{146   \}}
+\DoxyCodeLine{148   \textcolor{keyword}{template} <\textcolor{keyword}{typename} AnotherT, \textcolor{keyword}{typename}... OtherPowers>}
+\DoxyCodeLine{149   \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit<decltype(std::declval<T>}}() / std::declval<AnotherT>()),}
+\DoxyCodeLine{150        std::ratio\_subtract<Powers, OtherPowers>...>}
+\DoxyCodeLine{151   \textcolor{keyword}{operator}/(\textcolor{keyword}{const} \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit<AnotherT, OtherPowers...>}} \&unit) \textcolor{keyword}{const} \{}
+\DoxyCodeLine{152     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit<decltype(std::declval<T>}}() / std::declval<AnotherT>()),}
+\DoxyCodeLine{153                 std::ratio\_subtract<Powers, OtherPowers>...>(}
+\DoxyCodeLine{154         \_value / \textcolor{keyword}{static\_cast<}AnotherT\textcolor{keyword}{>}(unit));}
+\DoxyCodeLine{155   \}}
+\DoxyCodeLine{156 \};}
+\DoxyCodeLine{157 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{159 \textcolor{keyword}{template} <\textcolor{keyword}{typename}... Elements> \textcolor{keyword}{struct }\mbox{\hyperlink{struct_si_1_1_internal_1_1_tuple}{Tuple}} \{\};}
+\DoxyCodeLine{161 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T, \textcolor{keyword}{typename}... \mbox{\hyperlink{namespace_si_1_1_internal_a6b5d5ace3ebb994e68b0305ca5ef9fd7}{Powers}}>}
+\DoxyCodeLine{162 \mbox{\hyperlink{struct_si_1_1_internal_1_1_tuple}{Tuple}}<\mbox{\hyperlink{namespace_si_1_1_internal_a6b5d5ace3ebb994e68b0305ca5ef9fd7}{Powers}}...> \mbox{\hyperlink{namespace_si_1_1_internal_a9b9c6bbc16472a172bdcc44b82266d41}{getPowers}}(\mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit<T, Powers...>}}) \{\}}
+\DoxyCodeLine{165 \textcolor{keyword}{template} <\textcolor{keyword}{typename} U> \textcolor{keyword}{using }\mbox{\hyperlink{namespace_si_1_1_internal_a6b5d5ace3ebb994e68b0305ca5ef9fd7}{Powers}} = \textcolor{keyword}{decltype}(\mbox{\hyperlink{namespace_si_1_1_internal_a9b9c6bbc16472a172bdcc44b82266d41}{getPowers}}(std::declval<U>()));}
+\DoxyCodeLine{170 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{171 \textcolor{keyword}{using }\mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Dimensionless}} =}
+\DoxyCodeLine{172     \mbox{\hyperlink{class_si_1_1_internal_1_1_unit}{Unit<T, std::ratio<0>}}, std::ratio<0>, std::ratio<0>, std::ratio<0>,}
+\DoxyCodeLine{173          std::ratio<0>, std::ratio<0>, std::ratio<0>>;}
+\DoxyCodeLine{174 \} \textcolor{comment}{// namespace Internal}}
+\DoxyCodeLine{175 \} \textcolor{comment}{// namespace Si}}
+
+\end{DoxyCode}
